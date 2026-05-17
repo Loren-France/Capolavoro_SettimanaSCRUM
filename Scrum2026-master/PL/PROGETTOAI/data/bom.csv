@@ -1,0 +1,471 @@
+nome_pane,ingrediente,quantita_kg_per_100kg_prodotto,costo_kg
+Pane casereccio,Farina,70,0.40
+Pane casereccio,Acqua,25,0.00
+Pane casereccio,Lievito,3,1.50
+Pane casereccio,Sale,2,0.20
+Pane di Altamura,Farina,68,0.40
+Pane di Altamura,Acqua,26,0.00
+Pane di Altamura,Lievito,3,1.50
+Pane di Altamura,Sale,2,0.20
+Pane di Altamura,Olio,1,2.00
+Pane toscano sciapo,Farina,65,0.40
+Pane toscano sciapo,Acqua,28,0.00
+Pane toscano sciapo,Lievito,3,1.50
+Pane toscano sciapo,Sale,2,0.20
+Pane toscano sciapo,Olio,2,2.00
+Pagnotta rustica,Farina,60,0.40
+Pagnotta rustica,Acqua,30,0.00
+Pagnotta rustica,Lievito,4,1.50
+Pagnotta rustica,Sale,2,0.20
+Pagnotta rustica,Olio,4,2.00
+Filone bianco,Farina,72,0.38
+Filone bianco,Acqua,23,0.00
+Filone bianco,Lievito,3,1.50
+Filone bianco,Sale,2,0.20
+Filone integrale,Farina,69,0.38
+Filone integrale,Acqua,25,0.00
+Filone integrale,Lievito,3,1.50
+Filone integrale,Sale,2,0.20
+Filone integrale,Olio,1,2.00
+Ciabatta classica,Farina,66,0.38
+Ciabatta classica,Acqua,27,0.00
+Ciabatta classica,Lievito,3,1.50
+Ciabatta classica,Sale,2,0.20
+Ciabatta classica,Olio,2,2.00
+Ciabatta ai cereali,Farina,62,0.38
+Ciabatta ai cereali,Acqua,29,0.00
+Ciabatta ai cereali,Lievito,4,1.50
+Ciabatta ai cereali,Sale,2,0.20
+Ciabatta ai cereali,Olio,3,2.00
+Pane pugliese,Farina,70,0.42
+Pane pugliese,Acqua,24,0.00
+Pane pugliese,Lievito,3,1.50
+Pane pugliese,Sale,3,0.20
+Pane cafone napoletano,Farina,67,0.42
+Pane cafone napoletano,Acqua,26,0.00
+Pane cafone napoletano,Lievito,3,1.50
+Pane cafone napoletano,Sale,2,0.20
+Pane cafone napoletano,Olio,2,2.00
+Pane di segale,Farina,70,0.40
+Pane di segale,Acqua,25,0.00
+Pane di segale,Lievito,3,1.50
+Pane di segale,Sale,2,0.20
+Pane ai 5 cereali,Farina,68,0.40
+Pane ai 5 cereali,Acqua,26,0.00
+Pane ai 5 cereali,Lievito,3,1.50
+Pane ai 5 cereali,Sale,2,0.20
+Pane ai 5 cereali,Olio,1,2.00
+Pane al mais,Farina,65,0.40
+Pane al mais,Acqua,28,0.00
+Pane al mais,Lievito,3,1.50
+Pane al mais,Sale,2,0.20
+Pane al mais,Olio,2,2.00
+Pane al farro,Farina,60,0.40
+Pane al farro,Acqua,30,0.00
+Pane al farro,Lievito,4,1.50
+Pane al farro,Sale,2,0.20
+Pane al farro,Olio,4,2.00
+Pane al kamut,Farina,72,0.38
+Pane al kamut,Acqua,23,0.00
+Pane al kamut,Lievito,3,1.50
+Pane al kamut,Sale,2,0.20
+Rosetta soffice,Farina,69,0.38
+Rosetta soffice,Acqua,25,0.00
+Rosetta soffice,Lievito,3,1.50
+Rosetta soffice,Sale,2,0.20
+Rosetta soffice,Olio,1,2.00
+Micchetta milanese,Farina,66,0.38
+Micchetta milanese,Acqua,27,0.00
+Micchetta milanese,Lievito,3,1.50
+Micchetta milanese,Sale,2,0.20
+Micchetta milanese,Olio,2,2.00
+Baguette italiana,Farina,62,0.38
+Baguette italiana,Acqua,29,0.00
+Baguette italiana,Lievito,4,1.50
+Baguette italiana,Sale,2,0.20
+Baguette italiana,Olio,3,2.00
+Pane tipo ciabattina,Farina,70,0.42
+Pane tipo ciabattina,Acqua,24,0.00
+Pane tipo ciabattina,Lievito,3,1.50
+Pane tipo ciabattina,Sale,3,0.20
+Pane al latte,Farina,67,0.42
+Pane al latte,Acqua,26,0.00
+Pane al latte,Lievito,3,1.50
+Pane al latte,Sale,2,0.20
+Pane al latte,Olio,2,2.00
+Focaccia genovese,Farina,70,0.40
+Focaccia genovese,Acqua,25,0.00
+Focaccia genovese,Lievito,3,1.50
+Focaccia genovese,Sale,2,0.20
+Focaccia al rosmarino,Farina,68,0.40
+Focaccia al rosmarino,Acqua,26,0.00
+Focaccia al rosmarino,Lievito,3,1.50
+Focaccia al rosmarino,Sale,2,0.20
+Focaccia al rosmarino,Olio,1,2.00
+Focaccia farcita,Farina,65,0.40
+Focaccia farcita,Acqua,28,0.00
+Focaccia farcita,Lievito,3,1.50
+Focaccia farcita,Sale,2,0.20
+Focaccia farcita,Olio,2,2.00
+Schiacciata toscana,Farina,60,0.40
+Schiacciata toscana,Acqua,30,0.00
+Schiacciata toscana,Lievito,4,1.50
+Schiacciata toscana,Sale,2,0.20
+Schiacciata toscana,Olio,4,2.00
+Pane carasau,Farina,72,0.38
+Pane carasau,Acqua,23,0.00
+Pane carasau,Lievito,3,1.50
+Pane carasau,Sale,2,0.20
+Pane guttiau,Farina,69,0.38
+Pane guttiau,Acqua,25,0.00
+Pane guttiau,Lievito,3,1.50
+Pane guttiau,Sale,2,0.20
+Pane guttiau,Olio,1,2.00
+Coppia ferrarese,Farina,66,0.38
+Coppia ferrarese,Acqua,27,0.00
+Coppia ferrarese,Lievito,3,1.50
+Coppia ferrarese,Sale,2,0.20
+Coppia ferrarese,Olio,2,2.00
+Pane mantovano,Farina,62,0.38
+Pane mantovano,Acqua,29,0.00
+Pane mantovano,Lievito,4,1.50
+Pane mantovano,Sale,2,0.20
+Pane mantovano,Olio,3,2.00
+Pane alla biga,Farina,70,0.42
+Pane alla biga,Acqua,24,0.00
+Pane alla biga,Lievito,3,1.50
+Pane alla biga,Sale,3,0.20
+Pane tipo ciabatta rustica,Farina,67,0.42
+Pane tipo ciabatta rustica,Acqua,26,0.00
+Pane tipo ciabatta rustica,Lievito,3,1.50
+Pane tipo ciabatta rustica,Sale,2,0.20
+Pane tipo ciabatta rustica,Olio,2,2.00
+Pane per tramezzini classico,Farina,70,0.40
+Pane per tramezzini classico,Acqua,25,0.00
+Pane per tramezzini classico,Lievito,3,1.50
+Pane per tramezzini classico,Sale,2,0.20
+Pane per tramezzini integrale,Farina,68,0.40
+Pane per tramezzini integrale,Acqua,26,0.00
+Pane per tramezzini integrale,Lievito,3,1.50
+Pane per tramezzini integrale,Sale,2,0.20
+Pane per tramezzini integrale,Olio,1,2.00
+Pane per tramezzini ai cereali,Farina,65,0.40
+Pane per tramezzini ai cereali,Acqua,28,0.00
+Pane per tramezzini ai cereali,Lievito,3,1.50
+Pane per tramezzini ai cereali,Sale,2,0.20
+Pane per tramezzini ai cereali,Olio,2,2.00
+Pane in cassetta bianco,Farina,60,0.40
+Pane in cassetta bianco,Acqua,30,0.00
+Pane in cassetta bianco,Lievito,4,1.50
+Pane in cassetta bianco,Sale,2,0.20
+Pane in cassetta bianco,Olio,4,2.00
+Pane in cassetta integrale,Farina,72,0.38
+Pane in cassetta integrale,Acqua,23,0.00
+Pane in cassetta integrale,Lievito,3,1.50
+Pane in cassetta integrale,Sale,2,0.20
+Pane in cassetta ai semi,Farina,69,0.38
+Pane in cassetta ai semi,Acqua,25,0.00
+Pane in cassetta ai semi,Lievito,3,1.50
+Pane in cassetta ai semi,Sale,2,0.20
+Pane in cassetta ai semi,Olio,1,2.00
+Pane morbido per toast,Farina,66,0.38
+Pane morbido per toast,Acqua,27,0.00
+Pane morbido per toast,Lievito,3,1.50
+Pane morbido per toast,Sale,2,0.20
+Pane morbido per toast,Olio,2,2.00
+Pane americano a fette,Farina,62,0.38
+Pane americano a fette,Acqua,29,0.00
+Pane americano a fette,Lievito,4,1.50
+Pane americano a fette,Sale,2,0.20
+Pane americano a fette,Olio,3,2.00
+Pane sandwich al latte,Farina,70,0.42
+Pane sandwich al latte,Acqua,24,0.00
+Pane sandwich al latte,Lievito,3,1.50
+Pane sandwich al latte,Sale,3,0.20
+Pane sandwich maxi fette,Farina,67,0.42
+Pane sandwich maxi fette,Acqua,26,0.00
+Pane sandwich maxi fette,Lievito,3,1.50
+Pane sandwich maxi fette,Sale,2,0.20
+Pane sandwich maxi fette,Olio,2,2.00
+Pan brioche salato,Farina,70,0.40
+Pan brioche salato,Acqua,25,0.00
+Pan brioche salato,Lievito,3,1.50
+Pan brioche salato,Sale,2,0.20
+Pan bauletto classico,Farina,68,0.40
+Pan bauletto classico,Acqua,26,0.00
+Pan bauletto classico,Lievito,3,1.50
+Pan bauletto classico,Sale,2,0.20
+Pan bauletto classico,Olio,1,2.00
+Pan bauletto integrale,Farina,65,0.40
+Pan bauletto integrale,Acqua,28,0.00
+Pan bauletto integrale,Lievito,3,1.50
+Pan bauletto integrale,Sale,2,0.20
+Pan bauletto integrale,Olio,2,2.00
+Pan bauletto ai cereali,Farina,60,0.40
+Pan bauletto ai cereali,Acqua,30,0.00
+Pan bauletto ai cereali,Lievito,4,1.50
+Pan bauletto ai cereali,Sale,2,0.20
+Pan bauletto ai cereali,Olio,4,2.00
+Pane per club sandwich,Farina,72,0.38
+Pane per club sandwich,Acqua,23,0.00
+Pane per club sandwich,Lievito,3,1.50
+Pane per club sandwich,Sale,2,0.20
+Pane per toast spessore sottile,Farina,69,0.38
+Pane per toast spessore sottile,Acqua,25,0.00
+Pane per toast spessore sottile,Lievito,3,1.50
+Pane per toast spessore sottile,Sale,2,0.20
+Pane per toast spessore sottile,Olio,1,2.00
+Pane per toast spessore alto,Farina,66,0.38
+Pane per toast spessore alto,Acqua,27,0.00
+Pane per toast spessore alto,Lievito,3,1.50
+Pane per toast spessore alto,Sale,2,0.20
+Pane per toast spessore alto,Olio,2,2.00
+Pane morbido senza crosta,Farina,62,0.38
+Pane morbido senza crosta,Acqua,29,0.00
+Pane morbido senza crosta,Lievito,4,1.50
+Pane morbido senza crosta,Sale,2,0.20
+Pane morbido senza crosta,Olio,3,2.00
+Pane sandwich proteico,Farina,70,0.42
+Pane sandwich proteico,Acqua,24,0.00
+Pane sandwich proteico,Lievito,3,1.50
+Pane sandwich proteico,Sale,3,0.20
+Pane sandwich a lievito madre,Farina,67,0.42
+Pane sandwich a lievito madre,Acqua,26,0.00
+Pane sandwich a lievito madre,Lievito,3,1.50
+Pane sandwich a lievito madre,Sale,2,0.20
+Pane sandwich a lievito madre,Olio,2,2.00
+Panino all’olio,Farina,70,0.40
+Panino all’olio,Acqua,25,0.00
+Panino all’olio,Lievito,3,1.50
+Panino all’olio,Sale,2,0.20
+Panino morbido al latte,Farina,68,0.40
+Panino morbido al latte,Acqua,26,0.00
+Panino morbido al latte,Lievito,3,1.50
+Panino morbido al latte,Sale,2,0.20
+Panino morbido al latte,Olio,1,2.00
+Panino rustico ai cereali,Farina,65,0.40
+Panino rustico ai cereali,Acqua,28,0.00
+Panino rustico ai cereali,Lievito,3,1.50
+Panino rustico ai cereali,Sale,2,0.20
+Panino rustico ai cereali,Olio,2,2.00
+Panino tipo rosetta,Farina,60,0.40
+Panino tipo rosetta,Acqua,30,0.00
+Panino tipo rosetta,Lievito,4,1.50
+Panino tipo rosetta,Sale,2,0.20
+Panino tipo rosetta,Olio,4,2.00
+Panino ciabattina sandwich,Farina,72,0.38
+Panino ciabattina sandwich,Acqua,23,0.00
+Panino ciabattina sandwich,Lievito,3,1.50
+Panino ciabattina sandwich,Sale,2,0.20
+Panino per hot dog,Farina,69,0.38
+Panino per hot dog,Acqua,25,0.00
+Panino per hot dog,Lievito,3,1.50
+Panino per hot dog,Sale,2,0.20
+Panino per hot dog,Olio,1,2.00
+Bun per burger classico,Farina,66,0.38
+Bun per burger classico,Acqua,27,0.00
+Bun per burger classico,Lievito,3,1.50
+Bun per burger classico,Sale,2,0.20
+Bun per burger classico,Olio,2,2.00
+Bun per burger ai semi,Farina,62,0.38
+Bun per burger ai semi,Acqua,29,0.00
+Bun per burger ai semi,Lievito,4,1.50
+Bun per burger ai semi,Sale,2,0.20
+Bun per burger ai semi,Olio,3,2.00
+Bun per burger integrale,Farina,70,0.42
+Bun per burger integrale,Acqua,24,0.00
+Bun per burger integrale,Lievito,3,1.50
+Bun per burger integrale,Sale,3,0.20
+Mini bun per slider,Farina,67,0.42
+Mini bun per slider,Acqua,26,0.00
+Mini bun per slider,Lievito,3,1.50
+Mini bun per slider,Sale,2,0.20
+Mini bun per slider,Olio,2,2.00
+Panino arabo,Farina,70,0.40
+Panino arabo,Acqua,25,0.00
+Panino arabo,Lievito,3,1.50
+Panino arabo,Sale,2,0.20
+Piadina classica,Farina,68,0.40
+Piadina classica,Acqua,26,0.00
+Piadina classica,Lievito,3,1.50
+Piadina classica,Sale,2,0.20
+Piadina classica,Olio,1,2.00
+Piadina integrale,Farina,65,0.40
+Piadina integrale,Acqua,28,0.00
+Piadina integrale,Lievito,3,1.50
+Piadina integrale,Sale,2,0.20
+Piadina integrale,Olio,2,2.00
+Piadina ai cereali,Farina,60,0.40
+Piadina ai cereali,Acqua,30,0.00
+Piadina ai cereali,Lievito,4,1.50
+Piadina ai cereali,Sale,2,0.20
+Piadina ai cereali,Olio,4,2.00
+Focaccina morbida,Farina,72,0.38
+Focaccina morbida,Acqua,23,0.00
+Focaccina morbida,Lievito,3,1.50
+Focaccina morbida,Sale,2,0.20
+Panino tipo baguettina,Farina,69,0.38
+Panino tipo baguettina,Acqua,25,0.00
+Panino tipo baguettina,Lievito,3,1.50
+Panino tipo baguettina,Sale,2,0.20
+Panino tipo baguettina,Olio,1,2.00
+Panino soffice per merenda,Farina,66,0.38
+Panino soffice per merenda,Acqua,27,0.00
+Panino soffice per merenda,Lievito,3,1.50
+Panino soffice per merenda,Sale,2,0.20
+Panino soffice per merenda,Olio,2,2.00
+Brioche salata ripiena,Farina,62,0.38
+Brioche salata ripiena,Acqua,29,0.00
+Brioche salata ripiena,Lievito,4,1.50
+Brioche salata ripiena,Sale,2,0.20
+Brioche salata ripiena,Olio,3,2.00
+Panino alla zucca,Farina,70,0.42
+Panino alla zucca,Acqua,24,0.00
+Panino alla zucca,Lievito,3,1.50
+Panino alla zucca,Sale,3,0.20
+Panino al carbone vegetale,Farina,67,0.42
+Panino al carbone vegetale,Acqua,26,0.00
+Panino al carbone vegetale,Lievito,3,1.50
+Panino al carbone vegetale,Sale,2,0.20
+Panino al carbone vegetale,Olio,2,2.00
+Grissini classici,Farina,70,0.40
+Grissini classici,Acqua,25,0.00
+Grissini classici,Lievito,3,1.50
+Grissini classici,Sale,2,0.20
+Grissini torinesi sottili,Farina,68,0.40
+Grissini torinesi sottili,Acqua,26,0.00
+Grissini torinesi sottili,Lievito,3,1.50
+Grissini torinesi sottili,Sale,2,0.20
+Grissini torinesi sottili,Olio,1,2.00
+Grissini al sesamo,Farina,65,0.40
+Grissini al sesamo,Acqua,28,0.00
+Grissini al sesamo,Lievito,3,1.50
+Grissini al sesamo,Sale,2,0.20
+Grissini al sesamo,Olio,2,2.00
+Grissini al rosmarino,Farina,60,0.40
+Grissini al rosmarino,Acqua,30,0.00
+Grissini al rosmarino,Lievito,4,1.50
+Grissini al rosmarino,Sale,2,0.20
+Grissini al rosmarino,Olio,4,2.00
+Grissini integrali,Farina,72,0.38
+Grissini integrali,Acqua,23,0.00
+Grissini integrali,Lievito,3,1.50
+Grissini integrali,Sale,2,0.20
+Grissini ai cereali,Farina,69,0.38
+Grissini ai cereali,Acqua,25,0.00
+Grissini ai cereali,Lievito,3,1.50
+Grissini ai cereali,Sale,2,0.20
+Grissini ai cereali,Olio,1,2.00
+Grissini stirati a mano,Farina,66,0.38
+Grissini stirati a mano,Acqua,27,0.00
+Grissini stirati a mano,Lievito,3,1.50
+Grissini stirati a mano,Sale,2,0.20
+Grissini stirati a mano,Olio,2,2.00
+Grissini alla cipolla,Farina,62,0.38
+Grissini alla cipolla,Acqua,29,0.00
+Grissini alla cipolla,Lievito,4,1.50
+Grissini alla cipolla,Sale,2,0.20
+Grissini alla cipolla,Olio,3,2.00
+Grissini all’olio extravergine,Farina,70,0.42
+Grissini all’olio extravergine,Acqua,24,0.00
+Grissini all’olio extravergine,Lievito,3,1.50
+Grissini all’olio extravergine,Sale,3,0.20
+Grissini sfogliati,Farina,67,0.42
+Grissini sfogliati,Acqua,26,0.00
+Grissini sfogliati,Lievito,3,1.50
+Grissini sfogliati,Sale,2,0.20
+Grissini sfogliati,Olio,2,2.00
+Crostini dorati,Farina,70,0.40
+Crostini dorati,Acqua,25,0.00
+Crostini dorati,Lievito,3,1.50
+Crostini dorati,Sale,2,0.20
+Crostini all’aglio,Farina,68,0.40
+Crostini all’aglio,Acqua,26,0.00
+Crostini all’aglio,Lievito,3,1.50
+Crostini all’aglio,Sale,2,0.20
+Crostini all’aglio,Olio,1,2.00
+Crostini all’origano,Farina,65,0.40
+Crostini all’origano,Acqua,28,0.00
+Crostini all’origano,Lievito,3,1.50
+Crostini all’origano,Sale,2,0.20
+Crostini all’origano,Olio,2,2.00
+Crostini ai cereali,Farina,60,0.40
+Crostini ai cereali,Acqua,30,0.00
+Crostini ai cereali,Lievito,4,1.50
+Crostini ai cereali,Sale,2,0.20
+Crostini ai cereali,Olio,4,2.00
+Crostini per zuppe,Farina,72,0.38
+Crostini per zuppe,Acqua,23,0.00
+Crostini per zuppe,Lievito,3,1.50
+Crostini per zuppe,Sale,2,0.20
+Cracker salati classici,Farina,69,0.38
+Cracker salati classici,Acqua,25,0.00
+Cracker salati classici,Lievito,3,1.50
+Cracker salati classici,Sale,2,0.20
+Cracker salati classici,Olio,1,2.00
+Cracker integrali,Farina,66,0.38
+Cracker integrali,Acqua,27,0.00
+Cracker integrali,Lievito,3,1.50
+Cracker integrali,Sale,2,0.20
+Cracker integrali,Olio,2,2.00
+Cracker ai semi,Farina,62,0.38
+Cracker ai semi,Acqua,29,0.00
+Cracker ai semi,Lievito,4,1.50
+Cracker ai semi,Sale,2,0.20
+Cracker ai semi,Olio,3,2.00
+Cracker senza lievito,Farina,70,0.42
+Cracker senza lievito,Acqua,24,0.00
+Cracker senza lievito,Lievito,3,1.50
+Cracker senza lievito,Sale,3,0.20
+Cracker al rosmarino,Farina,67,0.42
+Cracker al rosmarino,Acqua,26,0.00
+Cracker al rosmarino,Lievito,3,1.50
+Cracker al rosmarino,Sale,2,0.20
+Cracker al rosmarino,Olio,2,2.00
+Cracker al mais,Farina,70,0.40
+Cracker al mais,Acqua,25,0.00
+Cracker al mais,Lievito,3,1.50
+Cracker al mais,Sale,2,0.20
+Snack croccante ai cereali,Farina,68,0.40
+Snack croccante ai cereali,Acqua,26,0.00
+Snack croccante ai cereali,Lievito,3,1.50
+Snack croccante ai cereali,Sale,2,0.20
+Snack croccante ai cereali,Olio,1,2.00
+Quadretti di pane tostato,Farina,65,0.40
+Quadretti di pane tostato,Acqua,28,0.00
+Quadretti di pane tostato,Lievito,3,1.50
+Quadretti di pane tostato,Sale,2,0.20
+Quadretti di pane tostato,Olio,2,2.00
+Sfoglie croccanti al sale,Farina,60,0.40
+Sfoglie croccanti al sale,Acqua,30,0.00
+Sfoglie croccanti al sale,Lievito,4,1.50
+Sfoglie croccanti al sale,Sale,2,0.20
+Sfoglie croccanti al sale,Olio,4,2.00
+Sfoglie croccanti alle erbe,Farina,72,0.38
+Sfoglie croccanti alle erbe,Acqua,23,0.00
+Sfoglie croccanti alle erbe,Lievito,3,1.50
+Sfoglie croccanti alle erbe,Sale,2,0.20
+Mini cracker per aperitivo,Farina,69,0.38
+Mini cracker per aperitivo,Acqua,25,0.00
+Mini cracker per aperitivo,Lievito,3,1.50
+Mini cracker per aperitivo,Sale,2,0.20
+Mini cracker per aperitivo,Olio,1,2.00
+Snack tipo bruschetta,Farina,66,0.38
+Snack tipo bruschetta,Acqua,27,0.00
+Snack tipo bruschetta,Lievito,3,1.50
+Snack tipo bruschetta,Sale,2,0.20
+Snack tipo bruschetta,Olio,2,2.00
+Bruschettine all’olio d’oliva,Farina,62,0.38
+Bruschettine all’olio d’oliva,Acqua,29,0.00
+Bruschettine all’olio d’oliva,Lievito,4,1.50
+Bruschettine all’olio d’oliva,Sale,2,0.20
+Bruschettine all’olio d’oliva,Olio,3,2.00
+Bruschettine ai pomodorini,Farina,70,0.42
+Bruschettine ai pomodorini,Acqua,24,0.00
+Bruschettine ai pomodorini,Lievito,3,1.50
+Bruschettine ai pomodorini,Sale,3,0.20
+Bruschettine mediterranee,Farina,67,0.42
+Bruschettine mediterranee,Acqua,26,0.00
+Bruschettine mediterranee,Lievito,3,1.50
+Bruschettine mediterranee,Sale,2,0.20
+Bruschettine mediterranee,Olio,2,2.00

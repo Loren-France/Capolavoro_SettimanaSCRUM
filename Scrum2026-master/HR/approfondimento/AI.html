@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guida AI HR - Morato Pane Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Morato Pane Color Palette - Tonalità Autunnali */
+            --primary: #D2691E; /* Cioccolato/arancione scuro */
+            --primary-light: #E68A2E; /* Arancione dorato */
+            --primary-dark: #8B4513; /* Marrone scuro */
+            --secondary: #F4A460; /* Sabbia chiara */
+            --accent: #CD853F; /* Arancione peru */
+            --light: #FFF8DC; /* Bianco corno */
+            --dark: #2C1810; /* Marrone cioccolato fondente */
+            --gray: #A0522D; /* Marrone terra */
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+            --gradient-secondary: linear-gradient(135deg, var(--accent), var(--secondary));
+            --gradient-light: linear-gradient(135deg, var(--light), #FFE4B5);
+            --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
+            --shadow: 0 15px 40px rgba(210, 105, 30, 0.25);
+            --shadow-light: 0 10px 30px rgba(244, 164, 96, 0.2);
+            --shadow-heavy: 0 25px 60px rgba(139, 69, 19, 0.3);
+            --radius: 20px;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(244, 164, 96, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(210, 105, 30, 0.08) 0%, transparent 25%);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styling */
+        header {
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(210, 105, 30, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 80%, rgba(244, 164, 96, 0.1) 0%, transparent 40%);
+        }
+        
+        .header-content {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.1);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.1); }
+            100% { text-shadow: 3px 3px 15px rgba(210, 105, 30, 0.3), 0 0 20px rgba(244, 164, 96, 0.2); }
+        }
+        
+        .header-content p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255, 248, 220, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(210, 105, 30, 0.1);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 25px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 5px;
+            background: var(--gradient);
+            border-radius: 5px;
+            animation: linePulse 2s infinite;
+        }
+        
+        @keyframes linePulse {
+            0%, 100% { width: 150px; }
+            50% { width: 180px; }
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 25px auto 0;
+        }
+        
+        /* Content Cards */
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        
+        .card {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow-heavy);
+            border: 1px solid rgba(210, 105, 30, 0.15);
+            flex: 1 1 400px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: var(--gradient);
+        }
+        
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .card p, .card ul {
+            color: var(--gray);
+            margin-top: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .card ul {
+            padding-left: 25px;
+            list-style-type: none;
+        }
+        
+        .card li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        .card li:hover {
+            transform: translateX(10px);
+            color: var(--primary);
+        }
+        
+        .card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .card li:hover::before {
+            transform: scale(1.5);
+            color: var(--primary-light);
+        }
+        
+        /* Code Block Styling */
+        pre {
+            background: linear-gradient(135deg, rgba(244, 164, 96, 0.1), rgba(210, 105, 30, 0.05));
+            border-left: 5px solid var(--primary);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            position: relative;
+        }
+        
+        pre::before {
+            content: 'Terminal';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: bold;
+            opacity: 0.7;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark), #3C2415);
+            color: var(--light);
+            padding: 80px 0 40px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--gradient);
+        }
+        
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-button {
+            color: var(--light);
+            text-decoration: none;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(244, 164, 96, 0.3);
+        }
+        
+        .footer-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px) scale(1.05);
+            color: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 45px;
+            background: var(--gradient);
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: var(--shadow); }
+            50% { box-shadow: 0 0 30px rgba(210, 105, 30, 0.4), var(--shadow); }
+            100% { box-shadow: var(--shadow); }
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(210, 105, 30, 0.3);
+            color: var(--light);
+            animation: none;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient);
+            opacity: 0.08;
+            animation: floatElement 20s ease-in-out infinite;
+            filter: blur(1px);
+        }
+        
+        @keyframes floatElement {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            33% { transform: translateY(-30px) rotate(120deg) scale(1.1); }
+            66% { transform: translateY(20px) rotate(240deg) scale(0.9); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .header-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .card {
+                flex: 1 1 100%;
+            }
+            
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .card {
+                padding: 30px 20px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .footer-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-button {
+                width: 80%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content fade-in">
+                <h1>Guida alla creazione di un AI Assistant HR - Morato Pane</h1>
+                <p>Spieghiamo come collegare un front-end HTML a Node.js e LM Studio, usando i file reali del progetto: <strong>index.html</strong>, <strong>server.js</strong> e <strong>package.json</strong>.</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-links">
+                <a href="#intro">Introduzione</a>
+                <a href="#step1">Step 1</a>
+                <a href="#step2">Step 2</a>
+                <a href="#step3">Step 3</a>
+                <a href="#approfondimenti">Approfondimenti</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Intro Section -->
+    <section id="intro" class="section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Introduzione</h2>
+                <p>Creare un AI Assistant che risponda a dubbi sulle risorse umane di Morato Pane</p>
+            </div>
+            
+            <div class="content">
+                <div class="card fade-in">
+                    <h3>Obiettivo della guida</h3>
+                    <p>Creare un AI Assistant che risponda a dubbi sulle risorse umane di Morato Pane. Il progetto si struttura così:</p>
+                    <ul>
+                        <li>Cartella principale: <strong>AI</strong></li>
+                        <li>Front-end: <strong>index.html</strong> → interfaccia utente per scrivere domande</li>
+                        <li>Server: <strong>server.js</strong> → riceve le richieste e comunica con LM Studio</li>
+                        <li>Configurazione: <strong>package.json</strong> → gestisce dipendenze come Express e LM Studio SDK</li>
+                    </ul>
+                </div>
+                <div class="card fade-in">
+                    <h3>Flusso concettuale</h3>
+                    <p>L'utente scrive una domanda su <strong>index.html</strong> → richiesta inviata a <strong>server.js</strong> → server inoltra a LM Studio → risposta torna a <strong>index.html</strong> per essere visualizzata.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Step 1 Section -->
+    <section id="step1" class="section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Step 1: Preparazione dell'ambiente Node.js</h2>
+                <p>Installazione e configurazione del progetto</p>
+            </div>
+            
+            <div class="content">
+                <div class="card fade-in">
+                    <h3>Installazione e configurazione</h3>
+                    <p>All'interno della cartella <strong>AI</strong> inizializzi il progetto Node.js:</p>
+                    <pre>npm init -y
+npm install express body-parser lmstudio-sdk</pre>
+                    <p>Questo genera <strong>package.json</strong> e installa le dipendenze necessarie.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Ruolo di <strong>server.js</strong></h3>
+                    <p>Gestisce il flusso di dati tra front-end e AI. Definisce un endpoint POST che riceve le domande da <strong>index.html</strong>, le inoltra all'AI e restituisce la risposta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Step 2 Section -->
+    <section id="step2" class="section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Step 2: Collegamento Front-End e Server</h2>
+                <p>Integrazione tra interfaccia utente e backend</p>
+            </div>
+            
+            <div class="content">
+                <div class="card fade-in">
+                    <h3>Front-end (<strong>index.html</strong>)</h3>
+                    <p>Usa JavaScript (fetch() o axios()) per inviare le domande a <strong>server.js</strong> e mostrare le risposte dell'AI.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Server (<strong>server.js</strong>)</h3>
+                    <p>Riceve le richieste dal front-end, comunica con LM Studio e restituisce le risposte in formato JSON. Il tutto senza ricaricare la pagina.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Step 3 Section -->
+    <section id="step3" class="section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Step 3: Gestione del contesto e dei dati</h2>
+                <p>Ottimizzazione delle risposte AI</p>
+            </div>
+            
+            <div class="content">
+                <div class="card fade-in">
+                    <h3>Prompt e contesto HR</h3>
+                    <p>Server.js può aggiungere informazioni su politiche HR, retribuzioni e ruoli dei dipendenti Morato Pane, così l'AI fornirà risposte più precise.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Formato dei dati</h3>
+                    <p>Domande e risposte vengono gestite come JSON, semplificando la comunicazione tra <strong>index.html</strong> e <strong>server.js</strong> e permettendo future integrazioni con dashboard o strumenti interni.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Approfondimenti Section -->
+    <section id="approfondimenti" class="section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Approfondimenti</h2>
+                <p>Manutenzione e sviluppo futuro</p>
+            </div>
+            
+            <div class="content">
+                <div class="card fade-in">
+                    <h3>Manutenzione e aggiornamenti</h3>
+                    <p>Tutti i file sono nella cartella <strong>AI</strong>, quindi è facile aggiornare front-end o server senza perdere la struttura organizzativa.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Preprocessing e validazione</h3>
+                    <p>È possibile filtrare o normalizzare le domande prima di inviarle all'AI per ottenere risposte più coerenti.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Integrazione futura</h3>
+                    <p>La struttura permette di aggiungere FAQ, dashboard HR o strumenti per la formazione dei dipendenti, sempre basati su AI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="fade-in">
+                <p>&copy; 2026 Morato Pane S.p.A. | Tutti i diritti riservati</p>
+                <div class="footer-buttons">
+                    <a href="../../scrum.html" class="footer-button"><i class="fas fa-home"></i> Torna a Scrum</a>
+                    <a href="http://localhost:8000" class="footer-button"><i class="fas fa-comments"></i> Torna a Chat HR</a>
+                    <a href="./approfondimento.html" class="footer-button"><i class="fas fa-building"></i> Organigramma</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Floating Elements
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const elementCount = 15;
+            
+            for (let i = 0; i < elementCount; i++) {
+                const element = document.createElement('div');
+                element.classList.add('floating-element');
+                
+                // Random size between 20 and 120px
+                const size = Math.random() * 100 + 20;
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                
+                // Random position
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.top = `${Math.random() * 100}%`;
+                
+                // Random color variation
+                const colors = ['#D2691E', '#E68A2E', '#CD853F', '#F4A460'];
+                const color1 = colors[Math.floor(Math.random() * colors.length)];
+                const color2 = colors[Math.floor(Math.random() * colors.length)];
+                element.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
+                
+                // Random opacity
+                element.style.opacity = Math.random() * 0.08 + 0.02;
+                
+                // Animation
+                const duration = Math.random() * 30 + 20;
+                const delay = Math.random() * 10;
+                element.style.animation = `floatElement ${duration}s ease-in-out infinite`;
+                element.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(element);
+            }
+        }
+        
+        // Scroll animations
+        function checkScroll() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            // Fade in elements
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingElements();
+            checkScroll();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', checkScroll);
+            
+            // Animate header on load
+            setTimeout(() => {
+                document.querySelector('.header-content').classList.add('visible');
+            }, 300);
+        });
+        
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const floatingElements = document.querySelectorAll('.floating-element');
+            
+            floatingElements.forEach(element => {
+                const speed = parseFloat(element.style.width.replace('px', '')) / 500;
+                element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * speed}deg) scale(${1 + scrolled * speed / 1000})`;
+            });
+        });
+    </script>
+</body>
+</html>

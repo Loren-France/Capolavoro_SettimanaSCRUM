@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modello MTO Evoluto - Approfondimento Tecnico | Morato Pane Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Morato Pane Color Palette - Tonalità Autunnali */
+            --primary: #D2691E; /* Cioccolato/arancione scuro */
+            --primary-light: #E68A2E; /* Arancione dorato */
+            --primary-dark: #8B4513; /* Marrone scuro */
+            --secondary: #F4A460; /* Sabbia chiara */
+            --accent: #CD853F; /* Arancione peru */
+            --light: #FFF8DC; /* Bianco corno */
+            --dark: #2C1810; /* Marrone cioccolato fondente */
+            --gray: #A0522D; /* Marrone terra */
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+            --gradient-secondary: linear-gradient(135deg, var(--accent), var(--secondary));
+            --gradient-light: linear-gradient(135deg, var(--light), #FFE4B5);
+            --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
+            --shadow: 0 15px 40px rgba(210, 105, 30, 0.25);
+            --shadow-light: 0 10px 30px rgba(244, 164, 96, 0.2);
+            --shadow-heavy: 0 25px 60px rgba(139, 69, 19, 0.3);
+            --radius: 20px;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 16px; /* Aggiunto per compatibilità */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(244, 164, 96, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(210, 105, 30, 0.08) 0%, transparent 25%);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styling - Stile Morato Pane */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 1.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(139, 69, 19, 0.3);
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: linear-gradient(to right, var(--secondary), #FFDAB9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.8s ease;
+        }
+        
+        .logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .logo-icon {
+            font-size: 2.8rem;
+            color: var(--accent);
+            filter: drop-shadow(0 4px 8px rgba(210, 105, 30, 0.3));
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 400;
+            margin-top: 0.2rem;
+            color: var(--secondary);
+        }
+        
+        .tagline {
+            text-align: right;
+            opacity: 0.9;
+            font-size: 1.1rem;
+            max-width: 500px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* MAIN CONTENT */
+        main {
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        /* INTRO SECTION */
+        .intro-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 4rem 2rem;
+            background: var(--light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-heavy);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(210, 105, 30, 0.15);
+        }
+        
+        .intro-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+        
+        .intro-title {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
+            text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.1);
+        }
+        
+        .intro-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .intro-tags {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .intro-tag {
+            padding: 0.5rem 1.2rem;
+            background: rgba(210, 105, 30, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(210, 105, 30, 0.2);
+            transition: var(--transition);
+        }
+        
+        .intro-tag:hover {
+            background: rgba(210, 105, 30, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* CONTENT GRID */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+            position: relative;
+        }
+        
+        /* SIDEBAR NAVIGATION */
+        .sidebar-nav {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-heavy);
+            border: 2px solid rgba(210, 105, 30, 0.1);
+        }
+        
+        .sidebar-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(210, 105, 30, 0.2);
+        }
+        
+        .sidebar-header-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .sidebar-header-subtitle {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .sidebar-list {
+            list-style: none;
+        }
+        
+        .sidebar-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-list a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 12px;
+            transition: var(--transition);
+            font-weight: 500;
+            border: 2px solid transparent;
+        }
+        
+        .sidebar-list a:hover {
+            background: rgba(210, 105, 30, 0.05);
+            transform: translateX(5px);
+            border-color: var(--accent);
+        }
+        
+        .sidebar-list a.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(210, 105, 30, 0.3);
+        }
+        
+        .sidebar-number {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        
+        .sidebar-list a.active .sidebar-number {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* CONTENT SECTIONS */
+        .content-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        
+        .content-section {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 3rem;
+            box-shadow: var(--shadow-heavy);
+            transition: var(--transition);
+            border: 2px solid rgba(210, 105, 30, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            box-shadow: 0 6px 20px rgba(210, 105, 30, 0.3);
+            animation: numberPulse 2s infinite;
+        }
+        
+        @keyframes numberPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .section-title-wrapper {
+            flex: 1;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .section-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            transition: var(--transition);
+        }
+        
+        .content-section:hover .section-icon {
+            opacity: 0.5;
+            transform: scale(1.1);
+        }
+        
+        .section-content {
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-content p {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        /* FEATURE GRID */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            padding: 1.8rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+            border: 1px solid rgba(210, 105, 30, 0.1);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-3px);
+            background: white;
+            box-shadow: 0 8px 25px rgba(210, 105, 30, 0.15);
+            border-left-color: var(--accent);
+        }
+        
+        .feature-card-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .feature-card p {
+            font-size: 1rem;
+            color: var(--gray);
+            margin: 0;
+        }
+        
+        /* SPECIAL SECTIONS */
+        .executive-section {
+            background: linear-gradient(135deg, 
+                rgba(139, 69, 19, 0.95) 0%, 
+                rgba(210, 105, 30, 0.95) 100%);
+            color: white;
+            border: none;
+        }
+        
+        .executive-section::before {
+            background: var(--accent);
+        }
+        
+        .executive-section .section-title,
+        .executive-section .section-subtitle,
+        .executive-section .section-content p {
+            color: white;
+            -webkit-text-fill-color: white;
+            background: none;
+        }
+        
+        .executive-section .section-title {
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .executive-section .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-left-color: var(--accent);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .executive-section .feature-card p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .executive-section .feature-card h4 {
+            color: var(--secondary);
+        }
+        
+        .risk-section {
+            border-left-color: var(--primary-dark);
+        }
+        
+        .risk-section::before {
+            background: var(--primary-dark);
+        }
+        
+        .risk-section .feature-card {
+            border-left-color: var(--primary-dark);
+        }
+        
+        .conclusion-section {
+            background: linear-gradient(135deg, 
+                rgba(244, 164, 96, 0.95) 0%, 
+                rgba(205, 133, 63, 0.95) 100%);
+            color: var(--dark);
+            border: none;
+        }
+        
+        .conclusion-section::before {
+            background: var(--primary);
+        }
+        
+        .conclusion-section .section-title {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .conclusion-section .section-subtitle {
+            color: var(--primary-dark);
+        }
+        
+        /* BUTTONS - Stile Morato Pane */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 4rem 0 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--gradient);
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            min-width: 280px;
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: var(--shadow); }
+            50% { box-shadow: 0 0 30px rgba(210, 105, 30, 0.4), var(--shadow); }
+            100% { box-shadow: var(--shadow); }
+        }
+        
+        .action-button:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(210, 105, 30, 0.3);
+            color: var(--light);
+            animation: none;
+        }
+        
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .action-button:hover::before {
+            opacity: 1;
+        }
+        
+        .button-icon {
+            font-size: 1.4rem;
+            transition: var(--transition);
+        }
+        
+        .action-button:hover .button-icon {
+            transform: translateX(5px);
+        }
+        
+        .action-button.secondary {
+            background: var(--gradient-accent);
+            color: var(--primary-dark);
+        }
+        
+        /* FOOTER - Stile Morato Pane */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark), #3C2415);
+            color: var(--light);
+            padding: 100px 0 50px;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--gradient);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--secondary), #FFDAB9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .footer-tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 248, 220, 0.8);
+        }
+        
+        .transform-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 3rem auto;
+            padding: 1.5rem;
+            border: 2px solid var(--accent);
+            border-radius: var(--radius);
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(62, 39, 35, 0.1);
+        }
+        
+        .transform-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 202, 40, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .content-section:nth-child(1) { animation-delay: 0.1s; }
+        .content-section:nth-child(2) { animation-delay: 0.2s; }
+        .content-section:nth-child(3) { animation-delay: 0.3s; }
+        .content-section:nth-child(4) { animation-delay: 0.4s; }
+        .content-section:nth-child(5) { animation-delay: 0.5s; }
+        .content-section:nth-child(6) { animation-delay: 0.6s; }
+        .content-section:nth-child(7) { animation-delay: 0.7s; }
+        .content-section:nth-child(8) { animation-delay: 0.8s; }
+        .content-section:nth-child(9) { animation-delay: 0.9s; }
+        .content-section:nth-child(10) { animation-delay: 1s; }
+        
+        /* SCROLL INDICATOR */
+        .scroll-indicator {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .scroll-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            opacity: 0.5;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .scroll-dot:hover {
+            background: var(--accent);
+            transform: scale(1.3);
+            opacity: 1;
+        }
+        
+        .scroll-dot.active {
+            background: var(--accent);
+            transform: scale(1.3);
+            border-color: var(--primary-dark);
+            opacity: 1;
+        }
+        
+        /* ELEMENTI VISIVI MORATO PANE */
+        .autumn-leaves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .leaf {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+            opacity: 0.4;
+            animation: falling 15s linear infinite;
+            filter: drop-shadow(0 5px 10px rgba(139, 69, 19, 0.2));
+        }
+        
+        @keyframes falling {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(210, 105, 30, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
+            animation: glowMove 10s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glowMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 30px); }
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient);
+            opacity: 0.08;
+            animation: floatElement 20s ease-in-out infinite;
+            filter: blur(1px);
+        }
+        
+        @keyframes floatElement {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            33% { transform: translateY(-30px) rotate(120deg) scale(1.1); }
+            66% { transform: translateY(20px) rotate(240deg) scale(0.9); }
+        }
+        
+        /* Card 3D Effect */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+        
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+        
+        /* Shine Effect */
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+        
+        .shine-effect:hover::after {
+            opacity: 1;
+            left: 150%;
+        }
+        
+        /* Fade In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1200px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .sidebar-nav {
+                position: static;
+                margin-bottom: 2rem;
+            }
+            
+            .intro-title {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .intro-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                text-align: center;
+            }
+            
+            .intro-section {
+                padding: 3rem 1.5rem;
+            }
+            
+            .intro-title {
+                font-size: 2.2rem;
+            }
+            
+            .content-section {
+                padding: 2rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-button {
+                width: 100%;
+                max-width: 320px;
+            }
+            
+            .scroll-indicator {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .intro-title {
+                font-size: 1.8rem;
+            }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .action-button {
+                min-width: auto;
+                width: 100%;
+                padding: 1rem 2rem;
+            }
+            
+            .intro-tags {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <!-- Autumn Leaves -->
+    <div class="autumn-leaves">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+    </div>
+    
+    <!-- Glowing Effects -->
+    <div class="glow" style="top: 20%; left: 10%;"></div>
+    <div class="glow" style="bottom: 30%; right: 15%; background: radial-gradient(circle, rgba(244, 164, 96, 0.1) 0%, transparent 70%); animation-delay: 2s;"></div>
+    <div class="glow" style="top: 60%; left: 70%; background: radial-gradient(circle, rgba(205, 133, 63, 0.1) 0%, transparent 70%); animation-delay: 4s; width: 200px; height: 200px;"></div>
+    
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-brain-circuit"></i>
+                    </div>
+                    <div>
+                        <div class="logo-text">MTO Evoluto</div>
+                        <div class="logo-subtitle">Approfondimento Tecnico</div>
+                    </div>
+                </a>
+                <div class="tagline">
+                    Trasformazione Digitale della Produzione e Logistica
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- INTRO SECTION -->
+        <section class="intro-section fade-in">
+            <h1 class="intro-title">Approfondimento Tecnico</h1>
+            <p class="intro-subtitle">
+                Una panoramica completa del modello MTO Evoluto per prodotti da forno, con analisi dettagliata di ogni componente tecnologico e operativo.
+            </p>
+            <div class="intro-tags">
+                <span class="intro-tag">
+                    <i class="fas fa-brain"></i> AI & Machine Learning
+                </span>
+                <span class="intro-tag">
+                    <i class="fas fa-robot"></i> Automazione Intelligente
+                </span>
+                <span class="intro-tag">
+                    <i class="fas fa-network-wired"></i> IoT Industriale
+                </span>
+                <span class="intro-tag">
+                    <i class="fas fa-chart-line"></i> Analytics Predittiva
+                </span>
+            </div>
+        </section>
+        
+        <!-- CONTENT GRID -->
+        <div class="content-grid">
+            <!-- SIDEBAR NAVIGATION -->
+            <aside class="sidebar-nav fade-in">
+                <div class="sidebar-header">
+                    <div class="sidebar-header-title">
+                        <i class="fas fa-book-open"></i>
+                        Indice Contenuti
+                    </div>
+                    <div class="sidebar-header-subtitle">
+                        Navigazione rapida tra le sezioni
+                    </div>
+                </div>
+                <ul class="sidebar-list">
+                    <li><a href="#executive-summary" data-section="executive-summary" class="active">
+                        <div class="sidebar-number">📊</div>
+                        <span>Executive Summary</span>
+                    </a></li>
+                    <li><a href="#modello-produttivo" data-section="modello-produttivo">
+                        <div class="sidebar-number">1</div>
+                        <span>Modello Produttivo</span>
+                    </a></li>
+                    <li><a href="#ai-magazzino" data-section="ai-magazzino">
+                        <div class="sidebar-number">2</div>
+                        <span>AI e Magazzino</span>
+                    </a></li>
+                    <li><a href="#lead-time" data-section="lead-time">
+                        <div class="sidebar-number">3</div>
+                        <span>Lead Time</span>
+                    </a></li>
+                    <li><a href="#automazione" data-section="automazione">
+                        <div class="sidebar-number">4</div>
+                        <span>Automazione</span>
+                    </a></li>
+                    <li><a href="#logistica" data-section="logistica">
+                        <div class="sidebar-number">5</div>
+                        <span>Logistica</span>
+                    </a></li>
+                    <li><a href="#contratti-gdo" data-section="contratti-gdo">
+                        <div class="sidebar-number">6</div>
+                        <span>Contratti GDO</span>
+                    </a></li>
+                    <li><a href="#architettura-it" data-section="architettura-it">
+                        <div class="sidebar-number">7</div>
+                        <span>Architettura IT</span>
+                    </a></li>
+                    <li><a href="#strategia-operativa" data-section="strategia-operativa">
+                        <div class="sidebar-number">8</div>
+                        <span>Strategia Operativa</span>
+                    </a></li>
+                    <li><a href="#rischi" data-section="rischi">
+                        <div class="sidebar-number">9</div>
+                        <span>Rischi e Mitigazioni</span>
+                    </a></li>
+                    <li><a href="#conclusione" data-section="conclusione">
+                        <div class="sidebar-number">🏁</div>
+                        <span>Conclusione</span>
+                    </a></li>
+                </ul>
+            </aside>
+            
+            <!-- MAIN CONTENT SECTIONS -->
+            <div class="content-sections">
+                <!-- EXECUTIVE SUMMARY -->
+                <section id="executive-summary" class="content-section executive-section fade-in card-3d">
+                    <div class="section-header">
+                        <div class="section-number">📊</div>
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">Executive Summary</h2>
+                            <p class="section-subtitle">Panoramica strategica del modello MTO Evoluto</p>
+                        </div>
+                    </div>
+                    <div class="section-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="section-content">
+                        <p>Il modello <strong>Make‑to‑Order (MTO) evoluto</strong> rappresenta una trasformazione radicale della produzione industriale nel settore dei prodotti da forno, integrando tecnologie digitali avanzate con processi tradizionali per creare un sistema produttivo intelligente, flessibile e resiliente.</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h4>Produzione Intelligente</h4>
+                                <p>Lotti dinamici dimensionati in tempo reale dall'AI per ottimizzare costi e tempi di produzione.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-sync-alt"></i>
+                                </div>
+                                <h4>Supply Chain Adattiva</h4>
+                                <p>Sistema "living" che anticipa la domanda e si adatta dinamicamente alle condizioni del mercato.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Resilienza Operativa</h4>
+                                <p>Maggiore robustezza attraverso simulazioni what-if e mitigazione proattiva dei rischi.</p>
+                            </div>
+                        </div>
+                        
+                        <p>Questo approccio trasforma il vantaggio competitivo dalla riduzione dei costi alla capacità di risposta rapida e personalizzata, fondata su dati in tempo reale e automazione intelligente.</p>
+                    </div>
+                </section>
+                
+                <!-- 1. MODELLO PRODUTTIVO -->
+                <section id="modello-produttivo" class="content-section fade-in card-3d">
+                    <div class="section-header">
+                        <div class="section-number">1</div>
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">Modello Produttivo MTO Progettato a Lotti</h2>
+                            <p class="section-subtitle">Produzione su ordine con ottimizzazione AI-driven</p>
+                        </div>
+                    </div>
+                    <div class="section-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="section-content">
+                        <p>Il modello produttivo si fonda su una produzione su ordine, in cui i lotti vengono dimensionati dinamicamente dall'intelligenza artificiale (AI). L'AI bilancia:</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <h4>Costi di Setup</h4>
+                                <p>Ottimizzazione delle sequenze di produzione per minimizzare i tempi di cambio.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-warehouse"></i>
+                                </div>
+                                <h4>Costi di Mantenimento</h4>
+                                <p>Gestione intelligente delle scorte attraverso previsioni accurate.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h4>Shelf-life del Prodotto</h4>
+                                <p>Adattamento dei lotti alla durata di conservazione ottimale.</p>
+                            </div>
+                        </div>
+                        
+                        <p>La <strong>scheda di produzione digitale</strong> funge da gemello digitale dell'ordine, contenendo ricetta parametrica, quantità, fasi operative, tempi, macchine coinvolte, parametri di processo, tracciabilità e checklist di qualità.</p>
+                    </div>
+                </section>
+                
+                <!-- 2. AI E MAGAZZINO -->
+                <section id="ai-magazzino" class="content-section fade-in card-3d">
+                    <div class="section-header">
+                        <div class="section-number">2</div>
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">AI, Magazzino Virtuale e Simulazioni Operative</h2>
+                            <p class="section-subtitle">Visione unificata e simulazioni what-if continue</p>
+                        </div>
+                    </div>
+                    <div class="section-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="section-content">
+                        <p>Il <strong>magazzino virtuale</strong> rappresenta in modo unificato e dinamico tutte le risorse disponibili:</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-boxes"></i>
+                                </div>
+                                <h4>Stock Fisico e WIP</h4>
+                                <p>Monitoraggio in tempo reale di scorte e lavori in corso.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <h4>Stock in Transito</h4>
+                                <p>Tracciamento preciso delle materie prime in viaggio.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <h4>Capacità Produttiva</h4>
+                                <p>Disponibilità committabile (CTP) calcolata dinamicamente.</p>
+                            </div>
+                        </div>
+                        
+                        <p>L'AI utilizza questa visione integrata per eseguire simulazioni <em>what‑if</em> continue, valutando scenari di rifornimento urgente, ritardi dei fornitori, sostituzioni di ingredienti e impatti economici di lotti alternativi.</p>
+                        <p>Il planner mantiene il controllo grazie a un approccio <strong>human‑in‑the‑loop</strong>: l'AI propone piani e scenari, mentre l'operatore li conferma o li modifica.</p>
+                    </div>
+                </section>
+                
+                <!-- 3. LEAD TIME -->
+                <section id="lead-time" class="content-section fade-in card-3d">
+                    <div class="section-header">
+                        <div class="section-number">3</div>
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">Lead Time: Ottimizzazione e Riduzione</h2>
+                            <p class="section-subtitle">Strategie per accelerare il ciclo ordine-consegna</p>
+                        </div>
+                    </div>
+                    <div class="section-icon">
+                        <i class="fas fa-stopwatch"></i>
+                    </div>
+                    <div class="section-content">
+                        <p>Il <strong>lead time</strong> rappresenta il tempo che intercorre tra l'ordine e la disponibilità del prodotto in scaffale, KPI critico per prodotti deperibili.</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <h4>Setup Rapidi</h4>
+                                <p>Tecniche SMED, ricette PLC e cambi formato one-touch.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <h4>Movimentazione Intelligente</h4>
+                                <p>AGV/AMR sincronizzati per rifornimenti just‑in‑time.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h4>Velocità Informazione</h4>
+                                <p>Integrazione end‑to‑end che trasforma ordini in piani operativi.</p>
+                            </div>
+                        </div>
+                        
+                        <p>Per ogni SKU vengono definiti target misurabili: lead time massimo, tempi di setup, tempi ciclo e attese tra fasi, con monitoraggio continuo e ottimizzazione automatica.</p>
+                    </div>
+                </section>
+                
+                <!-- 4. AUTOMAZIONE -->
+                <section id="automazione" class="content-section fade-in card-3d">
+                    <div class="section-header">
+                        <div class="section-number">4</div>
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">Automazione Adattiva, IoT e Robotica</h2>
+                            <p class="section-subtitle">Macchinari intelligenti e robotica collaborativa</p>
+                        </div>
+                    </div>
+                    <div class="section-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="section-content">
+                        <p>L'impianto produttivo è basato su macchinari adattivi che si riconfigurano automaticamente:</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <h4>Forni Intelligenti</h4>
+                                <p>Zone di cottura indipendenti con controllo di temperatura adattivo.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-conveyor-belt"></i>
+                                </div>
+                                <h4>Nastri Variabili</h4>
+                                <p>Velocità regolabile in base al tipo di prodotto e fase di produzione.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <h4>Cobot Specializzati</h4>
+                                <p>Robot collaborativi per decorazione, impilamento e carico automatico.</p>
+                            </div>
+                        </div>
+                        
+                        <p>La rete di sensori IoT avanzati permette un controllo continuo della qualità, una tracciabilità completa e una manutenzione predittiva, riducendo i fermi macchina e garantendo standard qualitativi costanti.</p>
+                    </div>
+                </section>
+                
+                <!-- 5. LOGISTICA -->
+                <section id="logistica" class="content-section fade-in card-3d">
+                    <div class="section-header">
+                        <div class="section-number">5</div>
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">Logistica Ibrida e Trasporti</h2>
+                            <p class="section-subtitle">Mix ottimale di soluzioni di trasporto</p>
+                        </div>
+                    </div>
+                    <div class="section-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="section-content">
+                        <p>La logistica combina diversi mezzi in base a velocità, costi e tipologia di utilizzo:</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-truck-loading"></i>
+                                </div>
+                                <h4>Camion JIT</h4>
+                                <p>Distribuzione locale just‑in‑time con flotte ottimizzate.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-helicopter"></i>
+                                </div>
+                                <h4>Droni per Emergenze</h4>
+                                <p>Consegne urgenti e leggere verso punti remoti.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-ship"></i>
+                                </div>
+                                <h4>Trasporto Marittimo</h4>
+                                <p>Materie prime non deperibili in grandi volumi.</p>
+                            </div>
+                        </div>
+                        
+                        <p>Si suggerisce inoltre di valutare l'uso della ferrovia per i bulk e l'adozione di flotte alimentate a biometano o GNL per ridurre l'impatto ambientale e ottimizzare i costi operativi.</p>
+                    </div>
+                </section>
+                
+                <!-- 6. CONTRATTI GDO -->
+                <section id="contratti-gdo" class="content-section fade-in card-3d">
+                    <div class="section-header">
+                        <div class="section-number">6</div>
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">Contratti con la GDO</h2>
+                            <p class="section-subtitle">Modelli avanzati di partnership distributiva</p>
+                        </div>
+                    </div>
+                    <div class="section-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="section-content">
+                        <p>I contratti con la grande distribuzione evolvono verso modelli più collaborativi:</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h4>VMI - Vendor Managed Inventory</h4>
+                                <p>Il produttore gestisce direttamente i rifornimenti basandosi sui dati di vendita.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h4>Consignment Stock</h4>
+                                <p>Scorte in consignment per ottimizzare il cash flow.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4>KPI Condivisi</h4>
+                                <p>Shelf‑life, rotazione, qualità e customer satisfaction monitorati congiuntamente.</p>
+                            </div>
+                        </div>
+                        
+                        <p>Integrazione EDI/API per scambio dati in tempo reale, tracciabilità dei lotti completa e modelli di pricing dinamici basati sulle performance effettive.</p>
+                    </div>
+                </section>
+                
+                <!-- 7. ARCHITETTURA IT -->
+                <section id="architettura-it" class="content-section fade-in card-3d">
+                    <div class="section-header">
+                        <div class="section-number">7</div>
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">Architettura IT Ibrida</h2>
+                            <p class="section-subtitle">Integrazione sicura tra on-premise e cloud</p>
+                        </div>
+                    </div>
+                    <div class="section-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="section-content">
+                        <p>L'architettura IT ideale è <strong>ibrida</strong>, combinando i vantaggi di on-premise e cloud:</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h4>On‑premise</h4>
+                                <p>Controllo delle macchine, PLC, gestione delle ricette e dati critici.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <h4>Cloud</h4>
+                                <p>AI, simulazioni, backup, sistemi di tracciabilità blockchain‑like e analytics.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Sicurezza Avanzata</h4>
+                                <p>Microsegmentazione, firewall industriali e backup air‑gapped.</p>
+                            </div>
+                        </div>
+                        
+                        <p>La sicurezza è garantita tramite separazione tra rete OT e IT, monitoraggio continuo delle minacce e strategie di disaster recovery che garantiscono continuità operativa anche in caso di attacchi cyber.</p>
+                    </div>
+                </section>
+                
+                <!-- 8. STRATEGIA OPERATIVA -->
+                <section id="strategia-operativa" class="content-section fade-in card-3d">
+                    <div class="section-header">
+                        <div class="section-number">8</div>
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">Strategia Operativa Dinamica</h2>
+                            <p class="section-subtitle">Mix intelligente tra push, pull e produzione aggregata</p>
+                        </div>
+                    </div>
+                    <div class="section-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="section-content">
+                        <p>La strategia produttiva consigliata è un <strong>mix dinamico</strong> che bilancia flessibilità ed efficienza:</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-hand-paper"></i>
+                                </div>
+                                <h4>Pull (70-80%)</h4>
+                                <p>Produzione su ordine guidata dall'AI per la maggior parte del portafoglio.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-hand-rock"></i>
+                                </div>
+                                <h4>Push Strategico</h4>
+                                <p>Buffer dinamici per SKU ad alta rotazione e stagionalità prevedibile.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4>Produzione Aggregata</h4>
+                                <p>Campagne promozionali GDO gestite tramite lotti aggregati.</p>
+                            </div>
+                        </div>
+                        
+                        <p>Questo approccio permette di ottimizzare capacità e costi mantenendo la flessibilità necessaria per rispondere alle variazioni della domanda e alle opportunità di mercato.</p>
+                    </div>
+                </section>
+                
+                <!-- 9. RISCHI -->
+                <section id="rischi" class="content-section risk-section fade-in card-3d">
+                    <div class="section-header">
+                        <div class="section-number">9</div>
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">Rischi e Mitigazioni</h2>
+                            <p class="section-subtitle">Analisi proattiva e strategie di contenimento</p>
+                        </div>
+                    </div>
+                    <div class="section-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="section-content">
+                        <p>Gestione strutturata dei rischi attraverso identificazione, valutazione e mitigazione:</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Cybersecurity</h4>
+                                <p>Microsegmentazione, firewall industriali e monitoraggio continuo.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-unlink"></i>
+                                </div>
+                                <h4>Vendor Lock-in</h4>
+                                <p>Standard aperti, API documentate e architetture modulari.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h4>Qualità Dati AI</h4>
+                                <p>Human‑in‑the‑loop e pulizia dei dati storici prima del training.</p>
+                            </div>
+                        </div>
+                        
+                        <p>Strategie di resilienza per la supply chain: multi‑sourcing, scenari di sostituzione ingredienti, buffer critici e digitalizzazione del know‑how aziendale per preservare il patrimonio di competenze.</p>
+                    </div>
+                </section>
+                
+                <!-- CONCLUSIONE -->
+                <section id="conclusione" class="content-section conclusion-section fade-in card-3d">
+                    <div class="section-header">
+                        <div class="section-number">🏁</div>
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">Conclusione Strategica</h2>
+                            <p class="section-subtitle">Trasformazione del business model attraverso l'integrazione digitale</p>
+                        </div>
+                    </div>
+                    <div class="section-icon">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                    <div class="section-content">
+                        <p>Il modello MTO Evoluto rappresenta una <strong>trasformazione profonda del business model</strong>, non una semplice automazione di processi esistenti.</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h4>Vantaggio Competitivo</h4>
+                                <p>Passaggio dalla riduzione dei costi alla capacità di risposta rapida e personalizzata.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4>Innovazione Continua</h4>
+                                <p>Piattaforma per lanciare nuovi prodotti più velocemente e ridurre sprechi.</p>
+                            </div>
+                            <div class="feature-card shine-effect">
+                                <div class="feature-card-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Barriera all'Ingresso</h4>
+                                <p>Sistema integrato basato su dati, processi e reattività quasi real‑time.</p>
+                            </div>
+                        </div>
+                        
+                        <p style="text-align: center; font-size: 1.2rem; margin-top: 2rem; font-weight: 600; font-style: italic; color: var(--primary-dark);">
+                            "L'integrazione tra MTO a lotti, AI predittiva, IoT, automazione adattiva e una supply chain completamente connessa crea un ecosistema produttivo intelligente, resiliente e orientato al futuro."
+                        </p>
+                    </div>
+                </section>
+                
+                <!-- ACTION BUTTONS -->
+                <div class="button-container">
+                    <a href="../SPIEGAZIONE.html" class="action-button shine-effect">
+                        <i class="fas fa-briefcase button-icon"></i>
+                        Vai al Progetto Aziendale
+                    </a>
+                    <a href="../../scrum.html" class="action-button secondary shine-effect">
+                        <i class="fas fa-home button-icon"></i>
+                        Torna a SCRUM
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">MTO Evoluto</div>
+            <div class="footer-tagline">
+                Modello Make-to-Order Evoluto per Prodotti da Forno<br>
+                Produzione e Logistica 4.0 - Approfondimento Tecnico
+            </div>
+            <div class="transform-text">
+                Trasformazione profonda del business model attraverso integrazione digitale
+            </div>
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9rem; opacity: 0.7; color: rgba(255, 248, 220, 0.6);">
+                Documentazione Tecnica · Versione 2.0 · © 2024 MTO Evoluto
+            </div>
+        </div>
+    </footer>
+    
+    <!-- SCROLL INDICATOR -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot active" data-section="executive-summary"></div>
+        <div class="scroll-dot" data-section="modello-produttivo"></div>
+        <div class="scroll-dot" data-section="ai-magazzino"></div>
+        <div class="scroll-dot" data-section="lead-time"></div>
+        <div class="scroll-dot" data-section="automazione"></div>
+        <div class="scroll-dot" data-section="logistica"></div>
+        <div class="scroll-dot" data-section="contratti-gdo"></div>
+        <div class="scroll-dot" data-section="architettura-it"></div>
+        <div class="scroll-dot" data-section="strategia-operativa"></div>
+        <div class="scroll-dot" data-section="rischi"></div>
+        <div class="scroll-dot" data-section="conclusione"></div>
+    </div>
+    
+    <!-- Particles.js Script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Particles.js initialization
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: ["#D2691E", "#E68A2E", "#CD853F", "#F4A460"] },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.3, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#D2691E",
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "repulse" },
+                        onclick: { enable: true, mode: "push" }
+                    }
+                },
+                retina_detect: true
+            });
+            
+            // Floating Elements
+            function createFloatingElements() {
+                const container = document.getElementById('floatingElements');
+                const elementCount = 20;
+                
+                for (let i = 0; i < elementCount; i++) {
+                    const element = document.createElement('div');
+                    element.classList.add('floating-element');
+                    
+                    // Random size between 20 and 150px
+                    const size = Math.random() * 130 + 20;
+                    element.style.width = `${size}px`;
+                    element.style.height = `${size}px`;
+                    
+                    // Random position
+                    element.style.left = `${Math.random() * 100}%`;
+                    element.style.top = `${Math.random() * 100}%`;
+                    
+                    // Random color variation
+                    const colors = ['#D2691E', '#E68A2E', '#CD853F', '#F4A460'];
+                    const color1 = colors[Math.floor(Math.random() * colors.length)];
+                    const color2 = colors[Math.floor(Math.random() * colors.length)];
+                    element.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
+                    
+                    // Random opacity
+                    element.style.opacity = Math.random() * 0.08 + 0.02;
+                    
+                    // Animation
+                    const duration = Math.random() * 30 + 20;
+                    const delay = Math.random() * 10;
+                    element.style.animation = `floatElement ${duration}s ease-in-out infinite`;
+                    element.style.animationDelay = `${delay}s`;
+                    
+                    container.appendChild(element);
+                }
+            }
+            
+            // Autumn Leaves
+            function createAutumnLeaves() {
+                const container = document.querySelector('.autumn-leaves');
+                
+                for (let i = 0; i < 8; i++) {
+                    const leaf = document.createElement('div');
+                    leaf.classList.add('leaf');
+                    
+                    // Random position
+                    leaf.style.left = `${Math.random() * 100}%`;
+                    
+                    // Random size
+                    const size = Math.random() * 20 + 30;
+                    leaf.style.width = `${size}px`;
+                    leaf.style.height = `${size}px`;
+                    
+                    // Random color
+                    const colors = ['#D2691E', '#E68A2E', '#CD853F', '#F4A460', '#8B4513'];
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    leaf.style.background = color;
+                    
+                    // Random animation
+                    const duration = Math.random() * 20 + 15;
+                    const delay = Math.random() * 10;
+                    leaf.style.animation = `falling ${duration}s linear infinite`;
+                    leaf.style.animationDelay = `${delay}s`;
+                    
+                    container.appendChild(leaf);
+                }
+            }
+            
+            // Navigation and scroll functionality
+            const sidebarLinks = document.querySelectorAll('.sidebar-list a');
+            const scrollDots = document.querySelectorAll('.scroll-dot');
+            const sections = document.querySelectorAll('.content-section');
+            
+            // Aggiorna link attivi durante lo scroll
+            function updateActiveLink() {
+                let currentSection = '';
+                const scrollPosition = window.scrollY + 200;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                // Update sidebar links
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-section') === currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Update scroll dots
+                scrollDots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.getAttribute('data-section') === currentSection) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+            
+            // Smooth scroll per sidebar links
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('data-section');
+                    const section = document.getElementById(sectionId);
+                    
+                    if (section) {
+                        window.scrollTo({
+                            top: section.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        setTimeout(updateActiveLink, 100);
+                    }
+                });
+            });
+            
+            // Smooth scroll per scroll dots
+            scrollDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const sectionId = dot.getAttribute('data-section');
+                    const section = document.getElementById(sectionId);
+                    
+                    if (section) {
+                        window.scrollTo({
+                            top: section.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Scroll animations
+            function checkScroll() {
+                const fadeElements = document.querySelectorAll('.fade-in');
+                
+                // Fade in elements
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Initialize elements
+            createFloatingElements();
+            createAutumnLeaves();
+            
+            // Event listeners
+            window.addEventListener('scroll', () => {
+                updateActiveLink();
+                checkScroll();
+            });
+            
+            // Initial checks
+            updateActiveLink();
+            checkScroll();
+            
+            // Add hover effect to feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Add click effect to action buttons
+            const actionButtons = document.querySelectorAll('.action-button');
+            actionButtons.forEach(button => {
+                button.addEventListener('mousedown', () => {
+                    button.style.transform = 'translateY(-1px) scale(0.98)';
+                });
+                
+                button.addEventListener('mouseup', () => {
+                    button.style.transform = 'translateY(-8px) scale(1.03)';
+                });
+                
+                button.addEventListener('mouseleave', () => {
+                    button.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Animate intro on load
+            setTimeout(() => {
+                document.querySelector('.intro-section').classList.add('visible');
+            }, 300);
+        });
+    </script>
+</body>
+</html>

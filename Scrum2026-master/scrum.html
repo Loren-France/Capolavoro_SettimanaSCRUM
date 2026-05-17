@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto SCRUM – Intelligenza Artificiale in Azienda | Morato Pane Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Morato Pane Color Palette - Tonalità Autunnali */
+            --primary: #D2691E; /* Cioccolato/arancione scuro */
+            --primary-light: #E68A2E; /* Arancione dorato */
+            --primary-dark: #8B4513; /* Marrone scuro */
+            --secondary: #F4A460; /* Sabbia chiara */
+            --accent: #CD853F; /* Arancione peru */
+            --light: #FFF8DC; /* Bianco corno */
+            --dark: #2C1810; /* Marrone cioccolato fondente */
+            --gray: #A0522D; /* Marrone terra */
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+            --gradient-secondary: linear-gradient(135deg, var(--accent), var(--secondary));
+            --gradient-light: linear-gradient(135deg, var(--light), #FFE4B5);
+            --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
+            --shadow: 0 15px 40px rgba(210, 105, 30, 0.25);
+            --shadow-light: 0 10px 30px rgba(244, 164, 96, 0.2);
+            --shadow-heavy: 0 25px 60px rgba(139, 69, 19, 0.3);
+            --radius: 20px;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(244, 164, 96, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(210, 105, 30, 0.08) 0%, transparent 25%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* Header Styling */
+        header {
+            text-align: center;
+            padding: 70px 20px 50px;
+            max-width: 1000px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.1);
+            position: relative;
+            display: inline-block;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.1); }
+            100% { text-shadow: 3px 3px 15px rgba(210, 105, 30, 0.3), 0 0 20px rgba(244, 164, 96, 0.2); }
+        }
+        
+        header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+            animation: linePulse 2s infinite;
+        }
+        
+        @keyframes linePulse {
+            0%, 100% { width: 200px; }
+            50% { width: 240px; }
+        }
+        
+        header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-top: 25px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .divider {
+            width: 180px;
+            height: 6px;
+            background: var(--gradient);
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(139, 90, 43, 0.2);
+        }
+        
+        /* LAYOUT SIMETRICO PER 5 CARD */
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1400px;
+            width: 95%;
+            margin-bottom: 80px;
+            gap: 35px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* PRIMA RIGA: 3 CARD */
+        .row-top {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            width: 100%;
+        }
+        
+        /* SECONDA RIGA: 2 CARD CENTRATE */
+        .row-bottom {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            width: 100%;
+            max-width: 900px; /* Più stretto per bilanciare visivamente */
+        }
+        
+        .card {
+            width: 320px;
+            height: 260px;
+            border-radius: var(--radius);
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            color: var(--light);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 25px;
+            box-shadow: var(--shadow-heavy);
+            z-index: 1;
+            border: 1px solid rgba(210, 105, 30, 0.2);
+            background: var(--primary-dark);
+            transform-style: preserve-3d;
+        }
+        
+        .card:hover {
+            transform: translateY(-15px) rotateX(2deg) rotateY(2deg) scale(1.03);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+            z-index: -1;
+            opacity: 0.8;
+        }
+        
+        .card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(to top, rgba(0,0,0,0.15), transparent);
+            transition: height 0.5s ease;
+            z-index: -1;
+        }
+        
+        .card:hover::after {
+            height: 40%;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+            transition: var(--transition);
+        }
+        
+        .card:hover .card-icon {
+            transform: scale(1.15) translateY(-5px);
+        }
+        
+        .card-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-top: 12px;
+            opacity: 0.9;
+            max-width: 90%;
+            line-height: 1.5;
+            color: var(--light);
+        }
+        
+        /* COLORI DELLE CARD con palette Morato Pane */
+        .marketing { 
+            background: linear-gradient(145deg, var(--primary-dark), var(--primary), #D45D42);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+        }
+        
+        .hr { 
+            background: linear-gradient(145deg, var(--accent), var(--secondary), #E39E5F);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite 0.5s;
+        }
+        
+        .rnd { 
+            background: linear-gradient(145deg, #A0522D, var(--primary-dark), #B3543A);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite 1s;
+        }
+        
+        .production { 
+            background: linear-gradient(145deg, #8B4513, var(--primary-dark), #6B3410);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite 1.5s;
+        }
+        
+        .aftersales { 
+            background: linear-gradient(145deg, var(--light), var(--secondary), #FFE4B5);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite 2s;
+            color: var(--primary-dark);
+        }
+        
+        .aftersales .card-subtitle {
+            color: var(--primary-dark);
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Pattern decorativi */
+        .marketing::before { 
+            background-image: 
+                repeating-linear-gradient(45deg, 
+                    transparent, 
+                    transparent 10px, 
+                    rgba(255,255,255,0.08) 10px, 
+                    rgba(255,255,255,0.08) 20px
+                ); 
+        }
+        
+        .hr::before { 
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 2px, transparent 3px),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 2px, transparent 3px);
+            background-size: 40px 40px, 50px 50px;
+        }
+        
+        .rnd::before { 
+            background-image: 
+                linear-gradient(30deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+                linear-gradient(-30deg, rgba(255,255,255,0.05) 25%, transparent 25%);
+            background-size: 30px 30px;
+        }
+        
+        .production::before { 
+            background-image: 
+                repeating-linear-gradient(0deg, 
+                    rgba(255,255,255,0.05) 0px, 
+                    rgba(255,255,255,0.05) 1px, 
+                    transparent 1px, 
+                    transparent 20px
+                ),
+                repeating-linear-gradient(90deg, 
+                    rgba(255,255,255,0.05) 0px, 
+                    rgba(255,255,255,0.05) 1px, 
+                    transparent 1px, 
+                    transparent 20px
+                );
+            background-size: 20px 20px;
+        }
+        
+        .aftersales::before { 
+            background-image: 
+                radial-gradient(circle at 50% 50%, 
+                    rgba(255,255,255,0.15) 0, 
+                    rgba(255,255,255,0.15) 3px, 
+                    transparent 3px, 
+                    transparent 15px
+                );
+            background-size: 30px 30px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+            opacity: 0.9;
+            border-top: 1px solid rgba(139, 90, 43, 0.2);
+            max-width: 800px;
+            width: 100%;
+            margin-top: 20px;
+            background: rgba(255, 248, 220, 0.5);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 2;
+        }
+        
+        footer i.fa-heart {
+            color: var(--primary);
+            margin: 0 5px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient);
+            opacity: 0.08;
+            animation: floatElement 20s ease-in-out infinite;
+            filter: blur(1px);
+        }
+        
+        @keyframes floatElement {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            33% { transform: translateY(-30px) rotate(120deg) scale(1.1); }
+            66% { transform: translateY(20px) rotate(240deg) scale(0.9); }
+        }
+        
+        /* Glowing Effects */
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(210, 105, 30, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
+            animation: glowMove 10s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glowMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 30px); }
+        }
+        
+        /* RESPONSIVE - Adattamento a schermi più piccoli */
+        @media(max-width: 1200px) {
+            .row-top, .row-bottom {
+                gap: 25px;
+            }
+            .card {
+                width: 280px;
+                height: 240px;
+            }
+        }
+        
+        @media(max-width: 1000px) {
+            .row-top, .row-bottom {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .card {
+                width: 300px;
+                height: 240px;
+            }
+        }
+        
+        @media(max-width: 768px) {
+            header h1 { font-size: 2.8rem; }
+            header h2 { font-size: 1.1rem; }
+            
+            .row-top, .row-bottom {
+                gap: 20px;
+            }
+            
+            .card {
+                width: 320px;
+                height: 220px;
+                font-size: 1.4rem;
+            }
+            
+            .card-icon { 
+                font-size: 2.6rem;
+                margin-bottom: 15px;
+            }
+            
+            .card-subtitle {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media(max-width: 700px) {
+            .card-container {
+                gap: 25px;
+            }
+            
+            .row-top, .row-bottom {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+            
+            .card {
+                width: 90%;
+                max-width: 400px;
+                height: 200px;
+            }
+        }
+        
+        @media(max-width: 480px) {
+            header { padding: 50px 15px 40px; }
+            header h1 { font-size: 2.2rem; }
+            
+            .card {
+                height: 190px;
+                padding: 20px;
+            }
+            
+            .card-icon { 
+                font-size: 2.2rem;
+                margin-bottom: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <!-- Glowing Effects -->
+    <div class="glow" style="top: 20%; left: 10%;"></div>
+    <div class="glow" style="bottom: 30%; right: 15%; background: radial-gradient(circle, rgba(244, 164, 96, 0.1) 0%, transparent 70%); animation-delay: 2s;"></div>
+    <div class="glow" style="top: 60%; left: 70%; background: radial-gradient(circle, rgba(205, 133, 63, 0.1) 0%, transparent 70%); animation-delay: 4s; width: 200px; height: 200px;"></div>
+    
+    <header>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 30px;">
+            <img src="Logo_giusto.png" alt="TAFAB Logo" style="width: 200px; height: 200px; filter: drop-shadow(0 4px 12px rgba(210, 105, 30, 0.3)); animation: pulse 3s infinite;">
+            <div>
+                <div style="font-size: 2.2rem; font-weight: 900; background: linear-gradient(to right, var(--primary-dark), var(--primary), var(--primary-light)); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 2px;">TAFAB</div>
+                <div style="font-size: 0.95rem; color: var(--gray); font-weight: 600; letter-spacing: 1px;">Gruppo di Innovazione</div>
+            </div>
+        </div>
+        <h1>PROGETTO SCRUM</h1>
+        <h2>Trasformazione Aziendale attraverso l'Intelligenza Artificiale</h2>
+        <div class="divider"></div>
+    </header>
+    
+    <!-- LAYOUT SIMETRICO: 3 CARD SOPRA, 2 SOTTO CENTRATE -->
+    <div class="card-container">
+        <!-- PRIMA RIGA: 3 CARD -->
+        <div class="row-top">
+            <div class="card marketing" data-link="./CM/index—.html">
+                <i class="fas fa-chart-line card-icon"></i>
+                Commercial & Marketing
+                <div class="card-subtitle">Analisi predittiva, personalizzazione, automazione campagne</div>
+            </div>
+            <div class="card hr" data-link="./HR/approfondimento/approfondimento.html">
+                <i class="fas fa-users card-icon"></i>
+                Human Resources
+                <div class="card-subtitle">Recruiting intelligente, formazione adattiva, benessere dipendenti</div>
+            </div>
+            <div class="card rnd" data-link="./RS/Pagine con approfondimento/approfondimento1.html">
+                <i class="fas fa-flask card-icon"></i>
+                Research & Development
+                <div class="card-subtitle">Simulazioni, scoperta materiali, accelerazione innovazione</div>
+            </div>
+        </div>
+        
+        <!-- SECONDA RIGA: 2 CARD CENTRATE -->
+        <div class="row-bottom">
+            <div class="card production" data-link="./PL/Approfondimento.html">
+                <i class="fas fa-cogs card-icon"></i>
+                Production & Logistics
+                <div class="card-subtitle">Manutenzione predittiva, ottimizzazione supply chain, qualità AI-driven</div>
+            </div>
+            <div class="card aftersales" data-link="./PV/approfondimento.html">
+                <i class="fas fa-headset card-icon"></i>
+                After-Sales Assistance
+                <div class="card-subtitle">Chatbot avanzati, analisi feedback, supporto proattivo</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        © 2026 Progetto SCRUM – Intelligenza Artificiale applicata ai processi aziendali 
+        <br><i class="fas fa-heart"></i> Innovazione continua per un'azienda più efficiente e umana
+    </footer>
+    
+    
+    <script>
+        
+        
+        // Floating Elements
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const elementCount = 15;
+            
+            for (let i = 0; i < elementCount; i++) {
+                const element = document.createElement('div');
+                element.classList.add('floating-element');
+                
+                // Random size between 20 and 120px
+                const size = Math.random() * 100 + 20;
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                
+                // Random position
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.top = `${Math.random() * 100}%`;
+                
+                // Random color variation
+                const colors = ['#D2691E', '#E68A2E', '#CD853F', '#F4A460'];
+                const color1 = colors[Math.floor(Math.random() * colors.length)];
+                const color2 = colors[Math.floor(Math.random() * colors.length)];
+                element.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
+                
+                // Random opacity
+                element.style.opacity = Math.random() * 0.08 + 0.02;
+                
+                // Animation
+                const duration = Math.random() * 30 + 20;
+                const delay = Math.random() * 10;
+                element.style.animation = `floatElement ${duration}s ease-in-out infinite`;
+                element.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(element);
+            }
+        }
+        
+        // Card interactions
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                // Effetto click
+                card.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    window.location.href = card.dataset.link;
+                }, 200);
+            });
+            
+            // Effetto 3D al passaggio del mouse
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const angleY = (x - centerX) * 0.008;
+                const angleX = (centerY - y) * 0.008;
+                card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.03)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+        
+        // Effetto decorativo particelle (fallback se particles.js non carica)
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingElements();
+            
+            // Crea particelle decorative aggiuntive
+            const colors = ['#D2691E', '#E68A2E', '#CD853F', '#F4A460'];
+            
+            for(let i = 0; i < 10; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.width = Math.random() * 8 + 4 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                particle.style.opacity = Math.random() * 0.15 + 0.05;
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.zIndex = '-1';
+                particle.style.pointerEvents = 'none';
+                document.body.appendChild(particle);
+                
+                // Animazione
+                animateParticle(particle);
+            }
+            
+            function animateParticle(p) {
+                let x = parseFloat(p.style.left);
+                let y = parseFloat(p.style.top);
+                let xSpeed = (Math.random() - 0.5) * 0.2;
+                let ySpeed = (Math.random() - 0.5) * 0.2;
+                
+                function move() {
+                    x += xSpeed;
+                    y += ySpeed;
+                    
+                    if(x <= 0 || x >= 100) xSpeed *= -1;
+                    if(y <= 0 || y >= 100) ySpeed *= -1;
+                    
+                    p.style.left = x + 'vw';
+                    p.style.top = y + 'vh';
+                    
+                    requestAnimationFrame(move);
+                }
+                move();
+            }
+        });
+        
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const floatingElements = document.querySelectorAll('.floating-element');
+            
+            floatingElements.forEach(element => {
+                const speed = element.style.width.replace('px', '') / 500;
+                element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * speed}deg) scale(${1 + scrolled * speed / 1000})`;
+            });
+        });
+    </script>
+</body>
+</html>

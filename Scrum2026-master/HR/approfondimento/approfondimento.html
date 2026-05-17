@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morato Pane - Vision & Organizzazione</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Morato Pane Color Palette - Tonalità Autunnali */
+            --primary: #D2691E; /* Cioccolato/arancione scuro */
+            --primary-light: #E68A2E; /* Arancione dorato */
+            --primary-dark: #8B4513; /* Marrone scuro */
+            --secondary: #F4A460; /* Sabbia chiara */
+            --accent: #CD853F; /* Arancione peru */
+            --light: #FFF8DC; /* Bianco corno */
+            --dark: #2C1810; /* Marrone cioccolato fondente */
+            --gray: #A0522D; /* Marrone terra */
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+            --gradient-secondary: linear-gradient(135deg, var(--accent), var(--secondary));
+            --gradient-light: linear-gradient(135deg, var(--light), #FFE4B5);
+            --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
+            --shadow: 0 15px 40px rgba(210, 105, 30, 0.25);
+            --shadow-light: 0 10px 30px rgba(244, 164, 96, 0.2);
+            --shadow-heavy: 0 25px 60px rgba(139, 69, 19, 0.3);
+            --radius: 20px;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(244, 164, 96, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(210, 105, 30, 0.08) 0%, transparent 25%);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styling */
+        header {
+            padding: 25px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(255, 248, 220, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(210, 105, 30, 0.1);
+            transition: var(--transition);
+        }
+        
+        .header-scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-light);
+            background-color: rgba(255, 248, 220, 0.98);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.8s ease;
+        }
+        
+        .logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .logo i {
+            margin-right: 12px;
+            font-size: 36px;
+            filter: drop-shadow(0 3px 5px rgba(210, 105, 30, 0.3));
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 200px 0 150px;
+            position: relative;
+            overflow: hidden;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(210, 105, 30, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 80%, rgba(244, 164, 96, 0.1) 0%, transparent 40%);
+        }
+        
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.1);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.1); }
+            100% { text-shadow: 3px 3px 15px rgba(210, 105, 30, 0.3), 0 0 20px rgba(244, 164, 96, 0.2); }
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 45px;
+            max-width: 700px;
+            font-weight: 400;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 45px;
+            background: var(--gradient);
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: var(--shadow); }
+            50% { box-shadow: 0 0 30px rgba(210, 105, 30, 0.4), var(--shadow); }
+            100% { box-shadow: var(--shadow); }
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(210, 105, 30, 0.3);
+            color: var(--light);
+            animation: none;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+        
+        .cta-button i {
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Animated Background Elements */
+        .autumn-leaves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .leaf {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+            opacity: 0.4;
+            animation: falling 15s linear infinite;
+            filter: drop-shadow(0 5px 10px rgba(139, 69, 19, 0.2));
+        }
+        
+        .leaf:nth-child(1) {
+            top: -50px;
+            left: 10%;
+            animation-delay: 0s;
+            background: var(--primary);
+            width: 35px;
+            height: 35px;
+            animation-duration: 18s;
+        }
+        
+        .leaf:nth-child(2) {
+            top: -50px;
+            left: 30%;
+            animation-delay: 2s;
+            background: var(--primary-light);
+            width: 45px;
+            height: 45px;
+            animation-duration: 22s;
+        }
+        
+        .leaf:nth-child(3) {
+            top: -50px;
+            left: 50%;
+            animation-delay: 4s;
+            background: var(--accent);
+            width: 30px;
+            height: 30px;
+            animation-duration: 16s;
+        }
+        
+        .leaf:nth-child(4) {
+            top: -50px;
+            left: 70%;
+            animation-delay: 6s;
+            background: var(--primary-dark);
+            width: 40px;
+            height: 40px;
+            animation-duration: 20s;
+        }
+        
+        .leaf:nth-child(5) {
+            top: -50px;
+            left: 90%;
+            animation-delay: 8s;
+            background: var(--secondary);
+            width: 35px;
+            height: 35px;
+            animation-duration: 24s;
+        }
+        
+        @keyframes falling {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 120px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 25px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 5px;
+            background: var(--gradient);
+            border-radius: 5px;
+            animation: linePulse 2s infinite;
+        }
+        
+        @keyframes linePulse {
+            0%, 100% { width: 150px; }
+            50% { width: 180px; }
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 25px auto 0;
+        }
+        
+        /* Content Cards */
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            align-items: stretch;
+        }
+        
+        .card {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 45px 35px;
+            box-shadow: var(--shadow-heavy);
+            border: 1px solid rgba(210, 105, 30, 0.1);
+            transition: var(--transition);
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .card:hover {
+            transform: translateY(-15px) rotateY(5deg);
+            box-shadow: var(--shadow-heavy);
+            border-color: rgba(210, 105, 30, 0.3);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: var(--gradient);
+        }
+        
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: var(--gradient);
+            filter: blur(60px);
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card p {
+            color: var(--gray);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        .card li:hover {
+            transform: translateX(10px);
+            color: var(--primary);
+        }
+        
+        .card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .card li:hover::before {
+            transform: scale(1.5);
+            color: var(--primary-light);
+        }
+        
+        /* Vision Card Special */
+        .vision-card {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 60px;
+            box-shadow: var(--shadow-heavy);
+            border: 1px solid rgba(210, 105, 30, 0.15);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 80px;
+            transition: var(--transition);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .vision-card:hover {
+            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: var(--gradient);
+        }
+        
+        .vision-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: var(--gradient);
+            filter: blur(60px);
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .vision-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+            color: var(--light);
+            box-shadow: 0 10px 30px rgba(210, 105, 30, 0.3);
+            transition: var(--transition);
+        }
+        
+        .vision-card:hover .vision-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+        
+        .vision-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .vision-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark), #3C2415);
+            color: var(--light);
+            padding: 100px 0 50px;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--gradient);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 60px;
+            margin-bottom: 70px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
+            animation: linePulse 2s infinite;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 248, 220, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 10px;
+        }
+        
+        .footer-links a i {
+            font-size: 0.9rem;
+        }
+        
+        .footer-brand {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, var(--secondary), #FFDAB9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .footer-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .footer-button {
+            color: #fdf8f2;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .footer-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            color: var(--secondary);
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Particles Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gradient);
+            opacity: 0.08;
+            animation: floatElement 20s ease-in-out infinite;
+            filter: blur(1px);
+        }
+        
+        @keyframes floatElement {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            33% { transform: translateY(-30px) rotate(120deg) scale(1.1); }
+            66% { transform: translateY(20px) rotate(240deg) scale(0.9); }
+        }
+        
+        /* Glowing Effects */
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(210, 105, 30, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
+            animation: glowMove 10s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glowMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 30px); }
+        }
+        
+        /* Hover Shine Effect */
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+        
+        .shine-effect:hover::after {
+            opacity: 1;
+            left: 150%;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 160px 0 100px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .vision-card, .card {
+                padding: 40px 25px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 50px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-bread-slice"></i>
+                    Morato Pane
+                </div>
+                <nav class="nav-links">
+                    <a href="#vision">Vision & Mission</a>
+                    <a href="#obiettivi">Obiettivi</a>
+                    <a href="#organigramma">Organigramma</a>
+                    <a href="#lavoratori">Lavoratori</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="autumn-leaves">
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+            <div class="leaf"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Morato Pane</h1>
+                <p>Innovazione, qualità e sostenibilità nel mondo del pane. Il pane italiano viene portato sulle tavole di tutto il mondo, combinando tradizione e innovazione per soddisfare ogni esigenza alimentare.</p>
+                <a href="#vision" class="cta-button shine-effect">Scopri di più <i class="fas fa-arrow-down"></i></a>
+            </div>
+        </div>
+        
+        <!-- Glowing Effects -->
+        <div class="glow" style="top: 20%; left: 10%;"></div>
+        <div class="glow" style="bottom: 30%; right: 15%; background: radial-gradient(circle, rgba(244, 164, 96, 0.1) 0%, transparent 70%); animation-delay: 2s;"></div>
+        <div class="glow" style="top: 60%; left: 70%; background: radial-gradient(circle, rgba(205, 133, 63, 0.1) 0%, transparent 70%); animation-delay: 4s; width: 200px; height: 200px;"></div>
+    </section>
+    
+    <!-- Vision Section -->
+    <section class="section" id="vision">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Vision & Mission</h2>
+                <p>La nostra filosofia aziendale che unisce tradizione e innovazione</p>
+            </div>
+            
+            <div class="vision-card fade-in shine-effect">
+                <div class="vision-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Visione</h3>
+                <p>Morato Pane punta a diventare un riferimento globale per prodotti da forno morbidi e innovativi, con particolare attenzione ai segmenti gluten-free e free-from, garantendo sempre alta qualità.</p>
+                
+                <div class="vision-icon" style="margin-top: 40px;">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Missione</h3>
+                <p>Morato Pane produce pane e prodotti da forno unendo tradizione artigianale e innovazione, rispettando standard elevati di qualità, sicurezza e sostenibilità. L'azienda crea valore per clienti, distributori e stakeholder attraverso affidabilità e coerenza produttiva.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Obiettivi Section -->
+    <section class="section" id="obiettivi" style="background: radial-gradient(circle at 10% 20%, rgba(244, 164, 96, 0.05) 0%, transparent 30%), radial-gradient(circle at 90% 80%, rgba(210, 105, 30, 0.05) 0%, transparent 30%);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Obiettivi di Area</h2>
+                <p>I nostri traguardi strategici per una crescita sostenibile</p>
+            </div>
+            
+            <div class="content">
+                <div class="card fade-in shine-effect">
+                    <h3>Sostenibilità & Qualità</h3>
+                    <p>L'impatto ambientale e sociale della produzione viene monitorato costantemente. Vengono rispettati standard rigorosi di qualità e sicurezza alimentare, supportati da certificazioni riconosciute.</p>
+                </div>
+                
+                <div class="card fade-in shine-effect">
+                    <h3>Innovazione & Diversificazione</h3>
+                    <p>Morato Pane sperimenta nuovi formati e tipologie di pane, inclusi prodotti gluten-free, per rispondere alle esigenze dei consumatori moderni.</p>
+                </div>
+                
+                <div class="card fade-in shine-effect">
+                    <h3>Crescita Internazionale</h3>
+                    <p>L'espansione nei mercati esteri avviene tramite esportazioni e filiali dirette, con l'obiettivo di raggiungere il 50% dei ricavi al di fuori dell'Italia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Organigramma Section -->
+    <section class="section" id="organigramma">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Organigramma</h2>
+                <p>La struttura organizzativa che guida la nostra azienda</p>
+            </div>
+            
+            <div class="content">
+                <div class="card fade-in shine-effect">
+                    <h3>CEO / Amministratore Delegato</h3>
+                    <p>Guida la strategia globale di crescita, internazionalizzazione e sostenibilità.</p>
+                </div>
+                
+                <div class="card fade-in shine-effect">
+                    <h3>Organismo di Vigilanza</h3>
+                    <p>Verifica l'efficacia del modello organizzativo e previene rischi legali.</p>
+                </div>
+                
+                <div class="card fade-in shine-effect">
+                    <h3>Assemblea dei Soci</h3>
+                    <p>Definisce linee strategiche e approva bilanci e piani aziendali.</p>
+                </div>
+                
+                <div class="card fade-in shine-effect">
+                    <h3>Comitato Guida</h3>
+                    <p>Gestisce sostenibilità e canali di whistleblowing.</p>
+                </div>
+                
+                <div class="card fade-in shine-effect">
+                    <h3>Management Internazionale</h3>
+                    <p>Promuove talenti interni a ruoli di gestione nelle filiali estere.</p>
+                </div>
+                
+                <div class="card fade-in shine-effect">
+                    <h3>Divisioni Operative</h3>
+                    <ul>
+                        <li>Bakery Salato</li>
+                        <li>Gluten Free / NT Food / Massimo Zero</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lavoratori Section -->
+    <section class="section" id="lavoratori" style="background: radial-gradient(circle at 10% 20%, rgba(244, 164, 96, 0.05) 0%, transparent 30%), radial-gradient(circle at 90% 80%, rgba(210, 105, 30, 0.05) 0%, transparent 30%);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Lavoratori</h2>
+                <p>Il nostro team e l'ambiente di lavoro</p>
+            </div>
+            
+            <div class="content">
+                <div class="card fade-in shine-effect">
+                    <h3>Ambiente di Lavoro</h3>
+                    <p>Morato Pane offre un ambiente coordinato, con obiettivi chiari che favoriscono produttività e motivazione.</p>
+                </div>
+                
+                <div class="card fade-in shine-effect">
+                    <h3>Specializzazione Tecnica</h3>
+                    <p>L'automazione rende i manutentori fondamentali per garantire efficienza e continuità produttiva.</p>
+                </div>
+                
+                <div class="card fade-in shine-effect">
+                    <h3>Retribuzione Manutentori</h3>
+                    <ul>
+                        <li>Junior: €1.680 – €2.000</li>
+                        <li>Senior/Esperti: €2.800 – €3.000</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-brand">
+                        <i class="fas fa-bread-slice"></i> Morato Pane
+                    </div>
+                    <p style="color: rgba(255, 248, 220, 0.8); margin-bottom: 25px; max-width: 350px;">
+                        Innovazione, qualità e sostenibilità nel mondo del pane. Tradizione e innovazione per soddisfare ogni esigenza alimentare.
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Esplora</h4>
+                    <ul class="footer-links">
+                        <li><a href="#vision"><i class="fas fa-chevron-right"></i> Vision & Mission</a></li>
+                        <li><a href="#obiettivi"><i class="fas fa-chevron-right"></i> Obiettivi</a></li>
+                        <li><a href="#organigramma"><i class="fas fa-chevron-right"></i> Organigramma</a></li>
+                        <li><a href="#lavoratori"><i class="fas fa-chevron-right"></i> Lavoratori</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-buttons">
+                <a href="../../scrum.html" class="footer-button"><i class="fas fa-home"></i> Torna alla Home (Scrum)</a>
+                <a href="http://localhost:8000" class="footer-button"><i class="fas fa-clipboard-list"></i> Vai a HR Assistente</a>
+                <a href="./AI.html" class="footer-button"><i class="fas fa-robot"></i> Guida AI HR</a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Morato Pane S.p.A. | Tutti i diritti riservati</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles.js initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: ["#D2691E", "#E68A2E", "#CD853F", "#F4A460"] },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.3, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#D2691E",
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "repulse" },
+                        onclick: { enable: true, mode: "push" }
+                    }
+                },
+                retina_detect: true
+            });
+        });
+        
+        // Floating Elements
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const elementCount = 20;
+            
+            for (let i = 0; i < elementCount; i++) {
+                const element = document.createElement('div');
+                element.classList.add('floating-element');
+                
+                // Random size between 20 and 150px
+                const size = Math.random() * 130 + 20;
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                
+                // Random position
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.top = `${Math.random() * 100}%`;
+                
+                // Random color variation
+                const colors = ['#D2691E', '#E68A2E', '#CD853F', '#F4A460'];
+                const color1 = colors[Math.floor(Math.random() * colors.length)];
+                const color2 = colors[Math.floor(Math.random() * colors.length)];
+                element.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
+                
+                // Random opacity
+                element.style.opacity = Math.random() * 0.08 + 0.02;
+                
+                // Animation
+                const duration = Math.random() * 30 + 20;
+                const delay = Math.random() * 10;
+                element.style.animation = `floatElement ${duration}s ease-in-out infinite`;
+                element.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(element);
+            }
+        }
+        
+        // Scroll animations
+        function checkScroll() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const header = document.getElementById('header');
+            
+            // Header scroll effect
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+            
+            // Fade in elements
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingElements();
+            checkScroll();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', checkScroll);
+            
+            // Animate hero on load
+            setTimeout(() => {
+                document.querySelector('.hero-content').classList.add('visible');
+            }, 300);
+            
+            // Add typing effect to hero title
+            const heroTitle = document.querySelector('.hero h1');
+            const originalText = heroTitle.textContent;
+            heroTitle.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    heroTitle.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            setTimeout(typeWriter, 500);
+        });
+        
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const floatingElements = document.querySelectorAll('.floating-element');
+            
+            floatingElements.forEach(element => {
+                const speed = element.style.width.replace('px', '') / 500;
+                element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * speed}deg) scale(${1 + scrolled * speed / 1000})`;
+            });
+        });
+    </script>
+</body>
+</html>

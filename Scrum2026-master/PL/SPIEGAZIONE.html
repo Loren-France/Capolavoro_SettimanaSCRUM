@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍞 Panificio Analytics - Documentazione Completa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* TEMA AUTUNNALE DI MORATO PANE - Integrato dall'index--.html */
+        :root {
+            /* Morato Pane Color Palette - Tonalità Autunnali */
+            --primary: #D2691E; /* Cioccolato/arancione scuro */
+            --primary-light: #E68A2E; /* Arancione dorato */
+            --primary-dark: #8B4513; /* Marrone scuro */
+            --secondary: #F4A460; /* Sabbia chiara */
+            --accent: #CD853F; /* Arancione peru */
+            --light: #FFF8DC; /* Bianco corno */
+            --dark: #2C1810; /* Marrone cioccolato fondente */
+            --gray: #A0522D; /* Marrone terra */
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+            --gradient-secondary: linear-gradient(135deg, var(--accent), var(--secondary));
+            --gradient-light: linear-gradient(135deg, var(--light), #FFE4B5);
+            --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
+            --shadow: 0 15px 40px rgba(210, 105, 30, 0.25);
+            --shadow-light: 0 10px 30px rgba(244, 164, 96, 0.2);
+            --shadow-heavy: 0 25px 60px rgba(139, 69, 19, 0.3);
+            --radius: 20px;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* RESET E BASE con stile autunnale */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(244, 164, 96, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(210, 105, 30, 0.08) 0%, transparent 25%);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* EFFETTO FOGLIE AUTUNNALI ANIMATE */
+        .autumn-leaves {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .leaf {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+            opacity: 0.4;
+            animation: falling 15s linear infinite;
+            filter: drop-shadow(0 5px 10px rgba(139, 69, 19, 0.2));
+        }
+
+        @keyframes falling {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* HEADER HERO CON STILE AUTUNNALE */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 60px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(210, 105, 30, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 80%, rgba(244, 164, 96, 0.1) 0%, transparent 40%);
+        }
+
+        .logo-container {
+            position: relative;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                inset 0 -10px 20px rgba(138, 74, 20, 0.4),
+                inset 0 10px 20px rgba(209, 138, 64, 0.3);
+            animation: pulse 3s infinite alternate;
+        }
+
+        .logo i {
+            font-size: 48px;
+            color: var(--light);
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideInDown 1s ease-out;
+            background: white;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            animation: slideInUp 1s 0.3s ease-out both;
+        }
+
+        /* MAIN CONTAINER */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* SECTIONS con stile autunnale */
+        .section {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow-heavy);
+            border: 1px solid rgba(210, 105, 30, 0.15);
+            transform: translateY(0);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 70px rgba(139, 69, 19, 0.3);
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: var(--gradient);
+        }
+
+        /* SECTION HEADERS */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(181, 101, 29, 0.1);
+        }
+
+        .section-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 28px;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(210, 105, 30, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .section-title {
+            color: var(--primary-dark);
+            font-size: 2.2rem;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        /* FEATURE ITEMS */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius);
+            padding: 25px;
+            border-left: 5px solid var(--accent);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            background: var(--light);
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgba(210, 105, 30, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-title {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* BADGES */
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            background: var(--gradient);
+            color: var(--light);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(181, 101, 29, 0.2);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* TECHNOLOGY TABLE */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .tech-table th {
+            background: var(--gradient);
+            color: var(--light);
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .tech-table td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(210, 105, 30, 0.1);
+            transition: var(--transition);
+        }
+
+        .tech-table tr:hover td {
+            background: rgba(210, 105, 30, 0.05);
+            transform: scale(1.01);
+        }
+
+        .tech-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* BENEFITS SECTION */
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, rgba(244, 164, 96, 0.1), rgba(210, 105, 30, 0.05));
+            border-radius: var(--radius);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(210, 105, 30, 0.1);
+            box-shadow: var(--shadow-light);
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .benefit-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* CTA BUTTON - Stile autunnale */
+        .cta-container {
+            text-align: center;
+            margin: 80px 0;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 45px;
+            background: var(--gradient);
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(210, 105, 30, 0.3);
+            color: var(--light);
+            animation: none;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        /* WORKFLOW VISUAL - MIGLIORATO */
+        .workflow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .workflow-step {
+            background: var(--light);
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-heavy);
+            position: relative;
+            z-index: 2;
+            border: 3px solid var(--accent);
+            transition: var(--transition);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .workflow-step:hover {
+            transform: scale(1.15) translateY(-15px);
+            box-shadow: 0 25px 50px rgba(210, 105, 30, 0.25);
+            border-color: var(--primary);
+        }
+
+        .workflow-step-icon {
+            font-size: 42px;
+            margin-bottom: 8px;
+            color: var(--primary);
+            display: block;
+            transition: var(--transition);
+        }
+
+        .workflow-step:hover .workflow-step-icon {
+            transform: scale(1.3) rotate(-10deg);
+        }
+
+        .workflow-step-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* FOOTER con stile autunnale */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark), #3C2415);
+            color: var(--light);
+            padding: 100px 0 50px;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--gradient);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .copyright {
+            opacity: 0.8;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* SIDEBAR FISSA con stile autunnale */
+        .sidebar-nav {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 280px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 4px 0 15px rgba(139, 69, 19, 0.3);
+            animation: sidebarSlideIn 0.5s ease-out;
+        }
+
+        @keyframes sidebarSlideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        .sidebar-header {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 2px solid rgba(255, 248, 220, 0.1);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .sidebar-header-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-header-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255, 248, 220, 0.8);
+        }
+
+        .sidebar-list {
+            list-style: none;
+            padding: 0 1rem;
+        }
+
+        .sidebar-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar-list a {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.9rem 1rem;
+            color: rgba(255, 248, 220, 0.8);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-list a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--secondary);
+            padding-left: 1.3rem;
+            border-left-color: var(--secondary);
+        }
+
+        .sidebar-list a.active {
+            background-color: rgba(244, 164, 96, 0.2);
+            color: var(--secondary);
+            border-left-color: var(--secondary);
+            padding-left: 1.3rem;
+        }
+
+        /* FADE IN ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* GLOWING EFFECTS */
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(210, 105, 30, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
+            animation: glowMove 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 30px); }
+        }
+
+        /* SHINE EFFECT */
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .shine-effect:hover::after {
+            opacity: 1;
+            left: 150%;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1200px) {
+            .workflow {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .workflow-step {
+                width: 140px;
+                height: 140px;
+                font-size: 0.9rem;
+            }
+
+            .workflow-step-icon {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 30px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-nav {
+                position: relative;
+                width: 100%;
+                height: auto;
+                margin: 0;
+                border-radius: 0;
+                padding: 1.5rem 0;
+            }
+
+            body { margin-left: 0; }
+
+            .cta-button {
+                padding: 20px 30px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- FOGLIE AUTUNNALI ANIMATE -->
+    <div class="autumn-leaves">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+    </div>
+
+    <!-- GLOWING EFFECTS -->
+    <div class="glow" style="top: 20%; left: 10%;"></div>
+    <div class="glow" style="bottom: 30%; right: 15%; background: radial-gradient(circle, rgba(244, 164, 96, 0.1) 0%, transparent 70%); animation-delay: 2s;"></div>
+
+    <!-- SIDEBAR FISSA CON INDICI -->
+    <aside class="sidebar-nav">
+        <div class="sidebar-header">
+            <div class="sidebar-header-title">📋 Indice</div>
+            <div class="sidebar-header-subtitle">Navigazione Rapida</div>
+        </div>
+        <ul class="sidebar-list">
+            <li><a href="#struttura" data-section="struttura"><i class="fas fa-folder-tree"></i> <span>Struttura</span></a></li>
+            <li><a href="#cosa-fa" data-section="cosa-fa"><i class="fas fa-bullseye"></i> <span>Cosa Fa</span></a></li>
+            <li><a href="#architettura" data-section="architettura"><i class="fas fa-layer-group"></i> <span>Architettura</span></a></li>
+            <li><a href="#come-funziona" data-section="come-funziona"><i class="fas fa-cogs"></i> <span>Come Funziona</span></a></li>
+            <li><a href="#workflow" data-section="workflow"><i class="fas fa-sync-alt"></i> <span>Workflow</span></a></li>
+            <li><a href="#tecnologie" data-section="tecnologie"><i class="fas fa-tools"></i> <span>Tecnologie</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="main-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+            <h1>Panificio Analytics Dashboard</h1>
+            <p class="hero-subtitle">
+                Sistema professionale di analisi, gestione e ottimizzazione per panifici artigianali
+            </p>
+            <div class="badge">v1.0.0</div>
+            <div class="badge">Python + Streamlit</div>
+
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-container">
+        <!-- STRUTTURA DEL PROGETTO -->
+        <section class="section fade-in shine-effect" id="struttura" style="animation-delay: 0.1s;">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-folder-tree"></i>
+                </div>
+                <h2 class="section-title">📁 STRUTTURA DEL PROGETTO</h2>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(244, 164, 96, 0.1), rgba(210, 105, 30, 0.05)); border-radius: var(--radius); padding: 25px; margin: 30px 0; border-left: 5px solid var(--primary);">
+                <h3 style="color: var(--primary-dark); margin-bottom: 15px;">🎯 Percorso corretto:</h3>
+                <p>Il file <strong>app.py</strong> (l'applicazione Streamlit) si trova dentro la cartella <strong>PROGETTOAI</strong></p>
+                
+                <div style="background: var(--light); border-radius: 10px; padding: 20px; margin: 20px 0; font-family: 'Courier New', monospace; border: 1px solid rgba(210, 105, 30, 0.2);">
+                    <div style="color: var(--primary); font-weight: bold;">📁 PROGETTO_ANALISI/</div>
+                    <div style="color: var(--gray); margin-left: 20px;">├── 📄 documentazione.html <span style="color: var(--primary);">(questo file)</span></div>
+                    <div style="color: var(--primary); margin-left: 20px;">├── 📁 PROGETTOAI/ <span style="color: var(--primary-light);">(cartella principale)</span></div>
+                    <div style="color: var(--gray); margin-left: 40px;">│   ├── 📄 app.py <span style="color: var(--primary);">⭐ APP PRINCIPALE</span></div>
+                    <div style="color: var(--gray); margin-left: 40px;">│   ├── 📄 avvia_app.html <span style="color: var(--accent);">(controller di avvio)</span></div>
+                    <div style="color: var(--gray); margin-left: 40px;">│   └── 📄 main_ai.py <span style="color: var(--text-light);">(moduli AI)</span></div>
+                    <div style="color: var(--gray); margin-left: 20px;">└── 📄 README.md <span style="color: var(--text-light);">(documentazione)</span></div>
+                </div>
+
+                <p style="margin-top: 20px; color: var(--primary); font-weight: bold;">
+                    ✅ Il bottone qui sotto punta correttamente a: <code style="background: rgba(210, 105, 30, 0.1); padding: 5px 10px; border-radius: 5px;">PROGETTOAI/avvia_app.html</code>
+                </p>
+            </div>
+        </section>
+
+        <!-- COSA FA -->
+        <section class="section fade-in shine-effect" id="cosa-fa" style="animation-delay: 0.2s;">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h2 class="section-title">🎯 COSA FA QUEST'APPLICAZIONE</h2>
+            </div>
+            <p style="font-size: 1.2rem; color: var(--gray); margin-bottom: 30px;">
+                Questa è un'applicazione professionale di analisi e gestione per un panificio artigianale. 
+                Il sistema permette di ottimizzare ogni aspetto della produzione con dati in tempo reale e analisi avanzate.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-item shine-effect">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="feature-title">📊 ANALISI COSTI DETTAGLIATA</h3>
+                    <ul style="list-style: none; margin-top: 15px;">
+                        <li>✅ Calcola costo esatto per ogni pane (€/kg)</li>
+                        <li>✅ Analizza ingredienti vs produzione</li>
+                        <li>✅ Confronta prodotti per ottimizzazione</li>
+                    </ul>
+                </div>
+
+                <div class="feature-item shine-effect">
+                    <div class="feature-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3 class="feature-title">📦 GESTIONE MAGAZZINO</h3>
+                    <ul style="list-style: none; margin-top: 15px;">
+                        <li>✅ Scorte ingredienti in tempo reale</li>
+                        <li>✅ Avvisi automatici scorte basse</li>
+                        <li>✅ Gestione rifornimenti e log</li>
+                    </ul>
+                </div>
+
+                <div class="feature-item shine-effect">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="feature-title">📋 PIANIFICAZIONE PRODUZIONE</h3>
+                    <ul style="list-style: none; margin-top: 15px;">
+                        <li>✅ Piani basati su ordini reali</li>
+                        <li>✅ Ottimizza profitto vs soddisfazione</li>
+                        <li>✅ Simula scenari prima di produrre</li>
+                    </ul>
+                </div>
+                    <div class="feature-item shine-effect">
+                        <div class="feature-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                    <h3 class="feature-title">🔮 PREVISIONI DI MERCATO</h3>
+                    <ul style="list-style: none; margin-top: 15px;">
+                        <li>✅ Analizza 645k+ record storici</li>
+                        <li>✅ Prevede domanda futura</li>
+                        <li>✅ Identifica prodotti top</li>
+                    </ul>
+                    </div>
+
+                <div class="feature-item shine-effect">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="feature-title">📈 REPORT AVANZATI</h3>
+                    <ul style="list-style: none; margin-top: 15px;">
+                        <li>✅ Report completi multi-formato</li>
+                        <li>✅ Suggerimenti automatici</li>
+                        <li>✅ Esporta dati per analisi esterne</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECNOLOGIE -->
+        <section class="section fade-in shine-effect" id="tecnologie" style="animation-delay: 0.7s;">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h2 class="section-title">🛠️ TECNOLOGIE UTILIZZATE</h2>
+            </div>
+
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Tecnologia</th>
+                        <th>Scopo</th>
+                        <th>Versione</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Python 3.x</strong></td>
+                        <td>Linguaggio principale</td>
+                        <td>3.8+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Streamlit</strong></td>
+                        <td>Dashboard Web</td>
+                        <td>1.28+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pandas</strong></td>
+                        <td>Manipolazione dati</td>
+                        <td>2.0+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Plotly</strong></td>
+                        <td>Visualizzazioni</td>
+                        <td>5.17+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NumPy</strong></td>
+                        <td>Calcoli numerici</td>
+                        <td>1.24+</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- CTA FINALE -->
+        <div class="cta-container">
+            <h2 style="color: var(--primary-dark); margin-bottom: 30px; font-size: 2.5rem;">
+                Pronto a <span style="background: linear-gradient(120deg, var(--accent) 0%, var(--accent) 100%); background-repeat: no-repeat; background-size: 100% 0.3em; background-position: 0 88%; transition: background-size 0.25s ease-in; padding: 0.1em 0;">rivoluzionare</span> il tuo panificio?
+            </h2>
+            <a href="http://localhost:8502" class="cta-button shine-effect" id="startButton">
+                <i class="fas fa-rocket"></i>
+                🚀 AVVIA L'APPLICAZIONE STREAMLIT
+            </a>
+            <p style="margin-top: 20px; color: var(--gray);">
+                Clicca per aprire il controller di avvio dell'applicazione Streamlit<br>
+                <small style="color: var(--accent);">📍 Percorso: PROGETTOAI/avvia_app.html → PROGETTOAI/app.py</small>
+            </p>
+            
+            <a href="../scrum.html" class="cta-button shine-effect" style="background: var(--gradient-secondary); margin-top: 20px;" id="backButton">
+                <i class="fas fa-home"></i>
+                🏠 TORNA A PROGETTO SCRUM
+            </a>
+            <p style="margin-top: 20px; color: var(--gray);">
+                Torna alla pagina principale del progetto<br>
+                <small style="color: var(--accent);">📍 Ritorna a: scrum.html</small>
+            </p>
+            
+            <div style="margin-top: 40px; background: linear-gradient(135deg, rgba(244, 164, 96, 0.1), rgba(210, 105, 30, 0.05)); padding: 20px; border-radius: 15px; border-left: 5px solid var(--primary);">
+                <h3 style="color: var(--primary-dark); margin-bottom: 10px;">📋 Istruzioni rapide:</h3>
+                <ol style="text-align: left; max-width: 600px; margin: 0 auto;">
+                    <li>Clicca il bottone sopra</li>
+                    <li>Si aprirà il controller di avvio</li>
+                    <li>Clicca "COPIA COMANDO" nel controller</li>
+                    <li>Incolla nel terminale: <code style="background: rgba(210, 105, 30, 0.1); padding: 5px 10px; border-radius: 5px;">streamlit run PROGETTOAI/app.py</code></li>
+                    <li>L'app si aprirà automaticamente nel browser!</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-bread-slice"></i>
+            </div>
+            <h3 style="color: var(--secondary); margin-bottom: 20px;">Panificio Analytics Dashboard</h3>
+            <p style="max-width: 600px; margin: 0 auto 30px; opacity: 0.9;">
+                Sistema professionale di analisi e gestione per panifici artigianali<br>
+                <strong style="color: var(--secondary);">📍 app.py si trova in: PROGETTOAI/</strong>
+            </p>
+            <div class="copyright">
+                © 2026 Panificio Analytics Dashboard | Sviluppato con ❤️ per l'artigianato italiano
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ANIMAZIONE SEZIONI AL SCROLL
+        function animateOnScroll() {
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+        }
+
+        // CREA FOGLIE AUTUNNALI
+        function createAutumnLeaves() {
+            const leaves = document.querySelector('.autumn-leaves');
+            for (let i = 0; i < 5; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = 'leaf';
+                
+                // Posizione casuale
+                leaf.style.left = `${Math.random() * 100}%`;
+                leaf.style.top = `${-50 - Math.random() * 50}px`;
+                
+                // Dimensione casuale
+                const size = 30 + Math.random() * 20;
+                leaf.style.width = `${size}px`;
+                leaf.style.height = `${size}px`;
+                
+                // Colore casuale
+                const colors = ['#D2691E', '#E68A2E', '#CD853F', '#F4A460', '#8B4513'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                leaf.style.background = randomColor;
+                
+                // Animazione personalizzata
+                const duration = 15 + Math.random() * 10;
+                const delay = Math.random() * 5;
+                leaf.style.animationDuration = `${duration}s`;
+                leaf.style.animationDelay = `${delay}s`;
+                
+                leaves.appendChild(leaf);
+            }
+        }
+
+        // GESTIONE SIDEBAR E SCROLL
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarLinks = document.querySelectorAll('.sidebar-list a');
+            const sections = document.querySelectorAll('.section');
+
+            // Aggiorna i link attivi durante lo scroll
+            function updateActiveLink() {
+                let currentSection = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    if (window.scrollY >= sectionTop) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-section') === currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Scroll smooth per i link della sidebar
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('data-section');
+                    const section = document.getElementById(sectionId);
+
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                        setTimeout(updateActiveLink, 100);
+                    }
+                });
+            });
+
+            // Aggiorna durante lo scroll
+            window.addEventListener('scroll', updateActiveLink);
+
+            // EFFETTO BOTTONE
+            const startButton = document.getElementById('startButton');
+            if (startButton) {
+                startButton.addEventListener('mouseenter', function() {
+                    this.querySelector('i').style.transform = 'rotate(20deg) scale(1.2)';
+                });
+
+                startButton.addEventListener('mouseleave', function() {
+                    this.querySelector('i').style.transform = 'rotate(0) scale(1)';
+                });
+
+                // CONTROLLO ERRORE LINK
+                startButton.addEventListener('click', function(e) {
+                    const link = this.getAttribute('href');
+                    if (link && link !== '#') {
+                        // Aggiunge messaggio di conferma
+                        if (!confirm('🚀 Stai per aprire il controller di avvio.\n\nIl controller ti mostrerà come eseguire:\n\nstreamlit run PROGETTOAI/app.py\n\nProcedere?')) {
+                            e.preventDefault();
+                        } else {
+                            // Apre in nuova finestra
+                            e.preventDefault();
+                            window.open(link, '_blank');
+                        }
+                    }
+                });
+            }
+
+            // EFFETTO BOTTONE TORNA A SCRUM
+            const backButton = document.getElementById('backButton');
+            if (backButton) {
+                backButton.addEventListener('mouseenter', function() {
+                    this.querySelector('i').style.transform = 'rotate(180deg) scale(1.2)';
+                });
+
+                backButton.addEventListener('mouseleave', function() {
+                    this.querySelector('i').style.transform = 'rotate(0) scale(1)';
+                });
+            }
+
+            // INIZIALIZZAZIONE
+            createAutumnLeaves();
+            animateOnScroll();
+            
+            // Mostra messaggio iniziale
+            setTimeout(() => {
+                console.log('🍞 Panificio Analytics Dashboard - Documentazione completa caricata');
+                console.log('📍 Percorso app.py: PROGETTOAI/app.py');
+            }, 1000);
+        });
+
+        // EFFETTO TASTIERA
+        document.addEventListener('keydown', function(e) {
+            // Spazio per scroll fluido
+            if (e.code === 'Space') {
+                e.preventDefault();
+                window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+            }
+            
+            // ESC per tornare su
+            if (e.key === 'Escape') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            // A per aprire direttamente l'app
+            if (e.key === 'a' && e.ctrlKey) {
+                e.preventDefault();
+                document.getElementById('startButton').click();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morato Group - Assistenza Clienti</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Morato Pane Color Palette - Tonalità Autunnali */
+      --primary: #D2691E; /* Cioccolato/arancione scuro */
+      --primary-light: #E68A2E; /* Arancione dorato */
+      --primary-dark: #8B4513; /* Marrone scuro */
+      --secondary: #F4A460; /* Sabbia chiara */
+      --accent: #CD853F; /* Arancione peru */
+      --light: #FFF8DC; /* Bianco corno */
+      --dark: #2C1810; /* Marrone cioccolato fondente */
+      --gray: #A0522D; /* Marrone terra */
+      --gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+      --gradient-secondary: linear-gradient(135deg, var(--accent), var(--secondary));
+      --gradient-light: linear-gradient(135deg, var(--light), #FFE4B5);
+      --gradient-dark: linear-gradient(135deg, var(--primary-dark), #3C2415);
+      --shadow: 0 15px 40px rgba(210, 105, 30, 0.25);
+      --shadow-light: 0 10px 30px rgba(244, 164, 96, 0.2);
+      --shadow-heavy: 0 25px 60px rgba(139, 69, 19, 0.3);
+      --radius: 20px;
+      --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(244, 164, 96, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(210, 105, 30, 0.08) 0%, transparent 25%);
+      height: 100vh;
+      position: relative;
+    }
+
+    /* Floating Elements */
+    .floating-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .floating-element {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--gradient);
+      opacity: 0.08;
+      animation: floatElement 20s ease-in-out infinite;
+      filter: blur(1px);
+    }
+
+    @keyframes floatElement {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      33% { transform: translateY(-30px) rotate(120deg) scale(1.1); }
+      66% { transform: translateY(20px) rotate(240deg) scale(0.9); }
+    }
+
+    /* Layout orizzontale completo */
+    .app-container {
+      display: grid;
+      grid-template-columns: 300px 1fr 380px;
+      height: 100vh;
+      gap: 0;
+      position: relative;
+    }
+
+    /* Sidebar sinistra - Azienda */
+    .company-sidebar {
+      background: rgba(255, 248, 220, 0.95);
+      border-right: 1px solid rgba(210, 105, 30, 0.2);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-light);
+      backdrop-filter: blur(10px);
+    }
+
+    .company-sidebar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0.3;
+    }
+
+    .company-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--primary-dark);
+      margin-bottom: 3rem;
+      letter-spacing: -0.5px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 4px rgba(139, 69, 19, 0.2);
+      animation: logoFadeIn 1.5s ease-out;
+    }
+
+    @keyframes logoFadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .company-info {
+      margin-bottom: 2.5rem;
+      animation: infoSlideIn 1s ease-out 0.5s forwards;
+      opacity: 0;
+    }
+
+    @keyframes infoSlideIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .company-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      color: var(--primary-dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .company-info h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+
+    .company-info p {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .company-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    /* Area chat centrale */
+    .chat-main {
+      display: flex;
+      flex-direction: column;
+      background: rgba(255, 248, 220, 0.7);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .chat-header {
+      padding: 1.75rem 2.5rem;
+      background: rgba(255, 248, 220, 0.95);
+      border-bottom: 1px solid rgba(210, 105, 30, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 4px 10px rgba(139, 69, 19, 0.1);
+    }
+
+    .chat-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .chat-title::before {
+      content: '💬';
+      font-size: 1.6rem;
+      animation: emojiPulse 2s infinite;
+    }
+
+    @keyframes emojiPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .chat-status {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 1.25rem;
+      background: rgba(34, 197, 94, 0.2);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      border-radius: 24px;
+      font-size: 1rem;
+      color: var(--primary-dark);
+      box-shadow: 0 2px 5px rgba(34, 197, 94, 0.2);
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+      animation: pulse 1.8s infinite;
+    }
+
+    /* Area messaggi */
+    .messages-container {
+      flex: 1;
+      padding: 2.5rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Scrollbar stylish */
+    .messages-container::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .messages-container::-webkit-scrollbar-track {
+      background: rgba(255, 248, 220, 0.4);
+      border-radius: 4px;
+    }
+
+    .messages-container::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+      box-shadow: 0 0 5px rgba(139, 69, 19, 0.2);
+    }
+
+    .messages-container::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-light);
+    }
+
+    /* Messaggio */
+    .message {
+      max-width: 70%;
+      animation: messageSlide 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    @keyframes messageSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .message.user {
+      margin-left: auto;
+    }
+
+    .message-content {
+      padding: 1rem 1.25rem;
+      border-radius: 18px;
+      position: relative;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      word-wrap: break-word;
+    }
+
+    .message.user .message-content {
+      background: var(--gradient);
+      color: var(--light);
+      border-bottom-right-radius: 4px;
+      box-shadow: var(--shadow-light);
+    }
+
+    .message.bot .message-content {
+      background: rgba(255, 248, 220, 0.95);
+      border: 1px solid rgba(210, 105, 30, 0.2);
+      border-bottom-left-radius: 4px;
+      color: var(--dark);
+      box-shadow: var(--shadow-light);
+    }
+
+    .message-time {
+      font-size: 0.75rem;
+      color: var(--gray);
+      margin-top: 0.5rem;
+      text-align: right;
+    }
+
+    /* Input area */
+    .input-area {
+      padding: 1.75rem 2.5rem;
+      background: rgba(255, 248, 220, 0.95);
+      border-top: 1px solid rgba(210, 105, 30, 0.2);
+      position: relative;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 -4px 10px rgba(139, 69, 19, 0.1);
+    }
+
+    .input-area::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gradient);
+      opacity: 0.3;
+    }
+
+    .input-container {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    #message-input {
+      flex: 1;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255, 248, 220, 0.9);
+      border: 1px solid rgba(210, 105, 30, 0.3);
+      border-radius: 50px;
+      color: var(--dark);
+      font-size: 1rem;
+      transition: var(--transition);
+      outline: none;
+      box-shadow: 0 2px 5px rgba(139, 69, 19, 0.1);
+    }
+
+    #message-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(210, 105, 30, 0.25);
+      transform: scale(1.01);
+    }
+
+    #message-input::placeholder {
+      color: var(--gray);
+      opacity: 0.8;
+    }
+
+    #send-button {
+      width: 56px;
+      height: 56px;
+      background: var(--gradient);
+      border: none;
+      border-radius: 50%;
+      color: var(--light);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      font-size: 1.4rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    #send-button:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 12px 25px rgba(210, 105, 30, 0.4);
+    }
+
+    #send-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-secondary);
+      z-index: -1;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    #send-button:hover::before {
+      opacity: 1;
+    }
+
+    /* Sidebar destra - Assistenza */
+    .assist-sidebar {
+      background: rgba(255, 248, 220, 0.95);
+      border-left: 1px solid rgba(210, 105, 30, 0.2);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: var(--shadow-light);
+      backdrop-filter: blur(10px);
+      overflow-y: auto;
+    }
+
+    .assist-sidebar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0.3;
+    }
+
+    .assistance-info,
+    .faq-section {
+      background: rgba(255, 248, 220, 0.7);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid rgba(210, 105, 30, 0.15);
+      box-shadow: var(--shadow);
+      animation: infoSlideIn 1s ease-out 0.7s forwards;
+      opacity: 0;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq-section {
+      animation: infoSlideIn 1s ease-out 0.9s forwards;
+    }
+
+    .faq-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .faq-title::before {
+      content: '🍞';
+      font-size: 1.4rem;
+    }
+
+    .faq-title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+
+    .info-item,
+    .faq-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(210, 105, 30, 0.2);
+      color: var(--gray);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .faq-item::before {
+      font-size: 1rem;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .faq-item:hover {
+      transform: translateX(10px);
+      color: var(--primary-dark);
+      padding-left: 1rem;
+      border-radius: 8px;
+    }
+
+    .faq-item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: rgba(210, 105, 30, 0.05);
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .faq-item:hover::after {
+      width: 100%;
+    }
+
+    .faq-item:active {
+      transform: translateX(5px) scale(0.98);
+    }
+
+    .info-item:last-child,
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Pulse animation */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .app-container {
+        grid-template-columns: 280px 1fr 320px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .app-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+      }
+      
+      .company-sidebar {
+        order: 1;
+        border-right: none;
+        border-bottom: 1px solid rgba(210, 105, 30, 0.2);
+      }
+      
+      .chat-main {
+        order: 2;
+      }
+      
+      .assist-sidebar {
+        order: 3;
+        border-left: none;
+        border-top: 1px solid rgba(210, 105, 30, 0.2);
+      }
+      
+      .home-button-wrapper {
+        bottom: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .home-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .company-sidebar,
+      .chat-header,
+      .messages-container,
+      .input-area,
+      .assist-sidebar {
+        padding: 1.5rem;
+      }
+      
+      .company-logo {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+      }
+      
+      .chat-title {
+        font-size: 1.5rem;
+      }
+      
+      .message {
+        max-width: 85%;
+      }
+      
+      .home-button-wrapper {
+        flex-direction: column;
+        width: 90%;
+        max-width: 300px;
+      }
+    }
+
+    /* Animazione di digitazione */
+    @keyframes bounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.7; }
+      30% { transform: translateY(-6px); opacity: 1; }
+    }
+
+    /* Glowing Effects */
+    .glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(210, 105, 30, 0.15) 0%, transparent 70%);
+      filter: blur(60px);
+      z-index: -1;
+      animation: glowMove 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 30px); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Elements -->
+  <div class="floating-elements" id="floatingElements"></div>
+  
+  <!-- Glowing Effects -->
+  <div class="glow" style="top: 10%; left: 10%;"></div>
+  <div class="glow" style="bottom: 20%; right: 15%; background: radial-gradient(circle, rgba(244, 164, 96, 0.1) 0%, transparent 70%); animation-delay: 2s;"></div>
+
+  <!-- Container principale -->
+  <div class="app-container">
+    
+    <!-- Sidebar sinistra - Azienda -->
+    <div class="company-sidebar">
+      <div class="company-logo">MORATO GROUP</div>
+      
+      <div class="company-info">
+        <h2>Assistenza Clienti</h2>
+        <p>Supporto specializzato per prodotti panificati Morato Group. Risolviamo ogni tua esigenza con passione e professionalità.</p>
+      </div>
+
+      <div class="company-info">
+        <h3><i class="fas fa-phone"></i> Contatti Supporto</h3>
+        <p style="margin-bottom: 0.5rem; color: var(--gray);">Telefono: +39 0444 574188</p>
+        <p style="color: var(--gray);">Email: info@moratogroup.com</p>
+      </div>
+    </div>
+
+    <!-- Area chat centrale -->
+    <div class="chat-main">
+      <div class="chat-header">
+        <div class="chat-title">Assistenza Clienti</div>
+        <div class="chat-status">
+          <div class="status-dot"></div>
+          <span>Operatore disponibile</span>
+        </div>
+      </div>
+
+      <div class="messages-container" id="messages-container">
+        <!-- Messaggi verranno aggiunti qui -->
+      </div>
+
+      <div class="input-area">
+        <div class="input-container">
+          <input 
+            type="text" 
+            id="message-input" 
+            placeholder="Descrivi il tuo problema con il prodotto Morato..."
+            autocomplete="off"
+          />
+          <button id="send-button">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar destra - Assistenza -->
+    <div class="assist-sidebar">
+      <div class="faq-section">
+        <div class="faq-title">Domande sui Prodotti</div>
+        <div class="faq-item" data-question="Quali prodotti avete senza glutine?">🌾 Avete prdotti senza glutine?</div>
+        <div class="faq-item" data-question="I vostri prodotti sono adatti per vegani?">🌱 Avete prodotti adatti per vegani?</div>
+        <div class="faq-item" data-question="Usate ingredienti naturali nei vostri prodotti?">🍃 Usate ingredienti naturali?</div>
+        <div class="faq-item" data-question="Come conservare i vostri prodotti per mantenerli freschi?">❄️ Come conservare i prodotti?</div>
+        
+      </div>
+
+      <div class="assistance-info">
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          Sede: Via D'Azeglio, 49, 36077 Altavilla Vicentina (VI)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <script>
+    // Elementi DOM
+    const messagesContainer = document.getElementById('messages-container');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    // Formatta orario
+    function getCurrentTime() {
+      const now = new Date();
+      return now.toLocaleTimeString('it-IT', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+    }
+
+    // Aggiungi messaggio con ritardo per l'animazione
+    function addMessage(text, sender, delay = 0) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${sender}`;
+      
+      const messageContent = document.createElement('div');
+      messageContent.className = 'message-content';
+      messageContent.textContent = text;
+      
+      const messageTime = document.createElement('div');
+      messageTime.className = 'message-time';
+      messageTime.textContent = getCurrentTime();
+      
+      messageDiv.appendChild(messageContent);
+      messageDiv.appendChild(messageTime);
+      
+      // Imposta l'animazione con ritardo
+      messageDiv.style.animationDelay = `${delay}s`;
+      
+      messagesContainer.appendChild(messageDiv);
+      
+      // Scroll con effetto fluido
+      setTimeout(() => {
+        messagesContainer.scrollTo({
+          top: messagesContainer.scrollHeight,
+          behavior: 'smooth'
+        });
+      }, 100);
+      
+      return messageDiv;
+    }
+
+    // Mostra indicatore di digitazione
+    function showTypingIndicator() {
+      const indicator = document.createElement('div');
+      indicator.className = 'message bot';
+      indicator.id = 'typing-indicator';
+      indicator.innerHTML = `
+        <div class="message-content">
+          <div style="display: flex; gap: 5px; align-items: center;">
+            <span style="font-size: 0.9rem; color: var(--gray); margin-right: 10px;">AI sta scrivendo...</span>
+            <div style="width: 8px; height: 8px; background: var(--primary); border-radius: 50%; animation: bounce 1.2s infinite;"></div>
+            <div style="width: 8px; height: 8px; background: var(--primary); border-radius: 50%; animation: bounce 1.2s infinite 0.3s;"></div>
+            <div style="width: 8px; height: 8px; background: var(--primary); border-radius: 50%; animation: bounce 1.2s infinite 0.6s;"></div>
+          </div>
+        </div>
+      `;
+      
+      messagesContainer.appendChild(indicator);
+      messagesContainer.scrollTo({
+        top: messagesContainer.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+
+    // Rimuovi indicatore
+    function removeTypingIndicator() {
+      const indicator = document.getElementById('typing-indicator');
+      if (indicator) {
+        indicator.remove();
+      }
+    }
+
+    // Risposte predefinite per le FAQ
+    const faqResponses = {
+      "Quali prodotti avete senza glutine?": "Morato Group offre un'ampia gamma di prodotti senza glutine, tra cui pane, grissini, cracker e snack. Tutti i nostri prodotti senza glutine sono certificati e prodotti in ambienti dedicati per garantire la massima sicurezza per i celiaci. La nostra linea 'Gluten Free' è disponibile in molti supermercati e negozi specializzati.",
+      
+      "I vostri prodotti sono adatti per vegani?": "Sì, molti dei nostri prodotti sono adatti per vegani! Controlliamo attentamente tutti gli ingredienti per escludere derivati animali. I prodotti vegani sono contrassegnati con il logo verde 'Vegan Friendly' sulla confezione. Abbiamo una selezione di pane, crackers e snack completamente vegetali.",
+      
+      "Usate ingredienti naturali nei vostri prodotti?": "Assolutamente sì! Morato Group si impegna a utilizzare solo ingredienti naturali di alta qualità. Non utilizziamo coloranti, aromi artificiali o OGM. I nostri prodotti sono realizzati con farine selezionate, lievito madre naturale e ingredienti genuini della tradizione italiana.",
+      
+      "Come conservare i vostri prodotti per mantenerli freschi?": "Per mantenere la freschezza dei nostri prodotti, consigliamo di conservarli in un luogo fresco e asciutto, preferibilmente nella loro confezione originale. Per una conservazione più lunga (7-10 giorni), puoi congelarli. Una volta scongelati, basta riscaldarli in forno per pochi minuti per riacquistare fragranza e croccantezza.",
+      
+      "Quali sono i prodotti più venduti della vostra linea?": "I nostri prodotti più amati sono: 1) Pane Rustico Morato - con crosta croccante e mollica soffice, 2) Grissini Classici - perfetti per aperitivi, 3) Crackers Integrali - ricchi di fibre, 4) Fette Biscottate Integrali - ideali per la colazione, 5) Pan Carré Morato - versatile per toast e sandwich.",
+      
+      "Avete prodotti per la colazione senza zuccheri aggiunti?": "Sì, abbiamo una linea dedicata alla colazione senza zuccheri aggiunti! Le nostre fette biscottate integrali, i cereali croccanti e i biscotti per la colazione sono dolcificati naturalmente con frutta o malto. Tutti i prodotti sono contrassegnati con il simbolo 'Senza Zuccheri Aggiunti'.",
+      
+      "I vostri prodotti contengono conservanti artificiali?": "No, Morato Group non utilizza conservanti artificiali nei suoi prodotti. Utilizziamo tecniche di produzione tradizionali e conservanti naturali come aceto e lievito madre per garantire una conservazione naturale. La nostra filosofia è 'naturale è meglio'."
+    };
+
+    // Invia messaggio
+    async function sendMessage() {
+      const text = messageInput.value.trim();
+      if (!text) return;
+
+      // Aggiungi immediatamente il messaggio dell'utente
+      addMessage(text, 'user');
+      messageInput.value = '';
+      
+      // Focus rimane sull'input
+      setTimeout(() => messageInput.focus(), 100);
+
+      // Piccola pausa prima di mostrare l'indicatore di digitazione
+      setTimeout(() => {
+        showTypingIndicator();
+        
+        // Simula risposta del bot dopo un breve ritardo
+        setTimeout(async () => {
+          removeTypingIndicator();
+          
+          // Verifica se è una domanda di cui abbiamo una risposta predefinita
+          let responseText = faqResponses[text];
+          
+          if (!responseText) {
+            // Se non abbiamo una risposta predefinita, usa l'API
+            try {
+              const response = await fetch('/ask', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: text })
+              });
+
+              const data = await response.json();
+              responseText = data.answer;
+            } catch (error) {
+              responseText = 'Grazie per la tua domanda! Per informazioni specifiche sui nostri prodotti, ti consiglio di consultare il nostro sito web o contattare direttamente il servizio clienti al +39 0444 574188.';
+            }
+          }
+          
+          // Aggiungi risposta del bot con un piccolo ritardo per l'animazione
+          addMessage(responseText, 'bot', 0.1);
+        }, 1500); // Simula tempo di risposta
+      }, 300); // Piccolo ritardo prima di mostrare l'indicatore
+    }
+
+    // Gestisce il click sulle FAQ
+    function handleFaqClick(question) {
+      // Rimuovi emoji e formatta la domanda
+      const cleanQuestion = question.replace(/^[^\w\s]+/, '').trim();
+      
+      // Aggiungi immediatamente la domanda come messaggio utente
+      addMessage(cleanQuestion, 'user');
+      
+      // Piccola pausa prima di mostrare l'indicatore di digitazione
+      setTimeout(() => {
+        showTypingIndicator();
+        
+        // Simula risposta del bot dopo un breve ritardo
+        setTimeout(() => {
+          removeTypingIndicator();
+          
+          // Trova la risposta corrispondente
+          const responseText = faqResponses[cleanQuestion] || 
+            'Grazie per la tua domanda! Per maggiori informazioni sui nostri prodotti, visita il nostro sito web o contatta il servizio clienti.';
+          
+          // Aggiungi risposta del bot con un piccolo ritardo per l'animazione
+          addMessage(responseText, 'bot', 0.1);
+        }, 1500);
+      }, 300);
+    }
+
+    // Floating Elements
+    function createFloatingElements() {
+      const container = document.getElementById('floatingElements');
+      const elementCount = 20;
+      
+      for (let i = 0; i < elementCount; i++) {
+        const element = document.createElement('div');
+        element.classList.add('floating-element');
+        
+        // Random size between 20 and 120px
+        const size = Math.random() * 100 + 20;
+        element.style.width = `${size}px`;
+        element.style.height = `${size}px`;
+        
+        // Random position
+        element.style.left = `${Math.random() * 100}%`;
+        element.style.top = `${Math.random() * 100}%`;
+        
+        // Random color variation
+        const colors = ['#D2691E', '#E68A2E', '#CD853F', '#F4A460'];
+        const color1 = colors[Math.floor(Math.random() * colors.length)];
+        const color2 = colors[Math.floor(Math.random() * colors.length)];
+        element.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
+        
+        // Random opacity
+        element.style.opacity = Math.random() * 0.08 + 0.02;
+        
+        // Animation
+        const duration = Math.random() * 30 + 20;
+        const delay = Math.random() * 10;
+        element.style.animation = `floatElement ${duration}s ease-in-out infinite`;
+        element.style.animationDelay = `${delay}s`;
+        
+        container.appendChild(element);
+      }
+    }
+
+    // Inizializzazione
+    document.addEventListener('DOMContentLoaded', () => {
+      // Messaggio di benvenuto automatico
+      setTimeout(() => {
+        addMessage("👋 Benvenuto nell'assistenza clienti Morato Group! Sono qui per aiutarti con informazioni sui nostri prodotti, ingredienti, conservazione o qualsiasi domanda sulla nostra gamma. Come posso assisterti oggi?", 'bot', 0.5);
+      }, 1000);
+      
+      // Focus automatico sull'input
+      setTimeout(() => {
+        messageInput.focus();
+      }, 1200);
+      
+      // Crea elementi fluttuanti
+      createFloatingElements();
+    });
+
+    // Event listeners
+    sendButton.addEventListener('click', sendMessage);
+    
+    messageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    // Aggiungi event listeners alle FAQ
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const question = item.getAttribute('data-question') || item.textContent;
+        handleFaqClick(question);
+      });
+    });
+  </script>
+</body>
+</html>

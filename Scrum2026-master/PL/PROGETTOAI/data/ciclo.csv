@@ -1,0 +1,401 @@
+nome_pane,fase,macchina,tempo_min_per_batch,costo_orario_macchina
+Pane casereccio,Impasto,Impastatrice1,20,30
+Pane casereccio,Lievitazione,Cella1,40,10
+Pane casereccio,Cottura,Forno1,15,50
+Pane casereccio,Confezione,Confezionatrice1,25,25
+Pane di Altamura,Impasto,Impastatrice1,22,30
+Pane di Altamura,Lievitazione,Cella1,42,10
+Pane di Altamura,Cottura,Forno1,16,50
+Pane di Altamura,Confezione,Confezionatrice1,26,25
+Pane toscano sciapo,Impasto,Impastatrice1,25,30
+Pane toscano sciapo,Lievitazione,Cella1,45,10
+Pane toscano sciapo,Cottura,Forno1,18,50
+Pane toscano sciapo,Confezione,Confezionatrice1,27,25
+Pagnotta rustica,Impasto,Impastatrice1,18,30
+Pagnotta rustica,Lievitazione,Cella1,38,10
+Pagnotta rustica,Cottura,Forno1,14,50
+Pagnotta rustica,Confezione,Confezionatrice1,24,25
+Filone bianco,Impasto,Impastatrice1,21,30
+Filone bianco,Lievitazione,Cella1,41,10
+Filone bianco,Cottura,Forno1,16,50
+Filone bianco,Confezione,Confezionatrice1,26,25
+Filone integrale,Impasto,Impastatrice1,23,30
+Filone integrale,Lievitazione,Cella1,43,10
+Filone integrale,Cottura,Forno1,17,50
+Filone integrale,Confezione,Confezionatrice1,27,25
+Ciabatta classica,Impasto,Impastatrice1,26,30
+Ciabatta classica,Lievitazione,Cella1,46,10
+Ciabatta classica,Cottura,Forno1,19,50
+Ciabatta classica,Confezione,Confezionatrice1,28,25
+Ciabatta ai cereali,Impasto,Impastatrice1,19,30
+Ciabatta ai cereali,Lievitazione,Cella1,39,10
+Ciabatta ai cereali,Cottura,Forno1,15,50
+Ciabatta ai cereali,Confezione,Confezionatrice1,24,25
+Pane pugliese,Impasto,Impastatrice1,20,30
+Pane pugliese,Lievitazione,Cella1,40,10
+Pane pugliese,Cottura,Forno1,16,50
+Pane pugliese,Confezione,Confezionatrice1,25,25
+Pane cafone napoletano,Impasto,Impastatrice1,22,30
+Pane cafone napoletano,Lievitazione,Cella1,42,10
+Pane cafone napoletano,Cottura,Forno1,17,50
+Pane cafone napoletano,Confezione,Confezionatrice1,26,25
+Pane di segale,Impasto,Impastatrice1,20,30
+Pane di segale,Lievitazione,Cella1,40,10
+Pane di segale,Cottura,Forno1,15,50
+Pane di segale,Confezione,Confezionatrice1,25,25
+Pane ai 5 cereali,Impasto,Impastatrice1,22,30
+Pane ai 5 cereali,Lievitazione,Cella1,42,10
+Pane ai 5 cereali,Cottura,Forno1,16,50
+Pane ai 5 cereali,Confezione,Confezionatrice1,26,25
+Pane al mais,Impasto,Impastatrice1,25,30
+Pane al mais,Lievitazione,Cella1,45,10
+Pane al mais,Cottura,Forno1,18,50
+Pane al mais,Confezione,Confezionatrice1,27,25
+Pane al farro,Impasto,Impastatrice1,18,30
+Pane al farro,Lievitazione,Cella1,38,10
+Pane al farro,Cottura,Forno1,14,50
+Pane al farro,Confezione,Confezionatrice1,24,25
+Pane al kamut,Impasto,Impastatrice1,21,30
+Pane al kamut,Lievitazione,Cella1,41,10
+Pane al kamut,Cottura,Forno1,16,50
+Pane al kamut,Confezione,Confezionatrice1,26,25
+Rosetta soffice,Impasto,Impastatrice1,23,30
+Rosetta soffice,Lievitazione,Cella1,43,10
+Rosetta soffice,Cottura,Forno1,17,50
+Rosetta soffice,Confezione,Confezionatrice1,27,25
+Micchetta milanese,Impasto,Impastatrice1,26,30
+Micchetta milanese,Lievitazione,Cella1,46,10
+Micchetta milanese,Cottura,Forno1,19,50
+Micchetta milanese,Confezione,Confezionatrice1,28,25
+Baguette italiana,Impasto,Impastatrice1,19,30
+Baguette italiana,Lievitazione,Cella1,39,10
+Baguette italiana,Cottura,Forno1,15,50
+Baguette italiana,Confezione,Confezionatrice1,24,25
+Pane tipo ciabattina,Impasto,Impastatrice1,20,30
+Pane tipo ciabattina,Lievitazione,Cella1,40,10
+Pane tipo ciabattina,Cottura,Forno1,16,50
+Pane tipo ciabattina,Confezione,Confezionatrice1,25,25
+Pane al latte,Impasto,Impastatrice1,22,30
+Pane al latte,Lievitazione,Cella1,42,10
+Pane al latte,Cottura,Forno1,17,50
+Pane al latte,Confezione,Confezionatrice1,26,25
+Focaccia genovese,Impasto,Impastatrice1,20,30
+Focaccia genovese,Lievitazione,Cella1,40,10
+Focaccia genovese,Cottura,Forno1,15,50
+Focaccia genovese,Confezione,Confezionatrice1,25,25
+Focaccia al rosmarino,Impasto,Impastatrice1,22,30
+Focaccia al rosmarino,Lievitazione,Cella1,42,10
+Focaccia al rosmarino,Cottura,Forno1,16,50
+Focaccia al rosmarino,Confezione,Confezionatrice1,26,25
+Focaccia farcita,Impasto,Impastatrice1,25,30
+Focaccia farcita,Lievitazione,Cella1,45,10
+Focaccia farcita,Cottura,Forno1,18,50
+Focaccia farcita,Confezione,Confezionatrice1,27,25
+Schiacciata toscana,Impasto,Impastatrice1,18,30
+Schiacciata toscana,Lievitazione,Cella1,38,10
+Schiacciata toscana,Cottura,Forno1,14,50
+Schiacciata toscana,Confezione,Confezionatrice1,24,25
+Pane carasau,Impasto,Impastatrice1,21,30
+Pane carasau,Lievitazione,Cella1,41,10
+Pane carasau,Cottura,Forno1,16,50
+Pane carasau,Confezione,Confezionatrice1,26,25
+Pane guttiau,Impasto,Impastatrice1,23,30
+Pane guttiau,Lievitazione,Cella1,43,10
+Pane guttiau,Cottura,Forno1,17,50
+Pane guttiau,Confezione,Confezionatrice1,27,25
+Coppia ferrarese,Impasto,Impastatrice1,26,30
+Coppia ferrarese,Lievitazione,Cella1,46,10
+Coppia ferrarese,Cottura,Forno1,19,50
+Coppia ferrarese,Confezione,Confezionatrice1,28,25
+Pane mantovano,Impasto,Impastatrice1,19,30
+Pane mantovano,Lievitazione,Cella1,39,10
+Pane mantovano,Cottura,Forno1,15,50
+Pane mantovano,Confezione,Confezionatrice1,24,25
+Pane alla biga,Impasto,Impastatrice1,20,30
+Pane alla biga,Lievitazione,Cella1,40,10
+Pane alla biga,Cottura,Forno1,16,50
+Pane alla biga,Confezione,Confezionatrice1,25,25
+Pane tipo ciabatta rustica,Impasto,Impastatrice1,22,30
+Pane tipo ciabatta rustica,Lievitazione,Cella1,42,10
+Pane tipo ciabatta rustica,Cottura,Forno1,17,50
+Pane tipo ciabatta rustica,Confezione,Confezionatrice1,26,25
+Pane per tramezzini classico,Impasto,Impastatrice1,20,30
+Pane per tramezzini classico,Lievitazione,Cella1,40,10
+Pane per tramezzini classico,Cottura,Forno1,15,50
+Pane per tramezzini classico,Confezione,Confezionatrice1,25,25
+Pane per tramezzini integrale,Impasto,Impastatrice1,22,30
+Pane per tramezzini integrale,Lievitazione,Cella1,42,10
+Pane per tramezzini integrale,Cottura,Forno1,16,50
+Pane per tramezzini integrale,Confezione,Confezionatrice1,26,25
+Pane per tramezzini ai cereali,Impasto,Impastatrice1,25,30
+Pane per tramezzini ai cereali,Lievitazione,Cella1,45,10
+Pane per tramezzini ai cereali,Cottura,Forno1,18,50
+Pane per tramezzini ai cereali,Confezione,Confezionatrice1,27,25
+Pane in cassetta bianco,Impasto,Impastatrice1,18,30
+Pane in cassetta bianco,Lievitazione,Cella1,38,10
+Pane in cassetta bianco,Cottura,Forno1,14,50
+Pane in cassetta bianco,Confezione,Confezionatrice1,24,25
+Pane in cassetta integrale,Impasto,Impastatrice1,21,30
+Pane in cassetta integrale,Lievitazione,Cella1,41,10
+Pane in cassetta integrale,Cottura,Forno1,16,50
+Pane in cassetta integrale,Confezione,Confezionatrice1,26,25
+Pane in cassetta ai semi,Impasto,Impastatrice1,23,30
+Pane in cassetta ai semi,Lievitazione,Cella1,43,10
+Pane in cassetta ai semi,Cottura,Forno1,17,50
+Pane in cassetta ai semi,Confezione,Confezionatrice1,27,25
+Pane morbido per toast,Impasto,Impastatrice1,26,30
+Pane morbido per toast,Lievitazione,Cella1,46,10
+Pane morbido per toast,Cottura,Forno1,19,50
+Pane morbido per toast,Confezione,Confezionatrice1,28,25
+Pane americano a fette,Impasto,Impastatrice1,19,30
+Pane americano a fette,Lievitazione,Cella1,39,10
+Pane americano a fette,Cottura,Forno1,15,50
+Pane americano a fette,Confezione,Confezionatrice1,24,25
+Pane sandwich al latte,Impasto,Impastatrice1,20,30
+Pane sandwich al latte,Lievitazione,Cella1,40,10
+Pane sandwich al latte,Cottura,Forno1,16,50
+Pane sandwich al latte,Confezione,Confezionatrice1,25,25
+Pane sandwich maxi fette,Impasto,Impastatrice1,22,30
+Pane sandwich maxi fette,Lievitazione,Cella1,42,10
+Pane sandwich maxi fette,Cottura,Forno1,17,50
+Pane sandwich maxi fette,Confezione,Confezionatrice1,26,25
+Pan brioche salato,Impasto,Impastatrice1,20,30
+Pan brioche salato,Lievitazione,Cella1,40,10
+Pan brioche salato,Cottura,Forno1,15,50
+Pan brioche salato,Confezione,Confezionatrice1,25,25
+Pan bauletto classico,Impasto,Impastatrice1,22,30
+Pan bauletto classico,Lievitazione,Cella1,42,10
+Pan bauletto classico,Cottura,Forno1,16,50
+Pan bauletto classico,Confezione,Confezionatrice1,26,25
+Pan bauletto integrale,Impasto,Impastatrice1,25,30
+Pan bauletto integrale,Lievitazione,Cella1,45,10
+Pan bauletto integrale,Cottura,Forno1,18,50
+Pan bauletto integrale,Confezione,Confezionatrice1,27,25
+Pan bauletto ai cereali,Impasto,Impastatrice1,18,30
+Pan bauletto ai cereali,Lievitazione,Cella1,38,10
+Pan bauletto ai cereali,Cottura,Forno1,14,50
+Pan bauletto ai cereali,Confezione,Confezionatrice1,24,25
+Pane per club sandwich,Impasto,Impastatrice1,21,30
+Pane per club sandwich,Lievitazione,Cella1,41,10
+Pane per club sandwich,Cottura,Forno1,16,50
+Pane per club sandwich,Confezione,Confezionatrice1,26,25
+Pane per toast spessore sottile,Impasto,Impastatrice1,23,30
+Pane per toast spessore sottile,Lievitazione,Cella1,43,10
+Pane per toast spessore sottile,Cottura,Forno1,17,50
+Pane per toast spessore sottile,Confezione,Confezionatrice1,27,25
+Pane per toast spessore alto,Impasto,Impastatrice1,26,30
+Pane per toast spessore alto,Lievitazione,Cella1,46,10
+Pane per toast spessore alto,Cottura,Forno1,19,50
+Pane per toast spessore alto,Confezione,Confezionatrice1,28,25
+Pane morbido senza crosta,Impasto,Impastatrice1,19,30
+Pane morbido senza crosta,Lievitazione,Cella1,39,10
+Pane morbido senza crosta,Cottura,Forno1,15,50
+Pane morbido senza crosta,Confezione,Confezionatrice1,24,25
+Pane sandwich proteico,Impasto,Impastatrice1,20,30
+Pane sandwich proteico,Lievitazione,Cella1,40,10
+Pane sandwich proteico,Cottura,Forno1,16,50
+Pane sandwich proteico,Confezione,Confezionatrice1,25,25
+Pane sandwich a lievito madre,Impasto,Impastatrice1,22,30
+Pane sandwich a lievito madre,Lievitazione,Cella1,42,10
+Pane sandwich a lievito madre,Cottura,Forno1,17,50
+Pane sandwich a lievito madre,Confezione,Confezionatrice1,26,25
+Panino all’olio,Impasto,Impastatrice1,20,30
+Panino all’olio,Lievitazione,Cella1,40,10
+Panino all’olio,Cottura,Forno1,15,50
+Panino all’olio,Confezione,Confezionatrice1,25,25
+Panino morbido al latte,Impasto,Impastatrice1,22,30
+Panino morbido al latte,Lievitazione,Cella1,42,10
+Panino morbido al latte,Cottura,Forno1,16,50
+Panino morbido al latte,Confezione,Confezionatrice1,26,25
+Panino rustico ai cereali,Impasto,Impastatrice1,25,30
+Panino rustico ai cereali,Lievitazione,Cella1,45,10
+Panino rustico ai cereali,Cottura,Forno1,18,50
+Panino rustico ai cereali,Confezione,Confezionatrice1,27,25
+Panino tipo rosetta,Impasto,Impastatrice1,18,30
+Panino tipo rosetta,Lievitazione,Cella1,38,10
+Panino tipo rosetta,Cottura,Forno1,14,50
+Panino tipo rosetta,Confezione,Confezionatrice1,24,25
+Panino ciabattina sandwich,Impasto,Impastatrice1,21,30
+Panino ciabattina sandwich,Lievitazione,Cella1,41,10
+Panino ciabattina sandwich,Cottura,Forno1,16,50
+Panino ciabattina sandwich,Confezione,Confezionatrice1,26,25
+Panino per hot dog,Impasto,Impastatrice1,23,30
+Panino per hot dog,Lievitazione,Cella1,43,10
+Panino per hot dog,Cottura,Forno1,17,50
+Panino per hot dog,Confezione,Confezionatrice1,27,25
+Bun per burger classico,Impasto,Impastatrice1,26,30
+Bun per burger classico,Lievitazione,Cella1,46,10
+Bun per burger classico,Cottura,Forno1,19,50
+Bun per burger classico,Confezione,Confezionatrice1,28,25
+Bun per burger ai semi,Impasto,Impastatrice1,19,30
+Bun per burger ai semi,Lievitazione,Cella1,39,10
+Bun per burger ai semi,Cottura,Forno1,15,50
+Bun per burger ai semi,Confezione,Confezionatrice1,24,25
+Bun per burger integrale,Impasto,Impastatrice1,20,30
+Bun per burger integrale,Lievitazione,Cella1,40,10
+Bun per burger integrale,Cottura,Forno1,16,50
+Bun per burger integrale,Confezione,Confezionatrice1,25,25
+Mini bun per slider,Impasto,Impastatrice1,22,30
+Mini bun per slider,Lievitazione,Cella1,42,10
+Mini bun per slider,Cottura,Forno1,17,50
+Mini bun per slider,Confezione,Confezionatrice1,26,25
+Panino arabo,Impasto,Impastatrice1,20,30
+Panino arabo,Lievitazione,Cella1,40,10
+Panino arabo,Cottura,Forno1,15,50
+Panino arabo,Confezione,Confezionatrice1,25,25
+Piadina classica,Impasto,Impastatrice1,22,30
+Piadina classica,Lievitazione,Cella1,42,10
+Piadina classica,Cottura,Forno1,16,50
+Piadina classica,Confezione,Confezionatrice1,26,25
+Piadina integrale,Impasto,Impastatrice1,25,30
+Piadina integrale,Lievitazione,Cella1,45,10
+Piadina integrale,Cottura,Forno1,18,50
+Piadina integrale,Confezione,Confezionatrice1,27,25
+Piadina ai cereali,Impasto,Impastatrice1,18,30
+Piadina ai cereali,Lievitazione,Cella1,38,10
+Piadina ai cereali,Cottura,Forno1,14,50
+Piadina ai cereali,Confezione,Confezionatrice1,24,25
+Focaccina morbida,Impasto,Impastatrice1,21,30
+Focaccina morbida,Lievitazione,Cella1,41,10
+Focaccina morbida,Cottura,Forno1,16,50
+Focaccina morbida,Confezione,Confezionatrice1,26,25
+Panino tipo baguettina,Impasto,Impastatrice1,23,30
+Panino tipo baguettina,Lievitazione,Cella1,43,10
+Panino tipo baguettina,Cottura,Forno1,17,50
+Panino tipo baguettina,Confezione,Confezionatrice1,27,25
+Panino soffice per merenda,Impasto,Impastatrice1,26,30
+Panino soffice per merenda,Lievitazione,Cella1,46,10
+Panino soffice per merenda,Cottura,Forno1,19,50
+Panino soffice per merenda,Confezione,Confezionatrice1,28,25
+Brioche salata ripiena,Impasto,Impastatrice1,19,30
+Brioche salata ripiena,Lievitazione,Cella1,39,10
+Brioche salata ripiena,Cottura,Forno1,15,50
+Brioche salata ripiena,Confezione,Confezionatrice1,24,25
+Panino alla zucca,Impasto,Impastatrice1,20,30
+Panino alla zucca,Lievitazione,Cella1,40,10
+Panino alla zucca,Cottura,Forno1,16,50
+Panino alla zucca,Confezione,Confezionatrice1,25,25
+Panino al carbone vegetale,Impasto,Impastatrice1,22,30
+Panino al carbone vegetale,Lievitazione,Cella1,42,10
+Panino al carbone vegetale,Cottura,Forno1,17,50
+Panino al carbone vegetale,Confezione,Confezionatrice1,26,25
+Grissini classici,Impasto,Impastatrice1,20,30
+Grissini classici,Lievitazione,Cella1,40,10
+Grissini classici,Cottura,Forno1,15,50
+Grissini classici,Confezione,Confezionatrice1,25,25
+Grissini torinesi sottili,Impasto,Impastatrice1,22,30
+Grissini torinesi sottili,Lievitazione,Cella1,42,10
+Grissini torinesi sottili,Cottura,Forno1,16,50
+Grissini torinesi sottili,Confezione,Confezionatrice1,26,25
+Grissini al sesamo,Impasto,Impastatrice1,25,30
+Grissini al sesamo,Lievitazione,Cella1,45,10
+Grissini al sesamo,Cottura,Forno1,18,50
+Grissini al sesamo,Confezione,Confezionatrice1,27,25
+Grissini al rosmarino,Impasto,Impastatrice1,18,30
+Grissini al rosmarino,Lievitazione,Cella1,38,10
+Grissini al rosmarino,Cottura,Forno1,14,50
+Grissini al rosmarino,Confezione,Confezionatrice1,24,25
+Grissini integrali,Impasto,Impastatrice1,21,30
+Grissini integrali,Lievitazione,Cella1,41,10
+Grissini integrali,Cottura,Forno1,16,50
+Grissini integrali,Confezione,Confezionatrice1,26,25
+Grissini ai cereali,Impasto,Impastatrice1,23,30
+Grissini ai cereali,Lievitazione,Cella1,43,10
+Grissini ai cereali,Cottura,Forno1,17,50
+Grissini ai cereali,Confezione,Confezionatrice1,27,25
+Grissini stirati a mano,Impasto,Impastatrice1,26,30
+Grissini stirati a mano,Lievitazione,Cella1,46,10
+Grissini stirati a mano,Cottura,Forno1,19,50
+Grissini stirati a mano,Confezione,Confezionatrice1,28,25
+Grissini alla cipolla,Impasto,Impastatrice1,19,30
+Grissini alla cipolla,Lievitazione,Cella1,39,10
+Grissini alla cipolla,Cottura,Forno1,15,50
+Grissini alla cipolla,Confezione,Confezionatrice1,24,25
+Grissini all’olio extravergine,Impasto,Impastatrice1,20,30
+Grissini all’olio extravergine,Lievitazione,Cella1,40,10
+Grissini all’olio extravergine,Cottura,Forno1,16,50
+Grissini all’olio extravergine,Confezione,Confezionatrice1,25,25
+Grissini sfogliati,Impasto,Impastatrice1,22,30
+Grissini sfogliati,Lievitazione,Cella1,42,10
+Grissini sfogliati,Cottura,Forno1,17,50
+Grissini sfogliati,Confezione,Confezionatrice1,26,25
+Crostini dorati,Impasto,Impastatrice1,20,30
+Crostini dorati,Lievitazione,Cella1,40,10
+Crostini dorati,Cottura,Forno1,15,50
+Crostini dorati,Confezione,Confezionatrice1,25,25
+Crostini all’aglio,Impasto,Impastatrice1,22,30
+Crostini all’aglio,Lievitazione,Cella1,42,10
+Crostini all’aglio,Cottura,Forno1,16,50
+Crostini all’aglio,Confezione,Confezionatrice1,26,25
+Crostini all’origano,Impasto,Impastatrice1,25,30
+Crostini all’origano,Lievitazione,Cella1,45,10
+Crostini all’origano,Cottura,Forno1,18,50
+Crostini all’origano,Confezione,Confezionatrice1,27,25
+Crostini ai cereali,Impasto,Impastatrice1,18,30
+Crostini ai cereali,Lievitazione,Cella1,38,10
+Crostini ai cereali,Cottura,Forno1,14,50
+Crostini ai cereali,Confezione,Confezionatrice1,24,25
+Crostini per zuppe,Impasto,Impastatrice1,21,30
+Crostini per zuppe,Lievitazione,Cella1,41,10
+Crostini per zuppe,Cottura,Forno1,16,50
+Crostini per zuppe,Confezione,Confezionatrice1,26,25
+Cracker salati classici,Impasto,Impastatrice1,23,30
+Cracker salati classici,Lievitazione,Cella1,43,10
+Cracker salati classici,Cottura,Forno1,17,50
+Cracker salati classici,Confezione,Confezionatrice1,27,25
+Cracker integrali,Impasto,Impastatrice1,26,30
+Cracker integrali,Lievitazione,Cella1,46,10
+Cracker integrali,Cottura,Forno1,19,50
+Cracker integrali,Confezione,Confezionatrice1,28,25
+Cracker ai semi,Impasto,Impastatrice1,19,30
+Cracker ai semi,Lievitazione,Cella1,39,10
+Cracker ai semi,Cottura,Forno1,15,50
+Cracker ai semi,Confezione,Confezionatrice1,24,25
+Cracker senza lievito,Impasto,Impastatrice1,20,30
+Cracker senza lievito,Lievitazione,Cella1,40,10
+Cracker senza lievito,Cottura,Forno1,16,50
+Cracker senza lievito,Confezione,Confezionatrice1,25,25
+Cracker al rosmarino,Impasto,Impastatrice1,22,30
+Cracker al rosmarino,Lievitazione,Cella1,42,10
+Cracker al rosmarino,Cottura,Forno1,17,50
+Cracker al rosmarino,Confezione,Confezionatrice1,26,25
+Cracker al mais,Impasto,Impastatrice1,20,30
+Cracker al mais,Lievitazione,Cella1,40,10
+Cracker al mais,Cottura,Forno1,15,50
+Cracker al mais,Confezione,Confezionatrice1,25,25
+Snack croccante ai cereali,Impasto,Impastatrice1,22,30
+Snack croccante ai cereali,Lievitazione,Cella1,42,10
+Snack croccante ai cereali,Cottura,Forno1,16,50
+Snack croccante ai cereali,Confezione,Confezionatrice1,26,25
+Quadretti di pane tostato,Impasto,Impastatrice1,25,30
+Quadretti di pane tostato,Lievitazione,Cella1,45,10
+Quadretti di pane tostato,Cottura,Forno1,18,50
+Quadretti di pane tostato,Confezione,Confezionatrice1,27,25
+Sfoglie croccanti al sale,Impasto,Impastatrice1,18,30
+Sfoglie croccanti al sale,Lievitazione,Cella1,38,10
+Sfoglie croccanti al sale,Cottura,Forno1,14,50
+Sfoglie croccanti al sale,Confezione,Confezionatrice1,24,25
+Sfoglie croccanti alle erbe,Impasto,Impastatrice1,21,30
+Sfoglie croccanti alle erbe,Lievitazione,Cella1,41,10
+Sfoglie croccanti alle erbe,Cottura,Forno1,16,50
+Sfoglie croccanti alle erbe,Confezione,Confezionatrice1,26,25
+Mini cracker per aperitivo,Impasto,Impastatrice1,23,30
+Mini cracker per aperitivo,Lievitazione,Cella1,43,10
+Mini cracker per aperitivo,Cottura,Forno1,17,50
+Mini cracker per aperitivo,Confezione,Confezionatrice1,27,25
+Snack tipo bruschetta,Impasto,Impastatrice1,26,30
+Snack tipo bruschetta,Lievitazione,Cella1,46,10
+Snack tipo bruschetta,Cottura,Forno1,19,50
+Snack tipo bruschetta,Confezione,Confezionatrice1,28,25
+Bruschettine all’olio d’oliva,Impasto,Impastatrice1,19,30
+Bruschettine all’olio d’oliva,Lievitazione,Cella1,39,10
+Bruschettine all’olio d’oliva,Cottura,Forno1,15,50
+Bruschettine all’olio d’oliva,Confezione,Confezionatrice1,24,25
+Bruschettine ai pomodorini,Impasto,Impastatrice1,20,30
+Bruschettine ai pomodorini,Lievitazione,Cella1,40,10
+Bruschettine ai pomodorini,Cottura,Forno1,16,50
+Bruschettine ai pomodorini,Confezione,Confezionatrice1,25,25
+Bruschettine mediterranee,Impasto,Impastatrice1,22,30
+Bruschettine mediterranee,Lievitazione,Cella1,42,10
+Bruschettine mediterranee,Cottura,Forno1,17,50
+Bruschettine mediterranee,Confezione,Confezionatrice1,26,25

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi Costi Globale</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        h2 { color: #555; margin-top: 30px; }
+        .grafico { margin: 20px 0; border: 1px solid #ddd; padding: 10px; }
+        img { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <h1>Analisi Costi Globale</h1>
+    
+    <h2>Top 10 Prodotti più Costosi (€/kg):</h2>
+    <div class="grafico">
+        <img src="{{ grafico_costosi_path }}" alt="Prodotti più Costosi">
+    </div>
+    
+    <h2>Top 10 Prodotti più Economici (€/kg):</h2>
+    <div class="grafico">
+        <img src="{{ grafico_economici_path }}" alt="Prodotti più Economici">
+    </div>
+    
+    <h2>Distribuzione Categorie Costo:</h2>
+    <div class="grafico">
+        <img src="{{ grafico_categorie_path }}" alt="Distribuzione Categorie Costo">
+    </div>
+</body>
+</html>

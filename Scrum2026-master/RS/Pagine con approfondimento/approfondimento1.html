@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approfondimento – Sviluppo Prodotto & Digital Twin | Morato Pane Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Morato Pane Color Palette - Tonalità Autunnali */
+            --primary: #D2691E; /* Cioccolato/arancione scuro */
+            --primary-light: #E68A2E; /* Arancione dorato */
+            --primary-dark: #8B4513; /* Marrone scuro */
+            --secondary: #F4A460; /* Sabbia chiara */
+            --accent: #CD853F; /* Arancione peru */
+            --light: #FFF8DC; /* Bianco corno */
+            --dark: #2C1810; /* Marrone cioccolato fondente */
+            --gray: #A0522D; /* Marrone terra */
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+            --gradient-secondary: linear-gradient(135deg, var(--accent), var(--secondary));
+            --gradient-light: linear-gradient(135deg, var(--light), #FFE4B5);
+            --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
+            --shadow: 0 15px 40px rgba(210, 105, 30, 0.25);
+            --shadow-light: 0 10px 30px rgba(244, 164, 96, 0.2);
+            --shadow-heavy: 0 25px 60px rgba(139, 69, 19, 0.3);
+            --radius: 20px;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(244, 164, 96, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(210, 105, 30, 0.08) 0%, transparent 25%);
+            padding-top: 100px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styling - Copied from index */
+        header {
+            padding: 25px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(255, 248, 220, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(210, 105, 30, 0.1);
+            transition: var(--transition);
+        }
+        
+        .header-scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-light);
+            background-color: rgba(255, 248, 220, 0.98);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.8s ease;
+        }
+        
+        .logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .logo i {
+            margin-right: 12px;
+            font-size: 36px;
+            filter: drop-shadow(0 3px 5px rgba(210, 105, 30, 0.3));
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section for this page */
+        .page-hero {
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(210, 105, 30, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 80%, rgba(244, 164, 96, 0.1) 0%, transparent 40%);
+        }
+        
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.1);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+        
+        .page-hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.1); }
+            100% { text-shadow: 3px 3px 15px rgba(210, 105, 30, 0.3), 0 0 20px rgba(244, 164, 96, 0.2); }
+        }
+        
+        /* Content Boxes - Inspired by index cards */
+        .content-section {
+            padding: 80px 0;
+        }
+        
+        .content-box {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 60px;
+            box-shadow: var(--shadow-heavy);
+            border: 1px solid rgba(210, 105, 30, 0.15);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 60px;
+            transition: var(--transition);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .content-box:hover {
+            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .content-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: var(--gradient);
+        }
+        
+        .content-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: var(--gradient);
+            filter: blur(60px);
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .box-number {
+            position: absolute;
+            top: -25px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 1.8rem;
+            font-weight: 800;
+            box-shadow: 0 10px 25px rgba(210, 105, 30, 0.4);
+            z-index: 2;
+            animation: numberPulse 2s infinite;
+        }
+        
+        @keyframes numberPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .content-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .content-box h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .content-box p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+        
+        .content-box ul {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .content-box li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            color: var(--dark);
+            transition: var(--transition);
+            font-size: 1.05rem;
+        }
+        
+        .content-box li:hover {
+            transform: translateX(10px);
+            color: var(--primary);
+        }
+        
+        .content-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .content-box li:hover::before {
+            transform: scale(1.5);
+            color: var(--primary-light);
+        }
+        
+        .ai-highlight {
+            background: linear-gradient(135deg, rgba(54, 209, 220, 0.1), rgba(54, 209, 220, 0.05));
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            border-left: 3px solid #36d1dc;
+        }
+        
+        /* Button Styling */
+        .center {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 45px;
+            background: var(--gradient);
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: var(--shadow); }
+            50% { box-shadow: 0 0 30px rgba(210, 105, 30, 0.4), var(--shadow); }
+            100% { box-shadow: var(--shadow); }
+        }
+        
+        .btn:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(210, 105, 30, 0.3);
+            color: var(--light);
+            animation: none;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn i {
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Footer Styling */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark), #3C2415);
+            color: var(--light);
+            padding: 80px 0 40px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--gradient);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 60px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
+            animation: linePulse 2s infinite;
+        }
+        
+        @keyframes linePulse {
+            0%, 100% { width: 50px; }
+            50% { width: 80px; }
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 248, 220, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 10px;
+        }
+        
+        .footer-links a i {
+            font-size: 0.9rem;
+        }
+        
+        .footer-brand {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, var(--secondary), #FFDAB9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .social-links a:hover::before {
+            left: 100%;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-light);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 248, 220, 0.1);
+            color: rgba(255, 248, 220, 0.6);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        /* Autumn Leaves Animation */
+        .autumn-leaves {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .leaf {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+            opacity: 0.4;
+            animation: falling 15s linear infinite;
+            filter: drop-shadow(0 5px 10px rgba(139, 69, 19, 0.2));
+        }
+        
+        @keyframes falling {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .content-box {
+                padding: 40px 30px;
+            }
+            
+            .content-box h2 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            
+            .page-hero {
+                padding: 60px 0 40px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .page-hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .content-section {
+                padding: 60px 0;
+            }
+            
+            .content-box {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+            
+            .box-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                top: -20px;
+                right: 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Autumn Leaves -->
+    <div class="autumn-leaves">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+    </div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-bread-slice"></i>
+                    Morato Pane
+                </div>
+                <nav class="nav-links">
+                    <a href="index—.html">Home</a>
+                    <a href="#section1">Contesto</a>
+                    <a href="#section2">Il Mio Ruolo</a>
+                    <a href="#section3">Digital Twin</a>
+                    <a href="#section4">Conclusioni</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="fade-in">
+                <h1>Approfondimento – Sviluppo Prodotto & Digital Twin</h1>
+                <p class="subtitle">Progetto SCRUM – ITIS A. Rossi | Applicazione dei principi Lean alla panificazione industriale</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- SEZIONE 1 – CONTESTO -->
+        <section class="content-section" id="section1">
+            <div class="content-box fade-in">
+                <div class="box-number"></div>
+                <h2>Contesto: Sviluppo Prodotto in ottica Lean</h2>
+                <p>
+                    La presentazione approfondisce i principi fondamentali dello sviluppo prodotto secondo il
+                    pensiero <strong>Lean</strong> e il <strong>Lean Product & Process Development (LPPD)</strong>. L'obiettivo non è solo
+                    progettare un prodotto, ma creare <strong>valore per il cliente</strong> riducendo sprechi, tempi e costi,
+                    migliorando al tempo stesso la qualità e la capacità di apprendimento dell'organizzazione.
+                </p>
+
+                <p>
+                    Il modello Lean applicato allo sviluppo prodotto si basa su alcuni pilastri chiave:
+                </p>
+
+                <ul>
+                    <li><strong>Focus sul valore</strong>: comprendere ciò che il cliente considera davvero utile.</li>
+                    <li><strong>Riduzione degli sprechi</strong>: eliminare attività che non generano valore.</li>
+                    <li><strong>Apprendimento rapido</strong>: testare presto, sbagliare presto, migliorare continuamente.</li>
+                    <li><strong>Decisioni basate sui dati</strong>: misurare, analizzare e validare ogni scelta.</li>
+                    <li><strong>Collaborazione multidisciplinare</strong>: progettazione integrata tra più funzioni aziendali.</li>
+                </ul>
+
+                <p>
+                    Il processo viene strutturato in fasi progressive: definizione delle specifiche, analisi della
+                    concorrenza, studio brevettuale, sviluppo di più soluzioni in parallelo (<strong>SBCE – Set Based
+                    Concurrent Engineering</strong>), realizzazione di prototipi A/B/C, validazione e industrializzazione.
+                    Il tutto coordinato da un capo progetto che garantisce coerenza, tempi e qualità.
+                </p>
+            </div>
+        </section>
+
+        <!-- SEZIONE 2 – IL MIO RUOLO -->
+        <section class="content-section" id="section2">
+            <div class="content-box fade-in">
+                <div class="box-number"></div>
+                <h2>Il mio ruolo nel progetto</h2>
+                <p>
+                    All'interno di questo percorso ho sviluppato un <strong>prototipo digitale</strong> che applica i principi Lean
+                    al processo di panificazione industriale. L'obiettivo era creare un sistema capace di simulare,
+                    analizzare e migliorare la produzione di pane e panini, integrando modelli matematici e
+                    tecniche di intelligenza artificiale.
+                </p>
+
+                <p>Le attività principali che ho svolto includono:</p>
+
+                <ul>
+                    <li><strong>Modellazione matematica</strong> dei processi di lievitazione e cottura.</li>
+                    <li><strong>Simulazione dei parametri di processo</strong> (temperature, tempi, idratazione, umidità).</li>
+                    <li><strong>Integrazione di YOLO</strong> per il riconoscimento automatico del prodotto.</li>
+                    <li><strong>Analisi del colore</strong> per individuare difetti come bruciature, muffe o cottura insufficiente.</li>
+                    <li><strong>Generazione automatica di suggerimenti</strong> per ottimizzare la qualità del prodotto.</li>
+                    <li><strong>Creazione di un report PDF</strong> contenente parametri, grafici, immagini e valutazione finale.</li>
+                    <li><strong>Progettazione dell'interfaccia</strong> tramite dashboard interattiva per facilitare l'uso del sistema.</li>
+                </ul>
+
+                <p>
+                    Questo lavoro rappresenta un esempio concreto di come strumenti digitali e AI possano supportare
+                    lo sviluppo prodotto, riducendo tempi di validazione e migliorando la qualità finale.
+                </p>
+            </div>
+        </section>
+
+        <!-- SEZIONE 3 – DIGITAL TWIN -->
+        <section class="content-section" id="section3">
+            <div class="content-box fade-in">
+                <div class="box-number"></div>
+                <h2>La <span class="ai-highlight">Digital Twin</span> con riconoscimento</h2>
+                <p>
+                    Il risultato finale è una <strong>Digital Twin</strong> del processo di panificazione: un gemello
+                    digitale che replica il comportamento reale del prodotto e permette di analizzare in modo
+                    virtuale ciò che accade in produzione.
+                </p>
+
+                <p>
+                    La Digital Twin integra simulazione, analisi delle immagini e algoritmi di AI per:
+                </p>
+
+                <ul>
+                    <li>prevedere l'evoluzione del prodotto durante lievitazione e cottura;</li>
+                    <li>rilevare automaticamente difetti visivi tramite YOLO e analisi del colore;</li>
+                    <li>valutare la qualità del prodotto in tempo reale;</li>
+                    <li>fornire suggerimenti per migliorare il processo produttivo;</li>
+                    <li>documentare i risultati in un report completo e professionale.</li>
+                </ul>
+
+                <p>
+                    Questo prototipo dimostra come l'AI possa diventare uno strumento strategico nello sviluppo
+                    prodotto, permettendo di testare rapidamente nuove ricette, ridurre gli scarti e migliorare la
+                    qualità percepita dal cliente.
+                </p>
+
+                <p>
+                    Di seguito è possibile accedere alla pagina dedicata all'avvio della Digital Twin con
+                    riconoscimento immagini.
+                </p>
+
+                <div class="center">
+                    <a class="btn" href="approfondimento2.html">
+                        <i class="fas fa-arrow-right"></i> Vai alla Digital Twin con riconoscimento
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 4 – CONCLUSIONI -->
+        <section class="content-section" id="section4">
+            <div class="content-box fade-in">
+                <div class="box-number"></div>
+                <h2>Conclusioni</h2>
+                <p>
+                    Il progetto rappresenta un esempio concreto di applicazione dei principi <strong>Lean</strong> allo sviluppo
+                    prodotto, integrando simulazione, AI e strumenti digitali. La <span class="ai-highlight">Digital Twin</span> sviluppata permette
+                    di comprendere meglio il processo, ridurre gli sprechi e migliorare la qualità finale.
+                </p>
+                <p>
+                    Questo lavoro dimostra come l'innovazione digitale possa supportare le aziende nel prendere
+                    decisioni più rapide, basate sui dati e orientate al miglioramento continuo.
+                </p>
+
+                <div class="center">
+                    <a class="btn" href="../../scrum.html">
+                        <i class="fas fa-home"></i> Torna al Progetto SCRUM
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-brand">
+                        <i class="fas fa-bread-slice"></i> Morato Pane
+                    </div>
+                    <p style="color: rgba(255, 248, 220, 0.8); margin-bottom: 25px; max-width: 350px;">
+                        Approfondimento sul progetto di sviluppo prodotto Lean e Digital Twin per la panificazione industriale.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Sezioni</h4>
+                    <ul class="footer-links">
+                        <li><a href="#section1"><i class="fas fa-chevron-right"></i> Contesto Lean</a></li>
+                        <li><a href="#section2"><i class="fas fa-chevron-right"></i> Il Mio Ruolo</a></li>
+                        <li><a href="#section3"><i class="fas fa-chevron-right"></i> Digital Twin</a></li>
+                        <li><a href="#section4"><i class="fas fa-chevron-right"></i> Conclusioni</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Navigazione</h4>
+                    <ul class="footer-links">
+                        <li><a href="index—.html"><i class="fas fa-chevron-right"></i> Homepage</a></li>
+                        <li><a href="approfondimento2.html"><i class="fas fa-chevron-right"></i> Digital Twin</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Progetto SCRUM</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contattaci</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Morato Pane Design. Tutti i diritti riservati. | Progetto SCRUM – ITIS A. Rossi | Approfondimento Ricerca e Sviluppo</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles.js initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 60, density: { enable: true, value_area: 800 } },
+                    color: { value: ["#D2691E", "#E68A2E", "#CD853F", "#F4A460"] },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.3, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#D2691E",
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "repulse" },
+                        onclick: { enable: true, mode: "push" }
+                    }
+                },
+                retina_detect: true
+            });
+            
+            // Create autumn leaves
+            const autumnLeaves = document.querySelector('.autumn-leaves');
+            for (let i = 0; i < 8; i++) {
+                const leaf = document.createElement('div');
+                leaf.classList.add('leaf');
+                
+                // Random properties
+                const left = Math.random() * 100;
+                const delay = Math.random() * 10;
+                const duration = Math.random() * 10 + 15;
+                const size = Math.random() * 20 + 20;
+                const colorIndex = Math.floor(Math.random() * 4);
+                const colors = ['var(--primary)', 'var(--primary-light)', 'var(--accent)', 'var(--secondary)'];
+                
+                leaf.style.left = `${left}%`;
+                leaf.style.animationDelay = `${delay}s`;
+                leaf.style.animationDuration = `${duration}s`;
+                leaf.style.width = `${size}px`;
+                leaf.style.height = `${size}px`;
+                leaf.style.backgroundColor = colors[colorIndex];
+                
+                autumnLeaves.appendChild(leaf);
+            }
+        });
+        
+        // Scroll animations
+        function checkScroll() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const header = document.getElementById('header');
+            
+            // Header scroll effect
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+            
+            // Fade in elements
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            checkScroll();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', checkScroll);
+            
+            // Animate content on load
+            setTimeout(() => {
+                document.querySelector('.page-hero .fade-in').classList.add('visible');
+            }, 300);
+            
+            // Add hover effect to content boxes
+            const contentBoxes = document.querySelectorAll('.content-box');
+            contentBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    const number = this.querySelector('.box-number');
+                    if (number) {
+                        number.style.transform = 'scale(1.2)';
+                    }
+                });
+                
+                box.addEventListener('mouseleave', function() {
+                    const number = this.querySelector('.box-number');
+                    if (number) {
+                        number.style.transform = '';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

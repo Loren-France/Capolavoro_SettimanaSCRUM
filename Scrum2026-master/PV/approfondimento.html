@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morato Group - Il Valore del Post-Vendita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Morato Pane Color Palette - Tonalità Autunnali */
+            --primary: #D2691E; /* Cioccolato/arancione scuro */
+            --primary-light: #E68A2E; /* Arancione dorato */
+            --primary-dark: #8B4513; /* Marrone scuro */
+            --secondary: #F4A460; /* Sabbia chiara */
+            --accent: #CD853F; /* Arancione peru */
+            --light: #FFF8DC; /* Bianco corno */
+            --dark: #2C1810; /* Marrone cioccolato fondente */
+            --gray: #A0522D; /* Marrone terra */
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+            --gradient-secondary: linear-gradient(135deg, var(--accent), var(--secondary));
+            --gradient-light: linear-gradient(135deg, var(--light), #FFE4B5);
+            --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
+            --shadow: 0 15px 40px rgba(210, 105, 30, 0.25);
+            --shadow-light: 0 10px 30px rgba(244, 164, 96, 0.2);
+            --shadow-heavy: 0 25px 60px rgba(139, 69, 19, 0.3);
+            --radius: 20px;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(244, 164, 96, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(210, 105, 30, 0.08) 0%, transparent 25%);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styling */
+        header {
+            padding: 25px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(255, 248, 220, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(210, 105, 30, 0.1);
+            transition: var(--transition);
+        }
+        
+        .header-scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-light);
+            background-color: rgba(255, 248, 220, 0.98);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.8s ease;
+        }
+        
+        .logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .logo i {
+            margin-right: 12px;
+            font-size: 36px;
+            filter: drop-shadow(0 3px 5px rgba(210, 105, 30, 0.3));
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .documentation-header {
+            padding: 200px 0 150px;
+            position: relative;
+            overflow: hidden;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(210, 105, 30, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 80%, rgba(244, 164, 96, 0.1) 0%, transparent 40%);
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .documentation-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+            margin: 0 auto;
+        }
+        
+        .header-logo {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.1);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.1); }
+            100% { text-shadow: 3px 3px 15px rgba(210, 105, 30, 0.3), 0 0 20px rgba(244, 164, 96, 0.2); }
+        }
+        
+        .header-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 45px;
+            max-width: 700px;
+            margin: 0 auto 45px;
+            font-weight: 400;
+        }
+        
+        /* Container principale */
+        .documentation-container {
+            display: grid;
+            grid-template-columns: 280px 1fr 300px;
+            max-width: 1400px;
+            margin: 2rem auto;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+        
+        /* Sidebar sinistra - Navigazione */
+        .nav-sidebar {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-heavy);
+            border: 1px solid rgba(210, 105, 30, 0.15);
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+            backdrop-filter: blur(15px);
+            transition: var(--transition);
+        }
+        
+        .nav-sidebar:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .nav-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(210, 105, 30, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .nav-menu {
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: var(--transition);
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link:hover {
+            background: rgba(210, 105, 30, 0.1);
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .nav-link.active {
+            background: rgba(210, 105, 30, 0.15);
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        /* Contenuto centrale */
+        .content-main {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-heavy);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(210, 105, 30, 0.15);
+            transition: var(--transition);
+        }
+        
+        .content-main:hover {
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(210, 105, 30, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 1.5rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .info-card {
+            background: rgba(230, 201, 168, 0.3);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .info-card.warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-left-color: #ffc107;
+        }
+        
+        .info-card.success {
+            background: rgba(40, 167, 69, 0.1);
+            border-left-color: #28a745;
+        }
+        
+        .flow-diagram {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .diagram-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(210, 105, 30, 0.05);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+        
+        .diagram-step:hover {
+            transform: translateX(5px);
+            background: rgba(210, 105, 30, 0.1);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(210, 105, 30, 0.3);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+        }
+        
+        .step-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .highlight-term {
+            background-color: rgba(210, 105, 30, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .content-quote {
+            font-style: italic;
+            border-left: 4px solid var(--primary);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: var(--primary-dark);
+            background: rgba(210, 105, 30, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        /* Sidebar destra - Info rapide */
+        .quick-info {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-heavy);
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(210, 105, 30, 0.15);
+            transition: var(--transition);
+        }
+        
+        .quick-info:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .quick-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(210, 105, 30, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .status-card {
+            background: rgba(230, 201, 168, 0.3);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(210, 105, 30, 0.2);
+        }
+        
+        .status-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .status-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .status-item:hover .status-icon {
+            background: var(--gradient);
+            color: var(--light);
+            transform: rotate(360deg) scale(1.1);
+        }
+        
+        .status-text {
+            flex: 1;
+        }
+        
+        .status-label {
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: block;
+        }
+        
+        .status-value {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .quick-links {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .quick-link-item {
+            margin-bottom: 0.75rem;
+        }
+        
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--dark);
+            text-decoration: none;
+            padding: 0.75rem;
+            border-radius: 10px;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .quick-link:hover {
+            background: rgba(210, 105, 30, 0.1);
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        /* Footer */
+        .documentation-footer {
+            background: linear-gradient(135deg, var(--primary-dark), #3C2415);
+            color: var(--light);
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .documentation-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--gradient);
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Pulsanti */
+        .chatbot-button-container, .home-button-container {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(210, 105, 30, 0.1);
+            border-radius: var(--radius);
+            text-align: center;
+        }
+        
+        .chatbot-button, .home-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background: var(--gradient);
+            color: var(--light);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .chatbot-button::before, .home-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .chatbot-button:hover::before, .home-button:hover::before {
+            opacity: 1;
+        }
+        
+        .chatbot-button:hover, .home-button:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(210, 105, 30, 0.3);
+            color: var(--light);
+        }
+        
+        .chatbot-icon, .home-icon {
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .chatbot-button:hover .chatbot-icon,
+        .home-button:hover .home-icon {
+            transform: translateX(5px);
+        }
+        
+        .chatbot-description {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+            opacity: 0.9;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .documentation-container {
+                grid-template-columns: 250px 1fr 250px;
+                gap: 1.5rem;
+            }
+            
+            .header-logo {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .documentation-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-sidebar,
+            .quick-info {
+                position: static;
+            }
+            
+            .header-logo {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .documentation-header {
+                padding: 160px 0 100px;
+            }
+            
+            .header-logo {
+                font-size: 2.5rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .documentation-container {
+                padding: 0 1rem;
+            }
+            
+            .content-main {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav-sidebar, .quick-info {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Terminal styling */
+        .terminal {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            font-family: 'Consolas', monospace;
+            margin: 1.5rem 0;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .terminal::before {
+            content: 'Terminale';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 0 10px;
+            font-size: 0.8rem;
+            border-radius: 5px;
+        }
+        
+        /* Autumn leaves animation */
+        .autumn-leaves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .leaf {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+            opacity: 0.4;
+            animation: falling 15s linear infinite;
+            filter: drop-shadow(0 5px 10px rgba(139, 69, 19, 0.2));
+        }
+        
+        @keyframes falling {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Glowing effects */
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(210, 105, 30, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
+            animation: glowMove 10s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glowMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 30px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="documentation-header">
+        <div class="autumn-leaves">
+            <div class="leaf" style="top: -50px; left: 10%; animation-delay: 0s; background: var(--primary); width: 35px; height: 35px; animation-duration: 18s;"></div>
+            <div class="leaf" style="top: -50px; left: 30%; animation-delay: 2s; background: var(--primary-light); width: 45px; height: 45px; animation-duration: 22s;"></div>
+            <div class="leaf" style="top: -50px; left: 50%; animation-delay: 4s; background: var(--accent); width: 30px; height: 30px; animation-duration: 16s;"></div>
+            <div class="leaf" style="top: -50px; left: 70%; animation-delay: 6s; background: var(--primary-dark); width: 40px; height: 40px; animation-duration: 20s;"></div>
+            <div class="leaf" style="top: -50px; left: 90%; animation-delay: 8s; background: var(--secondary); width: 35px; height: 35px; animation-duration: 24s;"></div>
+        </div>
+        
+        <!-- Glowing Effects -->
+        <div class="glow" style="top: 20%; left: 10%;"></div>
+        <div class="glow" style="bottom: 30%; right: 15%; background: radial-gradient(circle, rgba(244, 164, 96, 0.1) 0%, transparent 70%); animation-delay: 2s;"></div>
+        <div class="glow" style="top: 60%; left: 70%; background: radial-gradient(circle, rgba(205, 133, 63, 0.1) 0%, transparent 70%); animation-delay: 4s; width: 200px; height: 200px;"></div>
+        
+        <div class="header-content">
+            <h1 class="header-logo">MORATO GROUP</h1>
+            <p class="header-subtitle">Il Valore del Post-Vendita nel Settore della Panificazione Industriale</p>
+        </div>
+    </header>
+
+    <!-- Container principale -->
+    <div class="documentation-container">
+        <!-- Sidebar sinistra - Navigazione -->
+        <nav class="nav-sidebar fade-in">
+            <h2 class="nav-title">📚 Indice</h2>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#overview" class="nav-link active">🏠 Panoramica</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#service" class="nav-link">⚡ Quando il Servizio fa la Differenza</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#daily" class="nav-link">🔄 La Cura Quotidiana</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#transparency" class="nav-link">🔍 Trasparenza e Fiducia</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pdca" class="nav-link">🔄 Ciclo PDCA</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#training" class="nav-link">📚 Formazione e Conoscenza</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#conclusion" class="nav-link">🎯 Il Post-Vendita come Promessa</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Contenuto principale -->
+        <main class="content-main fade-in">
+            <!-- Sezione Panoramica -->
+            <section id="overview" class="content-section">
+                <h2 class="section-title">🏠 Panoramica</h2>
+                
+                <p>Nel settore della panificazione industriale, dove un prodotto può raggiungere mercati internazionali partendo da Vicenza, il valore distintivo non risiede esclusivamente nella qualità delle materie prime o nelle caratteristiche organolettiche.</p>
+                
+                <div class="info-card success">
+                    <strong>🎯 Il Valore Distintivo:</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>La differenza si manifesta nel periodo successivo alla vendita</li>
+                        <li>Dopo la partenza della merce, dopo l'esposizione sugli scaffali</li>
+                        <li>Dopo l'installazione delle attrezzature presso gli stabilimenti dei clienti</li>
+                        <li>È in questa fase che Morato Group consolida le proprie relazioni</li>
+                    </ul>
+                </div>
+
+                <h3 class="section-subtitle">La Filosofia del Servizio</h3>
+                <p>Il post-vendita rappresenta non un costo da contenere, ma un ambito strategico per generare valore e sostenere la crescita futura. È attraverso questo approccio che Morato Group comunica ai propri clienti — dai grandi retailer internazionali alle realtà locali — che la consegna non rappresenta una conclusione, ma l'inizio di un rapporto destinato a consolidarsi nel tempo.</p>
+                
+            </section>
+
+            <!-- Sezione Servizio -->
+            <section id="service" class="content-section">
+                <h2 class="section-title">⚡ Quando il Servizio fa la Differenza</h2>
+                
+                <h3 class="section-subtitle">Scenario Reale: Supermercato Partner</h3>
+                <p>In un grande supermercato partner, il nastro trasportatore della linea di confezionamento dei grissini si arresta. La criticità è immediata: rischio di scaffali vuoti e ritardi nelle consegne degli ordini online. L'intervento viene classificato come prioritario.</p>
+                
+                <div class="flow-diagram">
+                    <div class="diagram-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <div class="step-title">Rilevazione Automatica</div>
+                            <div class="step-description">I sensori <span class="highlight-term">IoT</span> rilevano un'anomalia nelle vibrazioni del nastro trasportatore</div>
+                        </div>
+                    </div>
+                    <div class="diagram-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <div class="step-title">Manutenzione Predittiva</div>
+                            <div class="step-description">Il sistema di manutenzione predittiva genera automaticamente un ticket di intervento</div>
+                        </div>
+                    </div>
+                    <div class="diagram-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <div class="step-title">Identificazione Cliente</div>
+                            <div class="step-description">Il <span class="highlight-term">CRM</span> identifica il referente corretto e il canale di comunicazione preferenziale</div>
+                        </div>
+                    </div>
+                    <div class="diagram-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <div class="step-title">Intervento Mirato</div>
+                            <div class="step-description">Il tecnico viene inviato con il ricambio adeguato, grazie a un <span class="highlight-term">fill rate</span> monitorato in tempo reale</div>
+                        </div>
+                    </div>
+                    <div class="diagram-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <div class="step-title">Comunicazione Proattiva</div>
+                            <div class="step-description">Il cliente riceve un SMS con la fascia oraria prevista e un link per monitorare l'avanzamento</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <strong>🎯 Obiettivo Operativo:</strong>
+                    <p style="margin-top: 0.5rem;">Garantire un <span class="highlight-term">First Time Fix Rate</span> (capacità di risolvere il problema al primo intervento) elevato, minimizzando i tempi di fermo della produzione e garantendo la continuità operativa del cliente.</p>
+                </div>
+            </section>
+
+            <!-- Sezione Cura Quotidiana -->
+            <section id="daily" class="content-section">
+                <h2 class="section-title">🔄 La Cura Quotidiana che Continua dopo l'Acquisto</h2>
+                
+                <p>Il servizio post-vendita non riguarda esclusivamente la gestione delle emergenze, ma comprende attività di supporto quotidiano che rafforzano il rapporto con il cliente.</p>
+                
+                <h3 class="section-subtitle">Innovazione nel Supporto: QR Code Intelligenti</h3>
+                
+                <div class="info-card">
+                    <strong>📱 QR Code sulle Confezioni:</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>Istruzioni per una corretta conservazione del prodotto</li>
+                        <li>Indicazioni per lo smaltimento dell'imballaggio (in linea con gli obiettivi di sostenibilità)</li>
+                        <li>Accesso a ricette e suggerimenti per l'utilizzo ottimale</li>
+                        <li>Collegamento a brevi survey per il rilevamento del <span class="highlight-term">CSAT</span></li>
+                    </ul>
+                </div>
+                
+                <h3 class="section-subtitle">Metriche di Successo</h3>
+                <div class="terminal">
+                    <strong>CSAT</strong> (Customer Satisfaction Score):<br>
+                    Indice di soddisfazione immediata del cliente<br><br>
+                    <strong>NPS</strong> (Net Promoter Score):<br>
+                    Indice che misura la probabilità che un cliente raccomandi il brand<br><br>
+                    <strong>FTFR</strong> (First Time Fix Rate):<br>
+                    Percentuale di problemi risolti al primo intervento
+                </div>
+                
+                <p>La raccolta sistematica di questi dati contribuisce nel tempo alla costruzione di un rapporto di fiducia solido e misurabile con la clientela.</p>
+            </section>
+
+            <!-- Sezione Trasparenza -->
+            <section id="transparency" class="content-section">
+                <h2 class="section-title">🔍 Quando Qualcosa non Va: Trasparenza e Fiducia</h2>
+                
+                <p>In caso di non conformità, la gestione avviene secondo criteri di trasparenza e rapidità, trasformando un potenziale problema in un'opportunità per rafforzare la relazione.</p>
+                
+                <div class="flow-diagram">
+                    <div class="diagram-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <div class="step-title">Logistica Inversa</div>
+                            <div class="step-description">Procedura di ritiro e gestione dei prodotti difettosi con autorizzazioni immediate</div>
+                        </div>
+                    </div>
+                    <div class="diagram-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <div class="step-title">Coordinamento Logistico</div>
+                            <div class="step-description">Ritiri coordinati con i partner logistici dei supermercati</div>
+                        </div>
+                    </div>
+                    <div class="diagram-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <div class="step-title">Monitoraggio KPI</div>
+                            <div class="step-description">Condivisione dei <span class="highlight-term">KPI di lead time</span> con i partner</div>
+                        </div>
+                    </div>
+                    <div class="diagram-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <div class="step-title">Soluzioni Alternative</div>
+                            <div class="step-description">In alternativa al rimborso, proposta di un buono sconto utilizzabile sull'ordine successivo</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card success">
+                    <strong>💡 Approccio Strategico:</strong>
+                    <p style="margin-top: 0.5rem;">Il buono sconto non è visto come un semplice rimborso, ma come un <strong>reinvestimento nella relazione commerciale</strong> e come leva di fidelizzazione, dimostrando impegno nel mantenere il cliente soddisfatto nel lungo termine.</p>
+                </div>
+            </section>
+
+            <!-- Sezione PDCA -->
+            <section id="pdca" class="content-section">
+                <h2 class="section-title">🔄 Il Ciclo PDCA: Il Motore del Miglioramento Continuo</h2>
+                
+                <p>L'intero sistema di assistenza si basa sul ciclo <span class="highlight-term">PDCA</span> (Plan-Do-Check-Act), una metodologia di miglioramento continuo che garantisce l'evoluzione costante dei processi di servizio.</p>
+                
+                <div class="flow-diagram">
+                    <div class="diagram-step">
+                        <div class="step-number">P</div>
+                        <div class="step-content">
+                            <div class="step-title">PLAN - Pianificazione</div>
+                            <div class="step-description">Pianificazione degli interventi sulla base dei dati provenienti dalle macchine (manutenzione preventiva e predittiva)</div>
+                        </div>
+                    </div>
+                    <div class="diagram-step">
+                        <div class="step-number">D</div>
+                        <div class="step-content">
+                            <div class="step-title">DO - Esecuzione</div>
+                            <div class="step-description">Esecuzione degli interventi, attività formative e supporto operativo quotidiano</div>
+                        </div>
+                    </div>
+                    <div class="diagram-step">
+                        <div class="step-number">C</div>
+                        <div class="step-content">
+                            <div class="step-title">CHECK - Verifica</div>
+                            <div class="step-description">Monitoraggio dei <span class="highlight-term">KPI</span>: tempi di riparazione, soddisfazione del cliente, efficienza delle consegne e ricambi</div>
+                        </div>
+                    </div>
+                    <div class="diagram-step">
+                        <div class="step-number">A</div>
+                        <div class="step-content">
+                            <div class="step-title">ACT - Azione</div>
+                            <div class="step-description">Aggiornamento dei software, revisione dei manuali, miglioramento dei percorsi formativi</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-quote">
+                    "Il ciclo PDCA non è un processo lineare ma circolare: ogni fase alimenta la successiva, creando un motore perpetuo di miglioramento che si adatta continuamente alle esigenze del mercato e dei clienti."
+                </div>
+            </section>
+
+            <!-- Sezione Formazione -->
+            <section id="training" class="content-section">
+                <h2 class="section-title">📚 Formazione e Conoscenza Condivisa</h2>
+                
+                <p>Per i clienti business, il rapporto si sviluppa attraverso un percorso formativo continuo, che comprende sia l'utilizzo delle attrezzature sia il rispetto delle normative.</p>
+                
+                <h3 class="section-subtitle">Knowledge Base Dinamica</h3>
+                
+                <div class="info-card">
+                    <strong>📊 Architettura della Conoscenza:</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li><strong>Video Tutorial</strong>: Guide pratiche per l'uso e la manutenzione delle attrezzature</li>
+                        <li><strong>Schede Tecniche Aggiornate</strong>: Documentazione sempre al passo con le innovazioni</li>
+                        <li><strong>Webinar Dedicati</strong>: Sessioni formative sulle nuove normative <span class="highlight-term">HACCP</span></li>
+                        <li><strong>Biblioteca Digitale</strong>: Accesso centralizzato a tutte le risorse informative</li>
+                    </ul>
+                </div>
+                
+                <p>La <span class="highlight-term">knowledge base</span> rappresenta uno strumento dinamico che costituisce un patrimonio informativo condiviso con l'intera filiera, dalla produzione alla distribuzione.</p>
+                
+                <h3 class="section-subtitle">Formazione HACCP</h3>
+                <p>Particolare attenzione è dedicata alla formazione sulle normative <span class="highlight-term">HACCP</span> (standard igienico-sanitari obbligatori nel settore alimentare), garantendo che tutti i partner della filiera operino nel pieno rispetto delle regolamentazioni e degli standard di sicurezza alimentare.</p>
+            </section>
+
+            <!-- Sezione Conclusione -->
+            <section id="conclusion" class="content-section">
+                <h2 class="section-title">🎯 Il Post-Vendita come Promessa di Marca</h2>
+                
+                <p>Nel contesto di un'azienda che opera tra tradizione alimentare e innovazione, il post-vendita rappresenta un elemento centrale della promessa di marca.</p>
+                
+                <div class="info-card success">
+                    <strong>🚀 Visione Strategica:</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                        <li>Il post-vendita non è un costo, ma un investimento strategico</li>
+                        <li>Genera valore tangibile e misurabile nel lungo termine</li>
+                        <li>Sostiene la crescita futura attraverso la fidelizzazione</li>
+                        <li>Trasforma i clienti in ambasciatori del brand</li>
+                    </ul>
+                </div>
+                
+                <div class="content-quote">
+                    "La consegna di un prodotto non rappresenta una conclusione, ma l'inizio di un rapporto destinato a consolidarsi nel tempo. È questo approccio che distingue Morato Group nel panorama della panificazione industriale internazionale."
+                </div>
+                
+                <h3 class="section-subtitle">Il Futuro del Servizio</h3>
+                <p>Guardando al futuro, Morato Group continua a investire nell'innovazione dei servizi post-vendita, esplorando nuove tecnologie come l'intelligenza artificiale predittiva, la realtà aumentata per la formazione a distanza e l'integrazione sempre più profonda con i sistemi dei clienti per creare un ecosistema di servizio veramente connesso e proattivo.</p>
+                
+                <!-- Pulsanti Navigazione -->
+                <div class="home-button-container">
+                    <a href="../scrum.html" class="home-button">
+                        <span class="home-icon">🏠</span>
+                        <span>Torna a SCRUM</span>
+                    </a>
+                </div>
+                <div class="home-button-container">
+                    <a href="./chatbot.html" class="home-button">
+                        <span class="home-icon">🤖</span>
+                        <span>Documentazione AI</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar destra - Info rapide -->
+        <aside class="quick-info fade-in">
+            <h2 class="quick-title">⚡ Info Rapide</h2>
+            
+            <div class="status-card">
+                <div class="status-item">
+                    <div class="status-icon">⚡</div>
+                    <div class="status-text">
+                        <span class="status-label">First Time Fix Rate</span>
+                        <span class="status-value">l'importanza dell'immediato</span>
+                    </div>
+                </div>
+                <div class="status-item">
+                    <div class="status-icon">🕒</div>
+                    <div class="status-text">
+                        <span class="status-label">Rapidità essenziale</span>
+                    </div>
+                </div>
+                <div class="status-item">
+                    <div class="status-icon">🌐</div>
+                    <div class="status-text">
+                        <span class="status-label">Copertura Geografica</span>
+                        <span class="status-value">Oltre 60 paesi serviti</span>
+                    </div>
+                </div>
+                <div class="status-item">
+                    <div class="status-icon">📈</div>
+                    <div class="status-text">
+                        <span class="status-label">Soddisfazione Clienti</span>
+                        <span class="status-value">NPS elevato</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PULSANTE CHATBOT -->
+            <div class="chatbot-button-container">
+                <a href="http://localhost:8080" target="_blank" class="chatbot-button">
+                    <span class="chatbot-icon">🤖</span>
+                    <span>Prova il Chatbot AI</span>
+                </a>
+                <p class="chatbot-description">
+                    Accedi al sistema di assistenza clienti AI per testare le funzionalità in tempo reale
+                </p>
+            </div>
+
+            <h3 class="quick-title" style="margin-top: 2rem;">📋 KPI Chiave</h3>
+            <ul class="quick-links">
+                <li class="quick-link-item">
+                    <a href="#service" class="quick-link">
+                        <span style="font-size: 1.2rem;">🎯</span>
+                        <span>First Time Fix Rate</span>
+                    </a>
+                </li>
+                <li class="quick-link-item">
+                    <a href="#daily" class="quick-link">
+                        <span style="font-size: 1.2rem;">📊</span>
+                        <span>Customer Satisfaction (CSAT)</span>
+                    </a>
+                </li>
+                <li class="quick-link-item">
+                    <a href="#daily" class="quick-link">
+                        <span style="font-size: 1.2rem;">📈</span>
+                        <span>Net Promoter Score (NPS)</span>
+                    </a>
+                </li>
+                <li class="quick-link-item">
+                    <a href="#transparency" class="quick-link">
+                        <span style="font-size: 1.2rem;">⏱️</span>
+                        <span>Lead Time KPI</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <h3 class="quick-title" style="margin-top: 2rem;">🔗 Risorse</h3>
+            <ul class="quick-links">
+                <li class="quick-link-item">
+                    <a href="#" class="quick-link">
+                        <span style="font-size: 1.2rem;">📚</span>
+                        <span>Knowledge Base</span>
+                    </a>
+                </li>
+                <li class="quick-link-item">
+                    <a href="#" class="quick-link">
+                        <span style="font-size: 1.2rem;">🎬</span>
+                        <span>Video Tutorial</span>
+                    </a>
+                </li>
+                <li class="quick-link-item">
+                    <a href="#" class="quick-link">
+                        <span style="font-size: 1.2rem;">📋</span>
+                        <span>Manuali HACCP</span>
+                    </a>
+                </li>
+                <li class="quick-link-item">
+                    <a href="#" class="quick-link">
+                        <span style="font-size: 1.2rem;">📞</span>
+                        <span>Assistenza 24/7</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="documentation-footer">
+        <div class="footer-content">
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">Morato Group - Il Valore del Post-Vendita</p>
+            <p style="opacity: 0.8; font-size: 0.9rem;">
+                Tradizione e Innovazione nella Panificazione Industriale • Ultimo aggiornamento: Gennaio 2026<br>
+                Per informazioni: info@moratogroup.com • Supporto tecnico: support@moratogroup.com
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Funzione per la navigazione smooth
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Rimuovi active da tutti i link
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                
+                // Aggiungi active al link cliccato
+                this.classList.add('active');
+                
+                // Naviga alla sezione
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Highlight sezione attiva
+        const sections = document.querySelectorAll('.content-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animazioni al caricamento
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const checkScroll = () => {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Controllo iniziale
+            checkScroll();
+            
+            // Controllo durante lo scroll
+            window.addEventListener('scroll', checkScroll);
+            
+            // Aggiungi delay alle animazioni
+            sections.forEach((section, index) => {
+                section.style.animationDelay = `${index * 0.1}s`;
+            });
+            
+            // Verifica server chatbot
+            checkChatbotServer();
+        });
+
+        // Funzione per verificare se il server chatbot è attivo
+        async function checkChatbotServer() {
+            const chatbotButton = document.querySelector('.chatbot-button');
+            
+            try {
+                const response = await fetch('http://localhost:8080', { 
+                    method: 'HEAD',
+                    mode: 'no-cors'
+                });
+
+                chatbotButton.setAttribute('target', '_self');
+                
+                chatbotButton.innerHTML = '<span class="chatbot-icon">🤖</span><span>Chatbot AI (Online)</span>';
+                chatbotButton.style.background = 'var(--gradient)';
+                
+            } catch (error) {
+                chatbotButton.innerHTML = '<span class="chatbot-icon">⚠️</span><span>Chatbot (Offline)</span>';
+                chatbotButton.style.background = 'linear-gradient(135deg, #dc3545 0%, #c82333 100%)';
+                
+                chatbotButton.title = "Il server chatbot non è raggiungibile su localhost:8080. Assicurati che il server Node.js sia in esecuzione.";
+            }
+        }
+        
+        // Animazione delle foglie autunnali
+        function createLeaves() {
+            const autumnLeaves = document.querySelector('.autumn-leaves');
+            const leafCount = 15;
+            
+            for (let i = 0; i < leafCount; i++) {
+                const leaf = document.createElement('div');
+                leaf.classList.add('leaf');
+                
+                const colors = ['var(--primary)', 'var(--primary-light)', 'var(--accent)', 'var(--primary-dark)', 'var(--secondary)'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                const size = Math.random() * 30 + 20;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 10;
+                const duration = Math.random() * 15 + 15;
+                
+                leaf.style.background = color;
+                leaf.style.width = `${size}px`;
+                leaf.style.height = `${size}px`;
+                leaf.style.left = `${left}%`;
+                leaf.style.animationDelay = `${delay}s`;
+                leaf.style.animationDuration = `${duration}s`;
+                leaf.style.opacity = Math.random() * 0.5 + 0.2;
+                
+                autumnLeaves.appendChild(leaf);
+            }
+        }
+        
+        // Inizializza le foglie
+        document.addEventListener('DOMContentLoaded', createLeaves);
+    </script>
+</body>
+</html>
