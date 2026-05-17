@@ -1,17 +1,16 @@
-# Scrum2026 — Materiale Settimana SCRUM
+﻿# Capolavoro_SettimanaSCRUM — Riepilogo
 
-Questo repository raccoglie i file e le risorse del progetto per la settimana SCRUM.
+Questo repository contiene il materiale consegnato per la settimana SCRUM.
 
-Contenuti principali
-- Cartelle: CM, HR, PL, PV, RS
-- Immagine: Logo_giusto.png
-- Pagina di presentazione: scrum.html
+Cartella principale:
+- Scrum2026-master/: raccolta dei file del progetto (CM, HR, PL, PV, RS), l'immagine Logo_giusto.png e la pagina di presentazione scrum.html.
+
+Cosa è stato fatto
+- Raccolti e organizzati i documenti del progetto nella cartella Scrum2026-master.
+- Aggiunta una pagina di presentazione (scrum.html) pronta per essere aperta in un browser.
 
 Come usare
-- Apri i file con un editor di testo o un browser (scrum.html per la presentazione).
-- Aggiungi nuovi file nelle cartelle corrispondenti.
+- Apri Scrum2026-master/scrum.html per la presentazione.
+- Aggiungi o modifica file direttamente nella cartella dedicata.
 
-Nota
-- File semplici e organizzati per la consegna. Per domande o aggiornamenti, apri una issue o una pull request qui sul repository.
-
-Grazie e buon lavoro!
+Per domande o aggiornamenti, usare issue o pull request nel repository.
